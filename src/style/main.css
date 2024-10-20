@@ -1,6 +1,5 @@
 @import './reset.css';
 @import './fonts.css';
 .App{
-    max-width:1440px;
     font-family:'Jost',serif;
 }
