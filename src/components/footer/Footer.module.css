@@ -1,0 +1,22 @@
+.footer{
+    background:#444B58;
+    padding:23px 0;
+}
+.content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.items ul {
+    display:flex;
+    gap:40px;
+    list-style-type: none;
+}
+
+.item a{
+    color:white;
+}
+.item a:hover{
+    color:#C4C4C4;
+    text-decoration:underline;
+}

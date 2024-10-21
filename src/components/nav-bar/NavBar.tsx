@@ -4,15 +4,15 @@ import logo from '../../img/Logo.svg';
 const NavBar = () => {
   return (
     <div className={cl.navbar}>   
-        <div className={cl.navbar__logo}>
+        <div className={cl.logo}>
             <img src={logo} alt="" />
         </div>
-        <div className={cl.navbar__items}>
+        <div className={cl.items}>
             <ul>
-                <li className={cl.navbar__item}><a href="#">Catalog</a></li>
-                <li className={cl.navbar__item}><a href="#">FAQ</a></li>
-                <li className={cl.navbar__item}><a href="#">Cart</a></li>
-                <li className={cl.navbar__item}><a href="#">Johnson Smith</a></li>
+                <li className={cl.item}><a href="#">Catalog</a></li>
+                <li className={cl.item}><a href="#">FAQ</a></li>
+                <li className={cl.item}><a href="#">Cart</a></li>
+                <li className={cl.item}><a href="#">Johnson Smith</a></li>
             </ul>
         </div>
     </div>

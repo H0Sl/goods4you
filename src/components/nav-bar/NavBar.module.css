@@ -4,16 +4,16 @@
     justify-content:space-between;
     padding:23px 0;
 }
-.navbar__items ul {
+.items ul {
     display:flex;
     gap:40px;
     list-style-type: none;
 }
 
-.navbar__item a{
+.item a{
     color:white;
 }
-.navbar__item a:hover{
+.item a:hover{
     color:#C4C4C4;
     text-decoration:underline;
 }
