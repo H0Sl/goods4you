@@ -26,12 +26,30 @@
     transition:all .2s ease 0;
     cursor:pointer;
 }
+.addInfo.exit{
+    transform:rotate(45deg);
+    cursor:pointer;
+}
 .addText{
     transition:all .2s ease 0;
-    display:none;
+    /* display:none; */
 
     margin-bottom:20px;
     color:white;
     line-height:1.26;
     font-weight:600;
+}
+.line{
+    height: 1px;
+    background:white;
+}
+.item{
+    list-style-type: none;
+}
+.collapse{
+    display: none;
+    transition: display .2s ease 0;
+}
+.collapse.open{
+    display:block;
 }
