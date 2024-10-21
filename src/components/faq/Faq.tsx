@@ -1,42 +1,18 @@
-import React, { useState } from 'react';
+import AddInfo from '../faq-add-info/AddInfo';
 import cl from './Faq.module.css';
 
-const FAQ: React.FC = () => {
-
-    const [isActive, setIsActive] = useState<boolean>(false);
-
-    const toggleActive = () => {
-        setIsActive(prev => !prev)
-        console.log(isActive)
-    };
-    if(isActive === true){
-        
-    }
-
-
+const FAQ = () => {
   return (
     <section className={cl.faq}>
         <div className={cl.container}>
             <h1 className={cl.titleText}>faq</h1>
             <>
                 <div className={cl.line}></div>
-                <div className={cl.content}>
-                    <p className={cl.mainText}>How can I track the status of my order?</p>
-                    <div 
-                        onClick={toggleActive}
-                        className={cl.addInfo}></div>
-                </div>
-                <p className={cl.addText}>After placing your order, you will receive a confirmation email containing your order number and a tracking link. You can also log in to your account on our website and go to the "My Orders" section to track your delivery status.</p>
+                <AddInfo main={'How can I track the status of my order?'} text={'After placing your order, you will receive a confirmation email containing your order number and a tracking link. You can also log in to your account on our website and go to the "My Orders" section to track your delivery status.'}/>
                 <div className={cl.line}></div>
-                <div className={cl.content}>
-                    <p className={cl.mainText}>What payment methods do you accept?</p>
-                    <div className={cl.addInfo}></div>
-                </div>
+                <AddInfo main={'What payment methods do you accept?'} text={'What payment methods do you accept?'}/>
                 <div className={cl.line}></div>
-                <div className={cl.content}>
-                    <p className={cl.mainText}>How can I return or exchange an item?</p>
-                    <div className={cl.addInfo}></div>
-                </div>
+                <AddInfo main={'How can I return or exchange an item?'} text={'How can I return or exchange an item?'}/>
                 <div className={cl.line}></div>
             </>
         </div>
