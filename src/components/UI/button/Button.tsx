@@ -1,4 +1,4 @@
-import cl from './MyButton.module.css';
+import cl from './Button.module.css';
 
 interface MyButton {
     text: string;
