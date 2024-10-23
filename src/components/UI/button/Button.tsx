@@ -1,10 +1,10 @@
 import cl from './Button.module.css';
 
-interface MyButton {
+interface Button {
     text: string;
 }
 
-const MyButton: React.FC<MyButton>= ({text}) => {
+const Button: React.FC<Button>= ({text}) => {
   return (
     <button className={cl.button}>
       {text}
@@ -12,4 +12,4 @@ const MyButton: React.FC<MyButton>= ({text}) => {
   )
 };
 
-export default MyButton;
+export default Button;

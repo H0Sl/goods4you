@@ -24,9 +24,9 @@ const AddInfo: React.FC<Info> = ({info}) => {
         <ul className={cl.accordion}>
             {info.map((faqItem,id) => {
                 return <li key={id} className={cl.item}>
-                    <div className={cl.content}>
+                    <div className={cl.content} onClick={() => toogleActive(id)}>
                         <div className={cl.main}>{faqItem.title}</div>
-                        <div className={`${cl.rotate} ${openId === id ? cl.exit : ''}`} onClick={() => toogleActive(id)}>
+                        <div className={`${cl.rotate} ${openId === id ? cl.exit : ''}`}>
                             <div className={cl.addInfo}></div>
                         </div>
                     </div>

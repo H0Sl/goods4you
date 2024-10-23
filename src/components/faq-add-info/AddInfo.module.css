@@ -70,3 +70,6 @@
     overflow: auto;
     opacity: 1;
 }
+.main{
+    cursor:pointer;
+}

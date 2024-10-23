@@ -1,0 +1,15 @@
+.content{
+    display:flex;
+    justify-content: space-between;
+    padding-top:4px;
+}
+.title{
+    font-weight:600;
+    color:#444B58;
+}
+.price{
+    font-size:18px;
+    color:#444B58;
+    line-height:1.24;
+    font-weight:300;
+}
