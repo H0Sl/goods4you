@@ -1,0 +1,16 @@
+.faq{
+    background:#484283;
+}
+.content{
+    max-width:910px;
+    margin:0 auto;
+    padding:60px 15px;
+}
+.titleText{
+    color:white;
+    text-transform: uppercase;
+    font-size:2rem;
+    line-height:1.56;
+    font-weight:700;
+    padding-bottom:20px;
+}

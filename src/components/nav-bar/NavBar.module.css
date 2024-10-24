@@ -1,0 +1,19 @@
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:23px 0;
+}
+.items ul {
+    display:flex;
+    gap:40px;
+    list-style-type: none;
+}
+
+.item a{
+    color:white;
+}
+.item a:hover{
+    color:#C4C4C4;
+    text-decoration:underline;
+}
