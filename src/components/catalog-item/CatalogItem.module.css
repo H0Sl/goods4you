@@ -13,3 +13,15 @@
     line-height:1.24;
     font-weight:300;
 }
+.img{
+    cursor:pointer;
+    position:relative;
+}
+.img::before{
+    content:'Show details';
+    position:absolute;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background: #878787;
+}

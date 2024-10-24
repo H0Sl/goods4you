@@ -5,7 +5,7 @@ import ButtonPrice from '../UI/button-price/ButtonPrice';
 const CatalogItem = () => {
   return (
     <div className={cl.item}>
-      <img src={img} alt=""/>
+      <img src={img} alt="" className={cl.img}/>
       <div className={cl.content}>
         <div className={cl.text}>
             <p className={cl.title}>Essence Mascara Lash Princess</p>
