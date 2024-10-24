@@ -1,11 +1,15 @@
 import Home from './Page/Home';
+import PageRouter from './components/PageRouter';
 import './style/main.css';
+import {BrowserRouter} from 'react-router-dom';
 
 function App() {
 
   return (
     <div className='App'>
-       <Home/>
+      <BrowserRouter>
+       <PageRouter/>
+      </BrowserRouter>
     </div>
   )
 }
