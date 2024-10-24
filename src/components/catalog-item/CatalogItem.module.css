@@ -1,11 +1,12 @@
 .content{
     display:flex;
     justify-content: space-between;
-    padding-top:4px;
+    padding-top:10px;
 }
 .title{
     font-weight:600;
     color:#444B58;
+    text-decoration: none;
 }
 .price{
     font-size:18px;
@@ -14,14 +15,31 @@
     font-weight:300;
 }
 .img{
-    cursor:pointer;
-    position:relative;
+    display:block;
+    position: relative;
+    height:300px;
 }
-.img::before{
-    content:'Show details';
+.mask:hover{
+    opacity: 1;
+}
+.mask{
     position:absolute;
-    top:0;
-    width: 100%;
-    height: 100%;
-    background: #878787;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.25);
+    border-radius:4px;
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+.mask span{
+    color:white;
+    font-size:26px;
+    font-weight:600;
+    opacity: .6;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%)
 }
