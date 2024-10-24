@@ -19,7 +19,7 @@ const info = [
 
 const FAQ = () => {
   return (
-    <section className={cl.faq}>
+    <section className={cl.faq} id='FAQ'>
         <div className='container'>
             <div className={cl.content}>
                 <h1 className={cl.titleText}>faq</h1>

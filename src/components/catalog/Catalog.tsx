@@ -6,7 +6,7 @@ import cl from './Catalog.module.css';
 
 const Catalog = () => {
   return (
-    <section className={cl.catalog}>
+    <section className={cl.catalog} id='Catalog'>
         <div className="container">
             <h2 className={cl.title}>Catalog</h2>
             <div className={cl.input}>

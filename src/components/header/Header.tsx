@@ -13,7 +13,7 @@ const Header = () => {
                 <p className={cl.mainText}>Any products from famous brands<br/> with worldwide delivery</p>
                 <p className={cl.text}>We sell smartphones, laptops, clothes, shoes<br/>and many other products at low prices</p>
                 <div className={cl.btn}>
-                    <Button text={'Go to shopping'}/>
+                    <a href="#Catalog"><Button text={'Go to shopping'}/></a>
                 </div>
             </div>
             <span className={cl.backText}>Goods4you</span>

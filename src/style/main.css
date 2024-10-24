@@ -3,3 +3,6 @@
 .App{
     font-family:'Jost',serif;
 }
+*{
+    scroll-behavior: smooth;
+}
