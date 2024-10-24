@@ -1,3 +1,4 @@
+import React from 'react';
 import AddInfo from '../faq-add-info/AddInfo';
 import cl from './Faq.module.css';
 import '../../style/container.css';

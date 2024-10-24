@@ -1,3 +1,4 @@
+import React from 'react';
 import cl from './Input.module.css';
 
 const Input = () => {

@@ -1,3 +1,4 @@
+import React from 'react';
 import NavBar from '../nav-bar/NavBar';
 import cl from './Header.module.css';
 import '../../style/container.css';

@@ -1,3 +1,4 @@
+import React from 'react';
 import Catalog from "../components/catalog/Catalog";
 import FAQ from "../components/faq/Faq";
 import Footer from "../components/footer/Footer";

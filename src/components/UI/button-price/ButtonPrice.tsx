@@ -1,3 +1,4 @@
+import React from 'react';
 import cl from './ButtonPrice.module.css';
 import icon from '../../../img/icon-price.svg';
 

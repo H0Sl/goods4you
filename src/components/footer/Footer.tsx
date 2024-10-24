@@ -1,3 +1,4 @@
+import React from 'react';
 import cl from './Footer.module.css';
 import '../../style/container.css';
 import logo from '../../img/Logo.svg';

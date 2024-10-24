@@ -1,8 +1,11 @@
 .navbar{
+    padding:23px 0;
+    background:#484283;
+}
+.content{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:23px 0;
 }
 .items ul {
     display:flex;

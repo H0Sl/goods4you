@@ -1,3 +1,4 @@
+import React from 'react';
 import cl from './Button.module.css';
 
 interface Button {
