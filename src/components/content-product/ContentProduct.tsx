@@ -21,9 +21,7 @@ const ContentProduct = () => {
                             <img src="" alt="" />
                         </div>
                     </div>
-                    <div className={cl.text}>
-
-                    </div>
+                    <div className={cl.text} />
                 </div>
             </div>
         </section>
