@@ -1,0 +1,11 @@
+.content {
+    margin: 48px 0;
+    display:flex;
+    gap:auto;
+}
+.wrapper{
+    max-width: 520px;
+}
+.text{
+    max-width: 620px;
+}
