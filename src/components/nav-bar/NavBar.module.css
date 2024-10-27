@@ -1,6 +1,6 @@
 .navbar{
     padding:23px 0;
-    background:#484283;
+    background:var(--bg-color);
 }
 .content{
     display:flex;
@@ -14,9 +14,9 @@
 }
 
 .item a{
-    color:white;
+    color:var(--main-color);
 }
 .item a:hover{
-    color:#C4C4C4;
+    color:var(--main-color-hover);
     text-decoration:underline;
 }

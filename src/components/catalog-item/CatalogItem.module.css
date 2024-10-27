@@ -5,12 +5,12 @@
 }
 .title {
     font-weight: 600;
-    color: #444b58;
+    color: var(--text-color);
     text-decoration: none;
 }
 .price {
     font-size: 18px;
-    color: #444b58;
+    color: var(--text-color);
     line-height: 1.24;
     font-weight: 300;
 }
@@ -34,7 +34,7 @@
     transition: opacity 0.2s ease;
 }
 .mask span {
-    color: white;
+    color: var(--main-color);
     font-size: 26px;
     font-weight: 600;
     opacity: 0.6;

@@ -1,15 +1,15 @@
 .btn{
-    background:#F14F4F;
+    background:var(--btn-bg);
     border-radius:4px;
     width: 50px;
     height: 50px;
 
-    color:white;
+    color:var(--main-color);
     font-size:16px;
     font-weight:300;
     transition:background .2s ease;
     cursor:pointer;
 }
 .btn:hover{
-    background:#8C2828;
+    background:var(--btn-bg-active);
 }

@@ -1,5 +1,7 @@
 @import './reset.css';
 @import './fonts.css';
+@import './vars.css';
+
 .App{
     font-family:'Jost',serif;
 }

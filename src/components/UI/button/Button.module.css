@@ -1,9 +1,9 @@
 .button{
-    background:#F14F4F;
+    background:var(--btn-bg);
     border-radius:4px;
     padding:20px 50px;
 
-    color:white;
+    color:var(--main-color);
     line-height:1.22;
     font-size:16px;
     font-weight:300;
@@ -11,6 +11,6 @@
     cursor:pointer;
 }
 .button:hover{
-    background:#8C2828;
+    background:var(--btn-bg-active);
     cursor: pointer;
 }
