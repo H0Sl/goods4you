@@ -8,7 +8,7 @@ import Button from '../UI/button/Button';
 
 const ContentProduct = () => {
     return (
-        <section className="cl.product">
+        <section className={cl.product}>
             <div className="container">
                 <div className={cl.content}>
                     <div className={cl.wrapper}>
@@ -35,7 +35,7 @@ const ContentProduct = () => {
                             </div>
                         </div>
                         <div className={cl.line} />
-                        <span>In Stock - Only 5 left!</span>
+                        <span className={cl.red}>In Stock - Only 5 left!</span>
                         <div className={cl.line} />
                         <p>
                             The Essence Mascara Lash Princess is a popular
@@ -43,16 +43,19 @@ const ContentProduct = () => {
                             effects. Achieve dramatic lashes with this
                             long-lasting and cruelty-free formula.
                         </p>
-                        <span>1 month warranty</span>
-                        <span>Ships in 1 month</span>
+                        <span className={cl.span}>1 month warranty</span>
+                        <span className={cl.span}>Ships in 1 month</span>
                         <div className={cl.add}>
-                            <div className={cl.prices}>
-                                <span className={cl.upPrice}>$7.17</span>
-                                <span className={cl.downPrice}>$9.99</span>
+                            <div className={cl.block}>
+                                <div className={cl.prices}>
+                                    <span className={cl.upPrice}>$7.17</span>
+                                    <span className={cl.downPrice}>$9.99</span>
+                                </div>
+                                <div className={cl.rowSpan}>
+                                    <span>Your discount:</span>
+                                    <span>14.5%</span>
+                                </div>
                             </div>
-                            <div className={cl.line} />
-                            <span>Your discount:</span>
-                            <span>14.5%</span>
                             <Button text="Add to cart" />
                         </div>
                     </div>
