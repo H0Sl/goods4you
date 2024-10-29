@@ -20,7 +20,7 @@ const NavBar = () => {
                                 <a href="#FAQ">FAQ</a>
                             </li>
                             <li className={cl.item}>
-                                <a href="#">Cart</a>
+                                <a href="/cart">Cart</a>
                             </li>
                             <li className={cl.item}>
                                 <a href="#">Johnson Smith</a>

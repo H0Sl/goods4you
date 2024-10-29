@@ -1,0 +1,26 @@
+.btn{
+    background:var(--btn-bg);
+    border-radius:4px;
+    width: 50px;
+    height: 50px;
+
+    color:var(--main-color);
+    font-size:16px;
+    font-weight:300;
+    transition:background .2s ease;
+    cursor:pointer;
+    position: relative;
+}
+.btn:hover{
+    background:var(--btn-bg-active);
+}
+.minus::before{
+    content:'';
+    width: 18px;
+    height: 3px;
+    background: white;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
