@@ -1,7 +1,6 @@
 import React from 'react';
 import cl from './Footer.module.css';
 import '../../style/container.css';
-import logo from '../../img/Logo.svg';
 
 const Footer = () => {
     return (
@@ -9,7 +8,7 @@ const Footer = () => {
             <div className="container">
                 <div className={cl.content}>
                     <div className={cl.logo}>
-                        <img src={logo} alt="" />
+                        <a href="/home">Goods4you</a>
                     </div>
                     <div className={cl.items}>
                         <ul>

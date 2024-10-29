@@ -2,14 +2,19 @@ import React from 'react';
 import Footer from '../components/footer/Footer';
 import NavBar from '../components/nav-bar/NavBar';
 import ContentCart from '../components/content-cart/ContentCart';
+import cl from '../style/FlexFooter.module.css';
 
 const Cart = () => {
     return (
-        <>
-            <NavBar />
-            <ContentCart />
-            <Footer />
-        </>
+        <div className={cl.container}>
+            <div className={cl.content}>
+                <NavBar />
+                <ContentCart />
+            </div>
+            <div className={cl.footer}>
+                <Footer />
+            </div>
+        </div>
     );
 };
 

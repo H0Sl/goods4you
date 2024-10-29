@@ -1,6 +1,5 @@
 import React from 'react';
 import cl from './NavBar.module.css';
-import logo from '../../img/Logo.svg';
 import '../../style/container.css';
 
 const NavBar = () => {
@@ -9,7 +8,7 @@ const NavBar = () => {
             <div className="container">
                 <div className={cl.content}>
                     <div className={cl.logo}>
-                        <img src={logo} alt="" />
+                        <a href="/home">Goods4you</a>
                     </div>
                     <div className={cl.items}>
                         <ul>
