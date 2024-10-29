@@ -1,6 +1,7 @@
 import React from 'react';
 import cl from './NavBar.module.css';
 import '../../style/container.css';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
@@ -8,18 +9,18 @@ const NavBar = () => {
             <div className="container">
                 <div className={cl.content}>
                     <div className={cl.logo}>
-                        <a href="/home">Goods4you</a>
+                        <Link to="/">Goods4you</Link>
                     </div>
                     <div className={cl.items}>
                         <ul>
                             <li className={cl.item}>
-                                <a href="#Catalog">Catalog</a>
+                                <Link to="/#Catalog">Catalog</Link>
                             </li>
                             <li className={cl.item}>
-                                <a href="#FAQ">FAQ</a>
+                                <Link to="/#FAQ">FAQ</Link>
                             </li>
                             <li className={cl.item}>
-                                <a href="/cart">Cart</a>
+                                <Link to="/cart">Cart</Link>
                             </li>
                             <li className={cl.item}>
                                 <a href="#">Johnson Smith</a>

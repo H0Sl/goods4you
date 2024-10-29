@@ -4,6 +4,7 @@ import Button from '../UI/button/Button';
 import Input from '../UI/input/Input';
 import CatalogItem from '../catalog-item/CatalogItem';
 import cl from './Catalog.module.css';
+import { Link } from 'react-router-dom';
 
 const Catalog = () => {
     return (
@@ -14,18 +15,42 @@ const Catalog = () => {
                     <Input />
                 </div>
                 <div className={cl.content}>
-                    <CatalogItem />
-                    <CatalogItem />
-                    <CatalogItem />
-                    <CatalogItem />
-                    <CatalogItem />
-                    <CatalogItem />
-                    <CatalogItem />
-                    <CatalogItem />
-                    <CatalogItem />
-                    <CatalogItem />
-                    <CatalogItem />
-                    <CatalogItem />
+                    <Link to="/product">
+                        <CatalogItem />
+                    </Link>
+                    <Link to="/product">
+                        <CatalogItem />
+                    </Link>
+                    <Link to="/product">
+                        <CatalogItem />
+                    </Link>
+                    <Link to="/product">
+                        <CatalogItem />
+                    </Link>
+                    <Link to="/product">
+                        <CatalogItem />
+                    </Link>
+                    <Link to="/product">
+                        <CatalogItem />
+                    </Link>
+                    <Link to="/product">
+                        <CatalogItem />
+                    </Link>
+                    <Link to="/product">
+                        <CatalogItem />
+                    </Link>
+                    <Link to="/product">
+                        <CatalogItem />
+                    </Link>
+                    <Link to="/product">
+                        <CatalogItem />
+                    </Link>
+                    <Link to="/product">
+                        <CatalogItem />
+                    </Link>
+                    <Link to="/product">
+                        <CatalogItem />
+                    </Link>
                 </div>
                 <div className={cl.btn}>
                     <Button text="Show more" />

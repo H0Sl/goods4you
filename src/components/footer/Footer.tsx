@@ -1,6 +1,7 @@
 import React from 'react';
 import cl from './Footer.module.css';
 import '../../style/container.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -8,7 +9,7 @@ const Footer = () => {
             <div className="container">
                 <div className={cl.content}>
                     <div className={cl.logo}>
-                        <a href="/home">Goods4you</a>
+                        <Link to="/">Goods4you</Link>
                     </div>
                     <div className={cl.items}>
                         <ul>

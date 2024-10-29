@@ -1,14 +1,13 @@
 import React from 'react';
-import NavBar from '../nav-bar/NavBar';
 import cl from './Header.module.css';
 import '../../style/container.css';
 import Button from '../UI/button/Button';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <header className={cl.header}>
             <div className="container">
-                <NavBar />
                 <div className={cl.main}>
                     <div className={cl.line} />
                     <p className={cl.mainText}>
@@ -21,9 +20,9 @@ const Header = () => {
                         and many other products at low prices
                     </p>
                     <div className={cl.btn}>
-                        <a href="#Catalog">
+                        <Link to="#Catalog">
                             <Button text="Go to shopping" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <span className={cl.backText}>Goods4you</span>

@@ -5,7 +5,7 @@ import icon from '../../../img/icon-price.svg';
 const ButtonPrice = () => {
     return (
         <button className={cl.btn}>
-            <img src={icon} alt="" />
+            <img src={icon} alt="" className={cl.icon} />
         </button>
     );
 };

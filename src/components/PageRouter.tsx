@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Product from '../Page/Product';
 import Home from '../Page/Home';
 import Cart from '../Page/Cart';
+
 const PageRouter = () => {
     return (
         <div>
