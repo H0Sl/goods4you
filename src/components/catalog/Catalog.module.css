@@ -4,17 +4,21 @@
     font-weight:600;
     line-height:1.56;
 }
+
 .catalog{
     margin:48px 0;
 }
+
 .input{
     margin:48px 0;
 }
+
 .btn{
     margin-top:48px;
     display:flex;
     justify-content: center;
 }
+
 .content{
     display:grid;
     grid-template-columns:repeat(3,370px);

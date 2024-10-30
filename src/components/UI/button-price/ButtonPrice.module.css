@@ -7,9 +7,11 @@
     cursor:pointer;
     position: relative;
 }
+
 .btn:hover{
     background:var(--btn-bg-active);
 }
+
 .icon{
     position:absolute;
     top:50%;

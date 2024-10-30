@@ -2,7 +2,6 @@
     background:var(--btn-bg);
     border-radius:4px;
     padding:20px 50px;
-
     color:var(--main-color);
     line-height:1.22;
     font-size:16px;
@@ -10,6 +9,7 @@
     transition:background .2s ease;
     cursor:pointer;
 }
+
 .button:hover{
     background:var(--btn-bg-active);
     cursor: pointer;

@@ -1,7 +1,7 @@
-@import './reset.css';
-@import './fonts.css';
-@import './vars.css';
+@import url('./reset.css');
+@import url('./fonts.css');
+@import url('./vars.css');
 
 .App{
-    font-family:'Jost',serif;
+    font-family:Jost,serif;
 }

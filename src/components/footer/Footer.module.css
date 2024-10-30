@@ -2,11 +2,13 @@
     background:var(--text-color);
     padding:23px 0;
 }
+
 .content{
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
+
 .items ul {
     display:flex;
     gap:40px;
@@ -16,10 +18,6 @@
 .item a{
     color:var(--main-color);
 }
-.item a:hover{
-    color:var(--main-color-hover);
-    text-decoration:underline;
-}
 
 .logo a {
     color:var(--main-color);
@@ -27,3 +25,9 @@
     font-weight:600;
     line-height:1.47;
 }
+
+.item a:hover{
+    color:var(--main-color-hover);
+    text-decoration:underline;
+}
+

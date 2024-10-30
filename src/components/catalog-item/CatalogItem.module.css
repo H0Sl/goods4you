@@ -3,36 +3,39 @@
     justify-content: space-between;
     padding-top: 10px;
 }
+
 .title {
     font-weight: 600;
     color: var(--text-color);
     text-decoration: none;
 }
+
 .price {
     font-size: 18px;
     color: var(--text-color);
     line-height: 1.24;
     font-weight: 300;
 }
+
 .img {
     display: block;
     position: relative;
     height: 300px;
 }
-.mask:hover {
-    opacity: 1;
-}
+
 .mask {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.25);
+    inset: 0;
+    background: rgb(0 0 0 / 25%);
     border-radius: 4px;
     opacity: 0;
     transition: opacity 0.2s ease;
 }
+
+.mask:hover {
+    opacity: 1;
+}
+
 .mask span {
     color: var(--main-color);
     font-size: 26px;

@@ -1,11 +1,13 @@
 .faq{
     background:var(--bg-color);
 }
+
 .content{
     max-width:910px;
     margin:0 auto;
     padding:60px 15px;
 }
+
 .titleText{
     color:var(--main-color);
     text-transform: uppercase;
