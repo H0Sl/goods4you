@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import cl from './Button.module.css';
 
 interface Button {
-    text: string;
+    children: ReactNode;
 }
 
-const Button: React.FC<Button> = ({ text }) => {
-    return <button className={cl.button}>{text}</button>;
+const Button: React.FC<Button> = ({ children }) => {
+    return <button className={cl.button}>{children}</button>;
 };
 
 export default Button;

@@ -56,7 +56,7 @@ const ContentProduct = () => {
                                     <span>14.5%</span>
                                 </div>
                             </div>
-                            <Button text="Add to cart" />
+                            <Button>Add to cart</Button>
                         </div>
                     </div>
                 </div>

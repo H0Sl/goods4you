@@ -3,7 +3,7 @@ import cl from './CatalogItem.module.css';
 import img from '../../img/CatalogItem.svg';
 import ButtonPrice from '../UI/button-price/ButtonPrice';
 
-const CatalogItem = () => {
+export const CatalogItem = () => {
     return (
         <div className={cl.item}>
             <div className={cl.img}>
@@ -22,5 +22,3 @@ const CatalogItem = () => {
         </div>
     );
 };
-
-export default CatalogItem;

@@ -9,7 +9,7 @@ interface InfoItem {
     text: string;
 }
 
-const AddInfo: React.FC<Info> = ({ info }) => {
+export const AddInfo: React.FC<Info> = ({ info }) => {
     const [openId, setOpenId] = useState<number | null>(null);
 
     const toogleActive = (id: number) => {
@@ -48,5 +48,3 @@ const AddInfo: React.FC<Info> = ({ info }) => {
         </>
     );
 };
-
-export default AddInfo;

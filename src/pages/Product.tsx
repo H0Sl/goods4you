@@ -4,7 +4,7 @@ import NavBar from '../components/nav-bar/NavBar';
 import ContentProduct from '../components/content-product/ContentProduct';
 import cl from '../style/FlexFooter.module.css';
 
-const Product = () => {
+export const Product = () => {
     return (
         <div className={cl.container}>
             <div className={cl.content}>
@@ -17,5 +17,3 @@ const Product = () => {
         </div>
     );
 };
-
-export default Product;

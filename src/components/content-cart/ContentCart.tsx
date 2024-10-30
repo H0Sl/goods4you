@@ -1,7 +1,7 @@
 import React from 'react';
 import cl from './ContentCart.module.css';
 import '../../style/container.css';
-import CartItem from '../cart-item/CartItem';
+import { CartItem } from '../cart-item';
 
 const ContentCart = () => {
     return (

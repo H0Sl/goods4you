@@ -1,5 +1,5 @@
 import React from 'react';
-import AddInfo from '../faq-add-info/AddInfo';
+import { AddInfo } from '../faq-add-info';
 import cl from './Faq.module.css';
 import '../../style/container.css';
 

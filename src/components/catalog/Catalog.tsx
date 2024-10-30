@@ -2,7 +2,7 @@ import React from 'react';
 import '../../style/container.css';
 import Button from '../UI/button/Button';
 import Input from '../UI/input/Input';
-import CatalogItem from '../catalog-item/CatalogItem';
+import { CatalogItem } from '../catalog-item';
 import cl from './Catalog.module.css';
 import { Link } from 'react-router-dom';
 
@@ -53,7 +53,7 @@ const Catalog = () => {
                     </Link>
                 </div>
                 <div className={cl.btn}>
-                    <Button text="Show more" />
+                    <Button>Show more</Button>
                 </div>
             </div>
         </section>

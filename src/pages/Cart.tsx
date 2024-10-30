@@ -4,7 +4,7 @@ import NavBar from '../components/nav-bar/NavBar';
 import ContentCart from '../components/content-cart/ContentCart';
 import cl from '../style/FlexFooter.module.css';
 
-const Cart = () => {
+export const Cart = () => {
     return (
         <div className={cl.container}>
             <div className={cl.content}>
@@ -17,5 +17,3 @@ const Cart = () => {
         </div>
     );
 };
-
-export default Cart;

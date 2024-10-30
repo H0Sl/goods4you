@@ -4,7 +4,7 @@ import mini from '../../img/cart/photo.png';
 import ButtonPlus from '../UI/button-plus/ButtonPlus';
 import ButtonMinus from '../UI/button-minus/ButtonMinus';
 
-const CartItem = () => {
+export const CartItem = () => {
     return (
         <div className={cl.item}>
             <img src={mini} alt="" />
@@ -21,5 +21,3 @@ const CartItem = () => {
         </div>
     );
 };
-
-export default CartItem;
