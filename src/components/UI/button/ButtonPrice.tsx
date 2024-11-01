@@ -1,13 +1,12 @@
 import React from 'react';
-import cl from './ButtonPrice.module.css';
+import cl from './Button.module.css';
 import icon from '../../../img/icon-price.svg';
+import { Button } from './index';
 
-const ButtonPrice = () => {
+export const ButtonPrice = () => {
     return (
-        <button className={cl.btn}>
+        <Button>
             <img src={icon} alt="" className={cl.icon} />
-        </button>
+        </Button>
     );
 };
-
-export default ButtonPrice;

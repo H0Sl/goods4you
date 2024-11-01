@@ -1,7 +1,7 @@
 import React from 'react';
 import cl from './Header.module.css';
 import '../../style/container.css';
-import Button from '../UI/button/Button';
+import { ButtonText } from '../UI/button';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -21,7 +21,7 @@ const Header = () => {
                     </p>
                     <div className={cl.btn}>
                         <Link to="#Catalog">
-                            <Button>Go to shopping</Button>
+                            <ButtonText>Go to shopping</ButtonText>
                         </Link>
                     </div>
                 </div>

@@ -1,8 +1,8 @@
 import React from 'react';
 import cl from './CartItem.module.css';
 import mini from '../../img/cart/photo.png';
-import ButtonPlus from '../UI/button-plus/ButtonPlus';
-import ButtonMinus from '../UI/button-minus/ButtonMinus';
+import { ButtonPlus } from '../UI/button';
+import { ButtonMinus } from '../UI/button';
 
 export const CartItem = () => {
     return (

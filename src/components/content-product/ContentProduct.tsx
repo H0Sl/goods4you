@@ -4,7 +4,7 @@ import '../../style/container.css';
 import big from '../../img/proguct/big-photo.png';
 import mini from '../../img/proguct/mini.png';
 import star from '../../img/proguct/star.svg';
-import Button from '../UI/button/Button';
+import { ButtonText } from '../UI/button';
 
 const ContentProduct = () => {
     return (
@@ -56,7 +56,7 @@ const ContentProduct = () => {
                                     <span>14.5%</span>
                                 </div>
                             </div>
-                            <Button>Add to cart</Button>
+                            <ButtonText>Add to cart</ButtonText>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import cl from './CatalogItem.module.css';
 import img from '../../img/CatalogItem.svg';
-import ButtonPrice from '../UI/button-price/ButtonPrice';
+import { ButtonPrice } from '../UI/button';
 
 export const CatalogItem = () => {
     return (
