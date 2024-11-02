@@ -8,7 +8,7 @@ interface Button {
 
 export const ButtonText: React.FC<Button> = ({ children }) => {
     return (
-        <Button>
+        <Button className={cl.button}>
             <span className={cl.span}>{children}</span>
         </Button>
     );

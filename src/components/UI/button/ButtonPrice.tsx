@@ -5,7 +5,7 @@ import { Button } from './index';
 
 export const ButtonPrice = () => {
     return (
-        <Button>
+        <Button className={cl.viewBtn}>
             <img src={icon} alt="" className={cl.icon} />
         </Button>
     );

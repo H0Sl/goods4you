@@ -1,8 +1,7 @@
 import React from 'react';
 import cl from './CartItem.module.css';
 import mini from '../../img/cart/photo.png';
-import { ButtonPlus } from '../UI/button';
-import { ButtonMinus } from '../UI/button';
+import { Counter } from '../UI/counter';
 
 export const CartItem = () => {
     return (
@@ -12,11 +11,7 @@ export const CartItem = () => {
                 <h4 className={cl.textTitle}>Essence Mascara Lash Princess</h4>
                 <span className={cl.textSpan}>$110</span>
             </div>
-            <div className={cl.counter}>
-                <ButtonMinus />
-                <span>1 items</span>
-                <ButtonPlus />
-            </div>
+            <Counter />
             <span className={cl.delete}>Delete</span>
         </div>
     );
