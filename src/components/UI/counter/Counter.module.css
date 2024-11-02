@@ -14,10 +14,18 @@
 .viewBtn{
     background:var(--btn-bg);
     border-radius:4px;
-    width: 50px;
-    height: 50px;
     position:relative;
     transition:background .2s ease;
+}
+
+.sizeM{
+    width: 50px;
+    height: 50px;
+}
+
+.sizeL{
+    width: 72px;
+    height: 60px;
 }
 
 .viewBtn:hover{
