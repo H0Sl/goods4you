@@ -41,7 +41,7 @@
 }
 
 .title{
-    font-size:36px;
+    font-size:2.25rem;
     line-height:1.56;
     font-weight:600;
     color:var(--text-color);
@@ -88,7 +88,7 @@
 }
 
 .upPrice{
-    font-size:36px;
+    font-size:2.25rem;
     font-weight:600;
     color:var(--text-color);
 }
@@ -99,7 +99,7 @@
 }
 
 .text p{
-    font-size:18px;
+    font-size:1.125rem;
     color:var(--text-color);
     line-height:1.3;
     font-weight:300;
@@ -116,7 +116,7 @@
 .red{
     color:#F14F4F;
     font-weight:500;
-    font-size:18px;
+    font-size:1.125rem;
     line-height:1.24;
 }
 
@@ -129,4 +129,16 @@
 .rowSpan{
     display:flex;
     gap:8px;
+}
+
+@media(max-width:1200px){
+    .content{
+        display:grid;
+        justify-content:center;
+    }
+
+    .wrapper{
+        justify-content:center;
+        display:grid;
+    }
 }

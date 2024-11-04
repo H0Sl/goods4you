@@ -31,3 +31,8 @@
     text-decoration:underline;
 }
 
+@media (max-width:600px){
+    .content{
+        display:block;
+    }
+}

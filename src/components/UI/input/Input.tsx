@@ -3,13 +3,7 @@ import cl from './Input.module.css';
 
 const Input = () => {
     return (
-        <>
-            <input
-                type="text"
-                className={cl.input}
-                placeholder="Search by title"
-            />
-        </>
+        <input type="text" className={cl.input} placeholder="Search by title" />
     );
 };
 

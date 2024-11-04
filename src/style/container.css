@@ -3,3 +3,29 @@
     padding:0 15px;
     margin:0 auto;
 }
+
+@media (max-width:1200px){
+    .container{
+        max-width:1010px;
+    }
+}
+
+@media (max-width:1000px){
+    .container{
+        max-width:810px;
+    }
+}
+
+@media (max-width:800px){
+    .container{
+        max-width:610px;
+    }
+}
+
+@media (max-width:600px){
+    .container{
+        max-width:410px;
+    }
+}
+
+

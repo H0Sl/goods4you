@@ -1,6 +1,6 @@
 .title{
     color:var(--text-color);
-    font-size:36px;
+    font-size:2.25rem;
     font-weight:600;
     line-height:1.56;
 }
@@ -23,4 +23,18 @@
     display:grid;
     grid-template-columns:repeat(3,370px);
     gap:20px 35px;
+}
+
+@media (max-width:1200px){
+    .content{
+        grid-template-columns: repeat(2,370px);
+        justify-content:center;
+    }
+}
+
+@media (max-width:800px){
+    .content{
+        grid-template-columns: repeat(1,370px);
+        justify-content:center;
+    }
 }

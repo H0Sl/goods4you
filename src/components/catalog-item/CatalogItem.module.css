@@ -11,7 +11,7 @@
 }
 
 .price {
-    font-size: 18px;
+    font-size: 1.125rem;
     color: var(--text-color);
     line-height: 1.24;
     font-weight: 300;
@@ -38,7 +38,7 @@
 
 .mask span {
     color: var(--main-color);
-    font-size: 26px;
+    font-size: 1.625rem;
     font-weight: 600;
     opacity: 0.6;
     position: absolute;
