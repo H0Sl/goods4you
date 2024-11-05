@@ -6,7 +6,7 @@ import mini from '../../img/proguct/mini.png';
 import star from '../../img/proguct/star.svg';
 import { ButtonText } from '../UI/button';
 
-const ContentProduct = () => {
+export const ContentProduct = () => {
     return (
         <section className={cl.product}>
             <div className="container">
@@ -64,5 +64,3 @@ const ContentProduct = () => {
         </section>
     );
 };
-
-export default ContentProduct;

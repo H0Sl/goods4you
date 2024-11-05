@@ -3,7 +3,7 @@ import cl from './Footer.module.css';
 import '../../style/container.css';
 import { Link } from 'react-router-dom';
 
-const Footer = () => {
+export const Footer = () => {
     return (
         <footer className={cl.footer}>
             <div className="container">
@@ -26,5 +26,3 @@ const Footer = () => {
         </footer>
     );
 };
-
-export default Footer;

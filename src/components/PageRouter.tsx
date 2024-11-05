@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Product } from '../pages/Product';
-import { Home } from '../pages/Home';
-import { Cart } from '../pages/Cart';
+import { Product } from '../pages/product';
+import { Home } from '../pages/home';
+import { Cart } from '../pages/cart';
 
 const PageRouter = () => {
     return (

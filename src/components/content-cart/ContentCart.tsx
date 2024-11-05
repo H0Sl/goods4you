@@ -3,7 +3,7 @@ import cl from './ContentCart.module.css';
 import '../../style/container.css';
 import { CartItem } from '../cart-item';
 
-const ContentCart = () => {
+export const ContentCart = () => {
     return (
         <section>
             <div className="container">
@@ -43,5 +43,3 @@ const ContentCart = () => {
         </section>
     );
 };
-
-export default ContentCart;

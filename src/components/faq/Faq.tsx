@@ -18,7 +18,7 @@ const info = [
     },
 ];
 
-const FAQ = () => {
+export const FAQ = () => {
     return (
         <section className={cl.faq} id="FAQ">
             <div className="container">
@@ -30,5 +30,3 @@ const FAQ = () => {
         </section>
     );
 };
-
-export default FAQ;

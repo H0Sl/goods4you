@@ -1,12 +1,12 @@
 import React from 'react';
 import '../../style/container.css';
 import { ButtonText } from '../UI/button';
-import Input from '../UI/input/Input';
+import { Input } from '../UI/input';
 import { CatalogItem } from '../catalog-item';
 import cl from './Catalog.module.css';
 import { Link } from 'react-router-dom';
 
-const Catalog = () => {
+export const Catalog = () => {
     return (
         <section className={cl.catalog} id="Catalog">
             <div className="container">
@@ -59,5 +59,3 @@ const Catalog = () => {
         </section>
     );
 };
-
-export default Catalog;

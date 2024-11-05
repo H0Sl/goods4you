@@ -1,9 +1,9 @@
 import React from 'react';
-import Catalog from '../../components/catalog/Catalog';
-import FAQ from '../../components/faq/Faq';
-import Footer from '../../components/footer/Footer';
-import Header from '../../components/header/Header';
-import NavBar from '../../components/nav-bar/NavBar';
+import { Catalog } from '../../components/catalog';
+import { FAQ } from '../../components/faq';
+import { Footer } from '../../components/footer';
+import { Header } from '../../components/header';
+import { NavBar } from '../../components/nav-bar';
 
 export const Home = () => {
     return (

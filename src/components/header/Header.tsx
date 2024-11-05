@@ -4,7 +4,7 @@ import '../../style/container.css';
 import { ButtonText } from '../UI/button';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+export const Header = () => {
     return (
         <header className={cl.header}>
             <div className="container">
@@ -30,5 +30,3 @@ const Header = () => {
         </header>
     );
 };
-
-export default Header;
