@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from '../components/footer/Footer';
-import NavBar from '../components/nav-bar/NavBar';
-import ContentCart from '../components/content-cart/ContentCart';
-import cl from '../style/FlexFooter.module.css';
+import Footer from '../../components/footer/Footer';
+import NavBar from '../../components/nav-bar/NavBar';
+import ContentCart from '../../components/content-cart/ContentCart';
+import cl from './Cart.module.css';
 
 export const Cart = () => {
     return (

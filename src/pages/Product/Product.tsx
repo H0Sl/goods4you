@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from '../components/footer/Footer';
-import NavBar from '../components/nav-bar/NavBar';
-import ContentProduct from '../components/content-product/ContentProduct';
-import cl from '../style/FlexFooter.module.css';
+import Footer from '../../components/footer/Footer';
+import NavBar from '../../components/nav-bar/NavBar';
+import ContentProduct from '../../components/content-product/ContentProduct';
+import cl from './Product.module.css';
 
 export const Product = () => {
     return (
