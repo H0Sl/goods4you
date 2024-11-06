@@ -6,7 +6,7 @@ interface Button {
     onClick?: () => void;
 }
 
-export const Button: React.FC<Button> = ({ children, className, onClick }) => {
+export const Button: React.FC<Button> = ({ className, children, onClick }) => {
     return (
         <button className={className} onClick={onClick}>
             {children}

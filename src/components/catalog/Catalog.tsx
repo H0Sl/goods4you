@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../style/container.css';
-import { ButtonText } from '../UI/button';
+import { Button } from '../UI/button';
 import { Input } from '../UI/input';
 import { CatalogItem } from '../catalog-item';
 import cl from './Catalog.module.css';
@@ -53,7 +53,9 @@ export const Catalog = () => {
                     </Link>
                 </div>
                 <div className={cl.btn}>
-                    <ButtonText>Show more</ButtonText>
+                    <Button className={cl.button}>
+                        <span className={cl.btnSpan}>Show more</span>
+                    </Button>
                 </div>
             </div>
         </section>

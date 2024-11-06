@@ -19,6 +19,25 @@
     justify-content: center;
 }
 
+.button{
+    background:var(--btn-bg);
+    border-radius:4px;
+    padding:20px 50px;
+    transition:background .2s ease;
+    cursor:pointer;
+}
+
+.btnSpan{
+    color:var(--main-color);
+    line-height:1.22;
+    font-size:1rem;
+    font-weight:300;
+}
+
+.button:hover{
+    background:var(--btn-bg-active);
+}
+
 .content{
     display:grid;
     grid-template-columns:repeat(3,370px);

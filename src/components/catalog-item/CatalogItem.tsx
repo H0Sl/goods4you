@@ -1,7 +1,8 @@
 import React from 'react';
 import cl from './CatalogItem.module.css';
 import img from '../../img/CatalogItem.svg';
-import { ButtonPrice } from '../UI/button';
+import icon from '../../img/icon-price.svg';
+import { Button } from '../UI/button';
 
 export const CatalogItem = () => {
     return (
@@ -17,7 +18,9 @@ export const CatalogItem = () => {
                     <p className={cl.title}>Essence Mascara Lash Princess</p>
                     <span className={cl.price}>$110</span>
                 </div>
-                <ButtonPrice />
+                <Button className={cl.button}>
+                    <img src={icon} className={cl.icon} alt="" />
+                </Button>
             </div>
         </div>
     );

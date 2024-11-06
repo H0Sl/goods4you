@@ -11,7 +11,8 @@
     line-height:1.4;
 }
 
-.viewBtn{
+.btn{
+    cursor:pointer;
     background:var(--btn-bg);
     border-radius:4px;
     position:relative;
@@ -28,8 +29,7 @@
     height: 60px;
 }
 
-.viewBtn:hover{
-    cursor: pointer;
+.btn:hover{
     background:var(--btn-bg-active);
 }
 
