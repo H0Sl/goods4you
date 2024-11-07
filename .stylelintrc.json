@@ -1,0 +1,11 @@
+{
+    "extends": [
+        "stylelint-config-standard"
+    ],
+    "rules": {
+        "media-feature-range-notation": null,
+        "selector-class-pattern": null,
+        "indentation": 4
+    },
+    "defaultSeverity": "warning"
+}

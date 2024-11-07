@@ -1,0 +1,38 @@
+.navbar{
+    padding:23px 0;
+    background:var(--bg-color);
+}
+
+.content{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.items ul {
+    display:flex;
+    gap:40px;
+    list-style-type: none;
+}
+
+.item a{
+    color:var(--main-color);
+}
+
+.logo a {
+    color:var(--main-color);
+    font-size:30px;
+    font-weight:600;
+    line-height:1.47;
+}
+
+.item a:hover{
+    color:var(--main-color-hover);
+    text-decoration:underline;
+}
+
+@media (max-width:600px){
+    .content{
+        display:block;
+    }
+}

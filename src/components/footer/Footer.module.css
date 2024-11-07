@@ -1,0 +1,33 @@
+.footer{
+    background:var(--text-color);
+    padding:23px 0;
+}
+
+.content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.items ul {
+    display:flex;
+    gap:40px;
+    list-style-type: none;
+}
+
+.item a{
+    color:var(--main-color);
+}
+
+.logo a {
+    color:var(--main-color);
+    font-size:1.875rem;
+    font-weight:600;
+    line-height:1.47;
+}
+
+.item a:hover{
+    color:var(--main-color-hover);
+    text-decoration:underline;
+}
+

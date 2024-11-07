@@ -1,0 +1,71 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+/* ------BUTTON------------ */
+
+.button{
+    background:var(--btn-bg);
+    border-radius:4px;
+    position:relative;
+    transition:background .2s ease;
+    cursor:pointer;
+}
+
+.icon{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%)
+}
+
+.button:hover{
+    background:var(--btn-bg-active);
+}
+
+/* --------------------- */
+
+.title {
+    font-weight: 600;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.price {
+    font-size: 1.125rem;
+    color: var(--text-color);
+    line-height: 1.24;
+    font-weight: 300;
+}
+
+.img {
+    display: block;
+    position: relative;
+    height: 300px;
+}
+
+.mask {
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 25%);
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.mask:hover {
+    opacity: 1;
+}
+
+.mask span {
+    color: var(--main-color);
+    font-size: 1.625rem;
+    font-weight: 600;
+    opacity: 0.6;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
