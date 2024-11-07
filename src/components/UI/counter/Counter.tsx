@@ -17,14 +17,22 @@ export const Counter: React.FC<CounterProps> = ({ size = 'sizeM' }) => {
             setCount(value => value - 1);
         }
     };
-
+    size = count >= 10 ? 'sizeL' : 'sizeM';
     return (
         <div className={cl.counter}>
-            <Button className={cn(cl.btn, cl[size])} onClick={decrement}>
+            <Button
+                className={cn(cl.btn, cl[size])}
+                onClick={decrement}
+                size="icon"
+            >
                 <div className={cl.minus} />
             </Button>
             <span>{count} items</span>
-            <Button className={cn(cl.btn, cl[size])} onClick={increment}>
+            <Button
+                className={cn(cl.btn, cl[size])}
+                onClick={increment}
+                size="icon"
+            >
                 <div className={cl.plus} />
             </Button>
         </div>

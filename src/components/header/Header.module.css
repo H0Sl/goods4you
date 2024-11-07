@@ -5,9 +5,12 @@
 .button{
     background:var(--btn-bg);
     border-radius:4px;
-    padding:20px 50px;
     transition:background .2s ease;
     cursor:pointer;
+}
+
+.size{
+    padding:20px 50px;
 }
 
 .btnSpan{

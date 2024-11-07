@@ -18,7 +18,7 @@ export const CatalogItem = () => {
                     <p className={cl.title}>Essence Mascara Lash Princess</p>
                     <span className={cl.price}>$110</span>
                 </div>
-                <Button className={cl.button}>
+                <Button className={cl.button} view="icon" size="small">
                     <img src={icon} className={cl.icon} alt="" />
                 </Button>
             </div>

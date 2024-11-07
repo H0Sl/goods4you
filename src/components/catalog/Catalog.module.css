@@ -13,6 +13,8 @@
     margin:48px 0;
 }
 
+/* ----------BUTTON-------- */
+
 .btn{
     margin-top:48px;
     display:flex;
@@ -37,6 +39,8 @@
 .button:hover{
     background:var(--btn-bg-active);
 }
+
+/* ---------------------------------------- */
 
 .content{
     display:grid;

@@ -53,7 +53,7 @@ export const Catalog = () => {
                     </Link>
                 </div>
                 <div className={cl.btn}>
-                    <Button className={cl.button}>
+                    <Button className={cl.button} view="text" size="small">
                         <span className={cl.btnSpan}>Show more</span>
                     </Button>
                 </div>

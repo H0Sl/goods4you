@@ -4,11 +4,11 @@
     padding-top: 10px;
 }
 
+/* ------BUTTON------------ */
+
 .button{
     background:var(--btn-bg);
     border-radius:4px;
-    width: 50px;
-    height: 50px;
     position:relative;
     transition:background .2s ease;
     cursor:pointer;
@@ -24,6 +24,8 @@
 .button:hover{
     background:var(--btn-bg-active);
 }
+
+/* --------------------- */
 
 .title {
     font-weight: 600;

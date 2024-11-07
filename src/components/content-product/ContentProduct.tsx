@@ -56,7 +56,11 @@ export const ContentProduct = () => {
                                     <span>14.5%</span>
                                 </div>
                             </div>
-                            <Button className={cl.button}>
+                            <Button
+                                className={cl.button}
+                                view="text"
+                                size="small"
+                            >
                                 <span className={cl.btnSpan}>Add to cart</span>
                             </Button>
                         </div>

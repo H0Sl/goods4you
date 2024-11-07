@@ -21,7 +21,11 @@ export const Header = () => {
                     </p>
                     <div className={cl.btn}>
                         <Link to="#Catalog">
-                            <Button className={cl.button}>
+                            <Button
+                                className={cl.button}
+                                view="text"
+                                size="big"
+                            >
                                 <span className={cl.btnSpan}>
                                     Go to shopping
                                 </span>

@@ -11,7 +11,7 @@ export const CartItem = () => {
                 <h4 className={cl.textTitle}>Essence Mascara Lash Princess</h4>
                 <span className={cl.textSpan}>$110</span>
             </div>
-            <Counter value={0} size="sizeM" />
+            <Counter size="sizeM" />
             <span className={cl.delete}>Delete</span>
         </div>
     );
