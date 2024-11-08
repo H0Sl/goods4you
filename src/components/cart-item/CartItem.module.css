@@ -11,8 +11,6 @@
 }
 
 .textTitle{
-    font-size:1rem;
-    font-weight:500;
     color:var(--text-color);
     line-height:1.22;
     transition:all .2s ease;
@@ -24,9 +22,8 @@
 }
 
 .textSpan{
-    font-size:1.125rem;
+    color:var(--text-color);
     line-height:1.26;
-    font-weight:300;
 }
 
 .delete{

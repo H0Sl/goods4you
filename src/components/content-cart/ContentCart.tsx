@@ -2,13 +2,21 @@ import React from 'react';
 import cl from './ContentCart.module.css';
 import '../../style/container.css';
 import { CartItem } from '../cart-item';
+import { Title } from '../UI/title';
 
 export const ContentCart = () => {
     return (
         <section>
             <div className="container">
                 <div className={cl.cart}>
-                    <h3 className={cl.titleText}>My cart</h3>
+                    <Title
+                        tag="h1"
+                        fontSize="xxl"
+                        fontWeight="Bold"
+                        className={cl.titleText}
+                    >
+                        My cart
+                    </Title>
                     <div className={cl.content}>
                         <div className={cl.items}>
                             <CartItem />

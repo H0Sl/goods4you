@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import cl from './AddInfo.module.css';
 import { Text } from '../UI/text';
+import { Title } from '../UI/title';
 
 interface Info {
     info: InfoItem[];
@@ -29,7 +30,14 @@ export const AddInfo: React.FC<Info> = ({ info }) => {
                                 className={cl.content}
                                 onClick={() => toogleActive(id)}
                             >
-                                <div className={cl.main}>{faqItem.title}</div>
+                                <Title
+                                    tag="h3"
+                                    fontSize="l"
+                                    className={cl.main}
+                                    fontWeight="regular"
+                                >
+                                    {faqItem.title}
+                                </Title>
                                 <div
                                     className={`${cl.rotate} ${openId === id ? cl.exit : ''}`}
                                 >

@@ -21,8 +21,6 @@
 
 .logo a {
     color:var(--main-color);
-    font-size:1.875rem;
-    font-weight:600;
     line-height:1.47;
 }
 

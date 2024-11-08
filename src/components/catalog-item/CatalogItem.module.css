@@ -28,16 +28,13 @@
 /* --------------------- */
 
 .title {
-    font-weight: 600;
     color: var(--text-color);
     text-decoration: none;
 }
 
 .price {
-    font-size: 1.125rem;
     color: var(--text-color);
     line-height: 1.24;
-    font-weight: 300;
 }
 
 .img {

@@ -5,6 +5,7 @@ import big from '../../img/proguct/big-photo.png';
 import mini from '../../img/proguct/mini.png';
 import star from '../../img/proguct/star.svg';
 import { Button } from '../UI/button';
+import { Title } from '../UI/title';
 
 export const ContentProduct = () => {
     return (
@@ -25,9 +26,14 @@ export const ContentProduct = () => {
                         </div>
                     </div>
                     <div className={cl.text}>
-                        <h2 className={cl.title}>
+                        <Title
+                            tag="h1"
+                            fontSize="xxl"
+                            fontWeight="semiBold"
+                            className={cl.title}
+                        >
                             Essence Mascara Lash Princess
-                        </h2>
+                        </Title>
                         <div>
                             <div className={cl.star}>
                                 <img src={star} alt="" />

@@ -2,15 +2,21 @@ import React from 'react';
 import cl from './Footer.module.css';
 import '../../style/container.css';
 import { Link } from 'react-router-dom';
+import { Title } from '../UI/title';
 
 export const Footer = () => {
     return (
         <footer className={cl.footer}>
             <div className="container">
                 <div className={cl.content}>
-                    <div className={cl.logo}>
+                    <Title
+                        tag="h1"
+                        fontSize="xl"
+                        fontWeight="Bold"
+                        className={cl.logo}
+                    >
                         <Link to="/">Goods4you</Link>
-                    </div>
+                    </Title>
                     <div className={cl.items}>
                         <ul>
                             <li className={cl.item}>

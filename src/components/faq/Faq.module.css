@@ -11,8 +11,6 @@
 .titleText{
     color:var(--main-color);
     text-transform: uppercase;
-    font-size:2rem;
     line-height:1.56;
-    font-weight:700;
     padding-bottom:20px;
 }

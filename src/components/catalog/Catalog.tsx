@@ -5,12 +5,20 @@ import { Input } from '../UI/input';
 import { CatalogItem } from '../catalog-item';
 import cl from './Catalog.module.css';
 import { Link } from 'react-router-dom';
+import { Title } from '../UI/title';
 
 export const Catalog = () => {
     return (
         <section className={cl.catalog} id="Catalog">
             <div className="container">
-                <h2 className={cl.title}>Catalog</h2>
+                <Title
+                    tag="h1"
+                    fontSize="xxl"
+                    fontWeight="Bold"
+                    className={cl.title}
+                >
+                    Catalog
+                </Title>
                 <div className={cl.input}>
                     <Input />
                 </div>
