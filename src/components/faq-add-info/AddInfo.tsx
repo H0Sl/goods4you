@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import cl from './AddInfo.module.css';
+import { Text } from '../UI/text';
 
 interface Info {
     info: InfoItem[];
@@ -38,7 +39,13 @@ export const AddInfo: React.FC<Info> = ({ info }) => {
                             <div
                                 className={`${cl.collapse} ${openId === id ? cl.open : ''}`}
                             >
-                                <div className={cl.addText}>{faqItem.text}</div>
+                                <Text
+                                    tag="p"
+                                    fontWeight="semiBold"
+                                    className={cl.addText}
+                                >
+                                    {faqItem.text}
+                                </Text>
                             </div>
                             <div className={cl.line} />
                         </li>

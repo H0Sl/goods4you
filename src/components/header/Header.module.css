@@ -36,11 +36,9 @@
 
 .mainText{
     margin-top:115px;
-    font-size: 1.875rem;
     text-align:left;
     line-height:1.5;
     color:var(--main-color);
-    font-weight: 300;
 }
 
 .text{
@@ -48,8 +46,6 @@
     text-align:left;
     color:var(--main-color);
     line-height:1.24;
-    font-weight:400;
-    font-size:1rem;
 }
 
 .backText{
