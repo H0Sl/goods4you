@@ -6,8 +6,12 @@ import { CatalogItem } from '../catalog-item';
 import cl from './Catalog.module.css';
 import { Link } from 'react-router-dom';
 import { Title } from '../UI/title';
+import { productAPI } from '../../services/ProductServices';
 
 export const Catalog = () => {
+    const { data: products } = productAPI.useFetchAllProductsQuery(5);
+    debugger;
+    console.log(products);
     return (
         <section className={cl.catalog} id="Catalog">
             <div className="container">
@@ -23,42 +27,15 @@ export const Catalog = () => {
                     <Input />
                 </div>
                 <div className={cl.content}>
-                    <Link to="/product">
-                        <CatalogItem />
-                    </Link>
-                    <Link to="/product">
-                        <CatalogItem />
-                    </Link>
-                    <Link to="/product">
-                        <CatalogItem />
-                    </Link>
-                    <Link to="/product">
-                        <CatalogItem />
-                    </Link>
-                    <Link to="/product">
-                        <CatalogItem />
-                    </Link>
-                    <Link to="/product">
-                        <CatalogItem />
-                    </Link>
-                    <Link to="/product">
-                        <CatalogItem />
-                    </Link>
-                    <Link to="/product">
-                        <CatalogItem />
-                    </Link>
-                    <Link to="/product">
-                        <CatalogItem />
-                    </Link>
-                    <Link to="/product">
-                        <CatalogItem />
-                    </Link>
-                    <Link to="/product">
-                        <CatalogItem />
-                    </Link>
-                    <Link to="/product">
-                        <CatalogItem />
-                    </Link>
+                    {products &&
+                        products.map(product => (
+                            <Link to="/product">
+                                <CatalogItem
+                                    key={product.id}
+                                    product={product}
+                                />
+                            </Link>
+                        ))}
                 </div>
                 <div className={cl.btn}>
                     <Button className={cl.button} view="text" size="small">

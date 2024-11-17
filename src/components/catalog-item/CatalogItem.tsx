@@ -5,8 +5,13 @@ import icon from '../../img/icon-price.svg';
 import { Button } from '../UI/button';
 import { Title } from '../UI/title';
 import { Text } from '../UI/text';
+import { IProduct } from '../../models/IProduct';
 
-export const CatalogItem = () => {
+interface CatalogItemProps {
+    product: IProduct;
+}
+
+export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
     return (
         <div className={cl.item}>
             <div className={cl.img}>
@@ -23,7 +28,7 @@ export const CatalogItem = () => {
                         fontWeight="semiBold"
                         className={cl.title}
                     >
-                        Essence Mascara Lash Princess
+                        {product.title}
                     </Title>
                     <Text
                         tag="span"
@@ -31,7 +36,7 @@ export const CatalogItem = () => {
                         fontSize="m"
                         className={cl.price}
                     >
-                        $110
+                        {product.price}
                     </Text>
                 </div>
                 <Button className={cl.button} view="icon" size="small">
