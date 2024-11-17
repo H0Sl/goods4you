@@ -1,6 +1,5 @@
 import React from 'react';
 import cl from './CatalogItem.module.css';
-import img from '../../img/CatalogItem.svg';
 import icon from '../../img/icon-price.svg';
 import { Button } from '../UI/button';
 import { Title } from '../UI/title';
@@ -15,7 +14,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
     return (
         <div className={cl.item}>
             <div className={cl.img}>
-                <img src={img} alt="" />
+                <img src={product.thumbnail} alt="" />
                 <div className={cl.mask}>
                     <span>Show details</span>
                 </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../style/container.css';
 import { Button } from '../UI/button';
 import { Input } from '../UI/input';
@@ -6,12 +6,18 @@ import { CatalogItem } from '../catalog-item';
 import cl from './Catalog.module.css';
 import { Link } from 'react-router-dom';
 import { Title } from '../UI/title';
-import { productAPI } from '../../services/ProductServices';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { fetchProduct } from '../../store/reducers/ActionCreators';
 
 export const Catalog = () => {
-    const { data: products } = productAPI.useFetchAllProductsQuery(5);
-    debugger;
-    console.log(products);
+    const dispatch = useAppDispatch();
+    const { catalogData, isLoading, error } = useAppSelector(
+        state => state.productSlice,
+    );
+    useEffect(() => {
+        dispatch(fetchProduct());
+    }, []);
+    console.log('catalogData.products', catalogData.products);
     return (
         <section className={cl.catalog} id="Catalog">
             <div className="container">
@@ -27,15 +33,13 @@ export const Catalog = () => {
                     <Input />
                 </div>
                 <div className={cl.content}>
-                    {products &&
-                        products.map(product => (
-                            <Link to="/product">
-                                <CatalogItem
-                                    key={product.id}
-                                    product={product}
-                                />
-                            </Link>
-                        ))}
+                    {isLoading && <h1>Идет загрузка</h1>}
+                    {error && <h1>{error}</h1>}
+                    {catalogData.products.map(product => (
+                        <Link to="/product">
+                            <CatalogItem key={product.id} product={product} />
+                        </Link>
+                    ))}
                 </div>
                 <div className={cl.btn}>
                     <Button className={cl.button} view="text" size="small">

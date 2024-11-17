@@ -1,34 +1,49 @@
+import { IProduct } from './../../models/IProduct';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IProduct } from '../../models/IProduct';
+import { fetchProduct } from './ActionCreators';
 
+interface ProductsData {
+    products: IProduct[];
+}
 interface ProductState {
-    product: IProduct[];
+    catalogData: ProductsData;
     isLoading: boolean;
     error: string;
 }
 
+const productsData: ProductsData = {
+    products: [],
+};
+
 const initialState: ProductState = {
-    product: [],
+    catalogData: productsData,
     isLoading: false,
     error: '',
 };
 
 export const productSlice = createSlice({
-    name: 'product',
+    name: 'products',
     initialState,
-    reducers: {
-        productFetching(state) {
+    reducers: {},
+    extraReducers: builder => {
+        builder.addCase(
+            fetchProduct.fulfilled.type,
+            (state, action: PayloadAction<ProductsData>) => {
+                state.isLoading = false;
+                state.error = '';
+                state.catalogData = action.payload;
+            },
+        );
+        builder.addCase(fetchProduct.pending.type, state => {
             state.isLoading = true;
-        },
-        productFetchingSuccess(state, action: PayloadAction<IProduct[]>) {
-            state.isLoading = false;
-            state.error = '';
-            state.product = action.payload;
-        },
-        productFetchingError(state, action: PayloadAction<string>) {
-            state.isLoading = false;
-            state.error = action.payload;
-        },
+        });
+        builder.addCase(
+            fetchProduct.rejected.type,
+            (state, action: PayloadAction<string>) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            },
+        );
     },
 });
 
