@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { Title } from '../UI/title';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchProduct } from '../../store/reducers/ActionCreators';
+import { Text } from '../UI/text';
 
 export const Catalog = () => {
     const dispatch = useAppDispatch();
@@ -36,15 +37,26 @@ export const Catalog = () => {
                 <div className={cl.input}>
                     <Input onInput={search} />
                 </div>
-                <div className={cl.content}>
-                    {isLoading && <h1>Идет загрузка</h1>}
-                    {error && <h1>{error}</h1>}
-                    {catalogData.products.map(product => (
-                        <Link key={product.id} to="/product">
-                            <CatalogItem product={product} />
-                        </Link>
-                    ))}
-                </div>
+                {catalogData.products.length === 0 ? (
+                    <Text
+                        className={cl.noElements}
+                        fontSize="xl"
+                        fontWeight="medium"
+                        tag="p"
+                    >
+                        No Products
+                    </Text>
+                ) : (
+                    <div className={cl.content}>
+                        {isLoading && <h1>Идет загрузка</h1>}
+                        {error && <h1>{error}</h1>}
+                        {catalogData.products.map(product => (
+                            <Link key={product.id} to="/product">
+                                <CatalogItem product={product} />
+                            </Link>
+                        ))}
+                    </div>
+                )}
                 <div className={cl.btn}>
                     <Button className={cl.button} view="text" size="small">
                         <span className={cl.btnSpan}>Show more</span>

@@ -40,6 +40,12 @@
 
 /* ---------------------------------------- */
 
+/* ------------TEXT--------------- */
+.noElements{
+    display: flex;
+    justify-content: center;
+}
+
 .content{
     display:grid;
     grid-template-columns:repeat(3,370px);
