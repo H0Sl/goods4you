@@ -35,7 +35,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
                         fontSize="m"
                         className={cl.price}
                     >
-                        {product.price}
+                        {product.price}$
                     </Text>
                 </div>
                 <Button className={cl.button} view="icon" size="small">

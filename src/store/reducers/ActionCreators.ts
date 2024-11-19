@@ -1,18 +1,15 @@
-import axios from 'axios';
-import { IProduct } from '../../models/IProduct';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { fetchProducts } from '../../api/ProductApi';
 
 export const fetchProduct = createAsyncThunk(
     'catalogData/fetchAll',
-    async (_, thunkAPI) => {
+    async (q: string, thunkAPI) => {
         try {
-            const response = await axios.get<IProduct[]>(
-                'https://dummyjson.com/products',
-            );
-            return response.data;
+            const data = await fetchProducts(q); // Используйте функцию для получения данных
+            return data;
         } catch (e) {
             return thunkAPI.rejectWithValue(
-                'Не удалось загрузить пользователей',
+                `${e}Не удалось загрузить пользователей`,
             );
         }
     },

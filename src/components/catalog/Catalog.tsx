@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import '../../style/container.css';
 import { Button } from '../UI/button';
 import { Input } from '../UI/input';
@@ -14,10 +14,14 @@ export const Catalog = () => {
     const { catalogData, isLoading, error } = useAppSelector(
         state => state.productSlice,
     );
+    const [output, setOutput] = useState<string>('');
+    const search = (event: ChangeEvent<HTMLInputElement>) => {
+        setOutput(event.target.value);
+    };
     useEffect(() => {
-        dispatch(fetchProduct());
-    }, []);
-    console.log('catalogData.products', catalogData.products);
+        dispatch(fetchProduct(output));
+    }, [output]);
+
     return (
         <section className={cl.catalog} id="Catalog">
             <div className="container">
@@ -30,14 +34,14 @@ export const Catalog = () => {
                     Catalog
                 </Title>
                 <div className={cl.input}>
-                    <Input />
+                    <Input onInput={search} />
                 </div>
                 <div className={cl.content}>
                     {isLoading && <h1>Идет загрузка</h1>}
                     {error && <h1>{error}</h1>}
                     {catalogData.products.map(product => (
-                        <Link to="/product">
-                            <CatalogItem key={product.id} product={product} />
+                        <Link key={product.id} to="/product">
+                            <CatalogItem product={product} />
                         </Link>
                     ))}
                 </div>
