@@ -7,7 +7,7 @@ import cl from './Catalog.module.css';
 import { Link } from 'react-router-dom';
 import { Title } from '../UI/title';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { fetchProduct } from '../../store/reducers/ActionCreators';
+import { fetchProduct } from '../../store/reducers/action-creators';
 import { Text } from '../UI/text';
 
 export const Catalog = () => {
@@ -15,13 +15,13 @@ export const Catalog = () => {
     const { catalogData, isLoading, error } = useAppSelector(
         state => state.productSlice,
     );
-    const [output, setOutput] = useState<string>('');
+    const [searchValue, setSearchValue] = useState<string>('');
     const search = (event: ChangeEvent<HTMLInputElement>) => {
-        setOutput(event.target.value);
+        setSearchValue(event.target.value);
     };
     useEffect(() => {
-        dispatch(fetchProduct(output));
-    }, [output]);
+        dispatch(fetchProduct(searchValue));
+    }, [searchValue]);
 
     return (
         <section className={cl.catalog} id="Catalog">
@@ -35,7 +35,7 @@ export const Catalog = () => {
                     Catalog
                 </Title>
                 <div className={cl.input}>
-                    <Input onInput={search} />
+                    <Input onChange={search} value={searchValue} />
                 </div>
                 {catalogData.products.length === 0 ? (
                     <Text

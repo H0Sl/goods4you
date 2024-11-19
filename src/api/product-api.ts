@@ -1,5 +1,5 @@
-import { IProduct } from '../models/IProduct';
-import axiosInstance from './AxiosInstance';
+import { IProduct } from '../models/i-product';
+import axiosInstance from './axios-instance';
 
 export const fetchProducts = async (
     query: string = '',

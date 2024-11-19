@@ -4,7 +4,7 @@ import icon from '../../img/icon-price.svg';
 import { Button } from '../UI/button';
 import { Title } from '../UI/title';
 import { Text } from '../UI/text';
-import { IProduct } from '../../models/IProduct';
+import { IProduct } from '../../models/i-product';
 
 interface CatalogItemProps {
     product: IProduct;

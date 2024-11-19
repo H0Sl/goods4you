@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchProducts } from '../../api/ProductApi';
+import { fetchProducts } from '../../api/product-api';
 
 export const fetchProduct = createAsyncThunk(
     'catalogData/fetchAll',
@@ -8,9 +8,7 @@ export const fetchProduct = createAsyncThunk(
             const data = await fetchProducts(q); // Используйте функцию для получения данных
             return data;
         } catch (e) {
-            return thunkAPI.rejectWithValue(
-                `${e}Не удалось загрузить пользователей`,
-            );
+            return thunkAPI.rejectWithValue(e);
         }
     },
 );
