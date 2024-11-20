@@ -29,6 +29,38 @@
     text-decoration:underline;
 }
 
+.basket{
+    display: flex;
+    align-items: center;
+    gap:6px;
+    position: relative;
+}
+
+.basket img{
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+.counter{
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background:var(--btn-bg);
+    border-radius:50%;
+    bottom:-4px;
+    right:-4px;
+}
+
+.counter span {
+    font-size:8px;
+    color:var(--main-color);
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
 @media (max-width:600px){
     .content{
         display:block;

@@ -4,7 +4,7 @@ import axiosInstance from './axios-instance';
 
 export const fetchProducts = async (
     query: string = '',
-    limit: number = 3,
+    limit: number | undefined,
 ): Promise<IProduct[]> => {
     const response = await axiosInstance.get<IProduct[]>(`/products/search`, {
         params: {

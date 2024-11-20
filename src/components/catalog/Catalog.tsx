@@ -15,13 +15,25 @@ export const Catalog = () => {
     const { catalogData, isLoading, error } = useAppSelector(
         state => state.productSlice,
     );
+
     const [searchValue, setSearchValue] = useState<string>('');
     const search = (event: ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
     };
+
+    const [countProduct, setCountProduct] = useState(3);
+    const addProducts = () => {
+        setCountProduct(12);
+    };
+
+    const FetchParams = {
+        q: searchValue,
+        limit: countProduct,
+    };
+
     useEffect(() => {
-        dispatch(fetchProduct(searchValue));
-    }, [searchValue]);
+        dispatch(fetchProduct(FetchParams));
+    }, [searchValue, countProduct]);
 
     return (
         <section className={cl.catalog} id="Catalog">
@@ -58,7 +70,12 @@ export const Catalog = () => {
                     </div>
                 )}
                 <div className={cl.btn}>
-                    <Button className={cl.button} view="text" size="small">
+                    <Button
+                        className={cl.button}
+                        view="text"
+                        size="small"
+                        onClick={addProducts}
+                    >
                         <span className={cl.btnSpan}>Show more</span>
                     </Button>
                 </div>

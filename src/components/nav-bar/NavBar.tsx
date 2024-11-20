@@ -3,6 +3,7 @@ import cl from './NavBar.module.css';
 import '../../style/container.css';
 import { Link } from 'react-router-dom';
 import { Title } from '../UI/title';
+import basket from '../../img/basket.png';
 
 export const NavBar = () => {
     return (
@@ -26,7 +27,13 @@ export const NavBar = () => {
                                 <Link to="/#FAQ">FAQ</Link>
                             </li>
                             <li className={cl.item}>
-                                <Link to="/cart">Cart</Link>
+                                <div className={cl.basket}>
+                                    <Link to="/cart">Cart</Link>
+                                    <img src={basket} alt="" />
+                                    <div className={cl.counter}>
+                                        <span>1</span>
+                                    </div>
+                                </div>
                             </li>
                             <li className={cl.item}>
                                 <a href="#">Johnson Smith</a>
