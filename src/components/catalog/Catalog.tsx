@@ -25,6 +25,9 @@ export const Catalog = () => {
     const addProducts = () => {
         setCountProduct(12);
     };
+    const removeProducts = () => {
+        setCountProduct(3);
+    };
 
     const FetchParams = {
         q: searchValue,
@@ -69,16 +72,25 @@ export const Catalog = () => {
                         ))}
                     </div>
                 )}
-                <div className={cl.btn}>
-                    <Button
-                        className={cl.button}
-                        view="text"
-                        size="small"
-                        onClick={addProducts}
-                    >
-                        <span className={cl.btnSpan}>Show more</span>
-                    </Button>
-                </div>
+                {countProduct === 12 ? (
+                    <div className={cl.btn}>
+                        <div
+                            onClick={removeProducts}
+                            className={cl.removeProducts}
+                        />
+                    </div>
+                ) : (
+                    <div className={cl.btn}>
+                        <Button
+                            className={cl.button}
+                            view="text"
+                            size="small"
+                            onClick={addProducts}
+                        >
+                            <span className={cl.btnSpan}>Show more</span>
+                        </Button>
+                    </div>
+                )}
             </div>
         </section>
     );

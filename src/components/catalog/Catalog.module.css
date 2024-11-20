@@ -38,6 +38,44 @@
     background:var(--btn-bg-active);
 }
 
+.removeProducts {
+    width: 30px;
+    height: 30px;
+    border-radius:50%;
+    background:var(--main-color-hover);
+    display:flex;
+    justify-content: center;
+    position: relative;
+    cursor:pointer;
+    transition:all .2s ease;
+}
+
+.removeProducts::before{
+    content:'';
+    position:absolute;
+    width: 10px;
+    height: 1px;
+    background-color: var(--text-color);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(-60deg);
+}
+
+.removeProducts::after{
+    content:'';
+    position:absolute;
+    width: 10px;
+    height: 1px;
+    background-color: var(--text-color);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(60deg);
+}
+
+.removeProducts:hover{
+    transform:scale(1.1);
+}
+
 /* ---------------------------------------- */
 
 /* ------------TEXT--------------- */
