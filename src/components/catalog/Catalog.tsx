@@ -37,6 +37,8 @@ export const Catalog = () => {
                 <div className={cl.input}>
                     <Input onChange={search} value={searchValue} />
                 </div>
+                {isLoading && <h1>Идет загрузка</h1>}
+                {error && <h1>{error}</h1>}
                 {catalogData.products.length === 0 ? (
                     <Text
                         className={cl.noElements}
@@ -48,8 +50,6 @@ export const Catalog = () => {
                     </Text>
                 ) : (
                     <div className={cl.content}>
-                        {isLoading && <h1>Идет загрузка</h1>}
-                        {error && <h1>{error}</h1>}
                         {catalogData.products.map(product => (
                             <Link key={product.id} to="/product">
                                 <CatalogItem product={product} />

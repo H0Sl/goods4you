@@ -1,4 +1,5 @@
 import { IProduct } from '../models/i-product';
+import { removeEmptyParams } from '../utils/remove-empty-params';
 import axiosInstance from './axios-instance';
 
 export const fetchProducts = async (
@@ -11,5 +12,6 @@ export const fetchProducts = async (
             limit: limit,
         },
     });
+    removeEmptyParams(response.config.params);
     return response.data;
 };
