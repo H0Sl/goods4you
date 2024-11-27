@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchProducts } from '../../api/product-api';
+import { fetchUsers } from '../../api/user-api';
 
 interface FetchProduct {
     q: string;
@@ -14,6 +15,18 @@ export const fetchProduct = createAsyncThunk(
             return data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error);
+        }
+    },
+);
+
+export const fetchUser = createAsyncThunk(
+    'carts/fetchUser',
+    async (_, { rejectWithValue }) => {
+        try {
+            const data = await fetchUsers();
+            return data;
+        } catch (e) {
+            return rejectWithValue(e);
         }
     },
 );

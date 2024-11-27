@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import cl from './NavBar.module.css';
 import '../../style/container.css';
 import { Link } from 'react-router-dom';
 import { Title } from '../UI/title';
 import basket from '../../img/basket.png';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { fetchUser } from '../../store/reducers/action-creators';
 
 export const NavBar = () => {
+    const dispatch = useAppDispatch();
+    const { carts } = useAppSelector(state => state.userSlice);
+    useEffect(() => {
+        const source = dispatch(fetchUser());
+        return () => {
+            source.abort();
+        };
+    }, []);
     return (
         <div className={cl.navbar}>
             <div className="container">
