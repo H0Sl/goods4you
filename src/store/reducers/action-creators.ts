@@ -1,19 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchProducts } from '../../api/product-api';
 
-interface FetchParams {
-    q?: string;
-    limit?: number;
+interface FetchProduct {
+    q: string;
+    skip: number;
 }
 
 export const fetchProduct = createAsyncThunk(
-    'catalogData/fetchAll',
-    async ({ q, limit }: FetchParams, thunkAPI) => {
+    'catalogData/fetchProduct',
+    async ({ q, skip }: FetchProduct, thunkAPI) => {
         try {
-            const data = await fetchProducts(q, limit);
+            const data = await fetchProducts(q, skip);
             return data;
-        } catch (e) {
-            return thunkAPI.rejectWithValue(e);
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error);
         }
     },
 );

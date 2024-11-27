@@ -9,34 +9,36 @@ import { Title } from '../UI/title';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchProduct } from '../../store/reducers/action-creators';
 import { Text } from '../UI/text';
+import { resetProducts } from '../../store/reducers/product-slice';
 
 export const Catalog = () => {
     const dispatch = useAppDispatch();
-    const { catalogData, isLoading, error } = useAppSelector(
+    const { catalogData, isLoading, error, skip, total } = useAppSelector(
         state => state.productSlice,
     );
 
     const [searchValue, setSearchValue] = useState<string>('');
-    const search = (event: ChangeEvent<HTMLInputElement>) => {
-        setSearchValue(event.target.value);
-    };
-
-    const [countProduct, setCountProduct] = useState(3);
-    const addProducts = () => {
-        setCountProduct(12);
-    };
-    const removeProducts = () => {
-        setCountProduct(3);
-    };
-
-    const FetchParams = {
-        q: searchValue,
-        limit: countProduct,
-    };
 
     useEffect(() => {
-        dispatch(fetchProduct(FetchParams));
-    }, [searchValue, countProduct]);
+        const source = dispatch(fetchProduct({ q: searchValue, skip: skip }));
+        return () => {
+            source.abort();
+        };
+    }, [searchValue]);
+
+    const search = (event: ChangeEvent<HTMLInputElement>) => {
+        setSearchValue(event.target.value);
+        dispatch(resetProducts());
+    };
+
+    const showMore = () => {
+        dispatch(
+            fetchProduct({
+                q: searchValue,
+                skip: skip + 12,
+            }),
+        );
+    };
 
     return (
         <section className={cl.catalog} id="Catalog">
@@ -72,20 +74,16 @@ export const Catalog = () => {
                         ))}
                     </div>
                 )}
-                {countProduct === 12 ? (
-                    <div className={cl.btn}>
-                        <div
-                            onClick={removeProducts}
-                            className={cl.removeProducts}
-                        />
-                    </div>
+                {catalogData.products.length >= total ? (
+                    <div />
                 ) : (
                     <div className={cl.btn}>
+                        {}
                         <Button
                             className={cl.button}
                             view="text"
                             size="small"
-                            onClick={addProducts}
+                            onClick={showMore}
                         >
                             <span className={cl.btnSpan}>Show more</span>
                         </Button>
