@@ -9,9 +9,9 @@ import { fetchUser } from '../../store/reducers/action-creators';
 
 export const NavBar = () => {
     const dispatch = useAppDispatch();
-    const { carts } = useAppSelector(state => state.userSlice);
+    const { totalQuantity } = useAppSelector(state => state.userSlice);
     useEffect(() => {
-        const source = dispatch(fetchUser());
+        const source = dispatch(fetchUser({ id: 1 }));
         return () => {
             source.abort();
         };
@@ -41,7 +41,7 @@ export const NavBar = () => {
                                     <Link to="/cart">Cart</Link>
                                     <img src={basket} alt="" />
                                     <div className={cl.counter}>
-                                        <span>1</span>
+                                        <span>{totalQuantity}</span>
                                     </div>
                                 </div>
                             </li>

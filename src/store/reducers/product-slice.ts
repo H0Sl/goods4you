@@ -38,26 +38,27 @@ export const productSlice = createSlice({
         },
     },
     extraReducers: builder => {
-        builder.addCase(fetchProduct.pending.type, state => {
-            state.isLoading = true;
-        });
-        builder.addCase(
-            fetchProduct.fulfilled.type,
-            (state, action: PayloadAction<ProductsData>) => {
-                state.isLoading = false;
-                state.error = '';
-                state.catalogData.products.push(...action.payload.products);
-                state.skip = action.payload.skip;
-                state.total = action.payload.total;
-            },
-        );
-        builder.addCase(
-            fetchProduct.rejected.type,
-            (state, action: PayloadAction<string>) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            },
-        );
+        builder
+            .addCase(fetchProduct.pending.type, state => {
+                state.isLoading = true;
+            })
+            .addCase(
+                fetchProduct.fulfilled.type,
+                (state, action: PayloadAction<ProductsData>) => {
+                    state.isLoading = false;
+                    state.error = '';
+                    state.catalogData.products.push(...action.payload.products);
+                    state.skip = action.payload.skip;
+                    state.total = action.payload.total;
+                },
+            )
+            .addCase(
+                fetchProduct.rejected.type,
+                (state, action: PayloadAction<string>) => {
+                    state.isLoading = false;
+                    state.error = action.payload;
+                },
+            );
     },
 });
 
