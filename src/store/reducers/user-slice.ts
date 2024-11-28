@@ -4,20 +4,17 @@ import { fetchUser } from './action-creators';
 
 interface CartsData {
     carts: IUser[];
-    totalQuantity: number;
 }
 interface InitialState {
-    carts: CartsData;
-    totalQuantity: number;
+    user: CartsData;
 }
 
-const cartsData = {
+const cartsData: CartsData = {
     carts: [],
-    totalQuantity: 0,
 };
+
 const initialState: InitialState = {
-    carts: cartsData,
-    totalQuantity: 0,
+    user: cartsData,
 };
 
 export const userSlice = createSlice({
@@ -29,8 +26,7 @@ export const userSlice = createSlice({
         builder.addCase(
             fetchUser.fulfilled.type,
             (state, action: PayloadAction<CartsData>) => {
-                state.carts = action.payload;
-                state.totalQuantity = action.payload.totalQuantity;
+                state.user = action.payload;
             },
         );
         // builder.addCase(fetchUser.rejected.type, (state, action) => {});

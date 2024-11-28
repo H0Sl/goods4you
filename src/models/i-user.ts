@@ -1,4 +1,5 @@
 export interface IUser {
-    userID: number;
+    totalQuantity: number;
+    userId: number;
     products: [];
 }
