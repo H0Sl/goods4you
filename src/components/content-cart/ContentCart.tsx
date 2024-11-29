@@ -3,8 +3,13 @@ import cl from './ContentCart.module.css';
 import '../../style/container.css';
 import { CartItem } from '../cart-item';
 import { Title } from '../UI/title';
+import { useAppSelector } from '../../hooks/redux';
 
 export const ContentCart = () => {
+    const { user } = useAppSelector(state => state.userSlice);
+
+    const totalQuantity = user.carts[0]?.totalQuantity;
+
     return (
         <section>
             <div className="container">
@@ -19,17 +24,18 @@ export const ContentCart = () => {
                     </Title>
                     <div className={cl.content}>
                         <div className={cl.items}>
-                            <CartItem />
-                            <CartItem />
-                            <CartItem />
-                            <CartItem />
+                            {user.carts[0]?.products.map(product => (
+                                <CartItem product={product} />
+                            ))}
                         </div>
                         <div className={cl.prices}>
                             <div className={cl.count}>
                                 <span className={cl.textCount}>
                                     Total count
                                 </span>
-                                <span className={cl.itemCount}>3 items</span>
+                                <span className={cl.itemCount}>
+                                    {totalQuantity} items
+                                </span>
                             </div>
                             <div className={cl.discount}>
                                 <span className={cl.textDiscount}>
