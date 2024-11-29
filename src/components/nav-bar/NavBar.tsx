@@ -14,7 +14,7 @@ export const NavBar = () => {
     const totalQuantity = user.carts[0]?.totalQuantity;
 
     useEffect(() => {
-        const source = dispatch(fetchUser({ id: 33 }));
+        const source = dispatch(fetchUser({ id: 20 }));
         return () => {
             source.abort();
         };
@@ -44,9 +44,13 @@ export const NavBar = () => {
                                 <div className={cl.basket}>
                                     <Link to="/cart">Cart</Link>
                                     <img src={basket} alt="" />
-                                    <div className={cl.counter}>
-                                        <span>{totalQuantity}</span>
-                                    </div>
+                                    {user.carts.length > 0 ? (
+                                        <div className={cl.counter}>
+                                            <span>{totalQuantity}</span>
+                                        </div>
+                                    ) : (
+                                        <div />
+                                    )}
                                 </div>
                             </li>
                             <li className={cl.item}>

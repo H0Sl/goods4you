@@ -93,3 +93,11 @@
     font-weight:600;
     line-height:1.36;
 }
+
+.noElement {
+    display:flex;
+    justify-content:center;
+    color:#B2B5BB;
+    font-size:1.5rem;
+    font-weight:600;
+}

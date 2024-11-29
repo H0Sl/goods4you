@@ -25,40 +25,44 @@ export const ContentCart = () => {
                     >
                         My cart
                     </Title>
-                    <div className={cl.content}>
-                        <div className={cl.items}>
-                            {user.carts[0]?.products.map(product => (
-                                <CartItem product={product} />
-                            ))}
+                    {user.carts.length > 0 ? (
+                        <div className={cl.content}>
+                            <div className={cl.items}>
+                                {user.carts[0]?.products.map(product => (
+                                    <CartItem product={product} />
+                                ))}
+                            </div>
+                            <div className={cl.prices}>
+                                <div className={cl.count}>
+                                    <span className={cl.textCount}>
+                                        Total count
+                                    </span>
+                                    <span className={cl.itemCount}>
+                                        {totalProducts} items
+                                    </span>
+                                </div>
+                                <div className={cl.discount}>
+                                    <span className={cl.textDiscount}>
+                                        Price without discount
+                                    </span>
+                                    <span className={cl.priceDiscount}>
+                                        ${discount.toFixed(1)}
+                                    </span>
+                                </div>
+                                <div className={cl.line} />
+                                <div className={cl.price}>
+                                    <span className={cl.textPrice}>
+                                        Total price
+                                    </span>
+                                    <span className={cl.totalPrice}>
+                                        ${price.toFixed(1)}
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                        <div className={cl.prices}>
-                            <div className={cl.count}>
-                                <span className={cl.textCount}>
-                                    Total count
-                                </span>
-                                <span className={cl.itemCount}>
-                                    {totalProducts} items
-                                </span>
-                            </div>
-                            <div className={cl.discount}>
-                                <span className={cl.textDiscount}>
-                                    Price without discount
-                                </span>
-                                <span className={cl.priceDiscount}>
-                                    ${discount.toFixed(1)}
-                                </span>
-                            </div>
-                            <div className={cl.line} />
-                            <div className={cl.price}>
-                                <span className={cl.textPrice}>
-                                    Total price
-                                </span>
-                                <span className={cl.totalPrice}>
-                                    ${price.toFixed(1)}
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    ) : (
+                        <div className={cl.noElement}>No Items</div>
+                    )}
                 </div>
             </div>
         </section>
