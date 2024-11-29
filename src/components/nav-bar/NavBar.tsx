@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import cl from './NavBar.module.css';
 import '../../style/container.css';
 import { Link } from 'react-router-dom';

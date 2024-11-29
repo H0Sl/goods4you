@@ -1,4 +1,3 @@
-import React from 'react';
 import cl from './ContenProduct.module.css';
 import '../../style/container.css';
 import big from '../../img/proguct/big-photo.png';

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import '../../style/container.css';
 import { Button } from '../UI/button';
 import { Input } from '../UI/input';

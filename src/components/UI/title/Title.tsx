@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import cl from './Title.module.css';
 import cn from 'classnames';
 
