@@ -1,8 +1,8 @@
-import cl from './ContenProduct.module.css';
+import cl from './ContentProduct.module.css';
 import '../../style/container.css';
-import big from '../../img/proguct/big-photo.png';
-import mini from '../../img/proguct/mini.png';
-import star from '../../img/proguct/star.svg';
+import big from '../../img/product/big-photo.png';
+import mini from '../../img/product/mini.png';
+import star from '../../img/product/star.svg';
 import { Button } from '../UI/button';
 import { Title } from '../UI/title';
 

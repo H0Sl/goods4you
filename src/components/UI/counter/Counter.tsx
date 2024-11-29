@@ -4,7 +4,7 @@ import cl from './Counter.module.css';
 import cn from 'classnames';
 
 interface CounterProps {
-    size: 'sizeM' | 'sizeL';
+    size?: 'sizeM';
 }
 
 export const Counter: React.FC<CounterProps> = ({ size = 'sizeM' }) => {
@@ -17,21 +17,20 @@ export const Counter: React.FC<CounterProps> = ({ size = 'sizeM' }) => {
             setCount(value => value - 1);
         }
     };
-    size = count >= 10 ? 'sizeL' : 'sizeM';
     return (
         <div className={cl.counter}>
             <Button
                 className={cn(cl.btn, cl[size])}
+                view="icon"
                 onClick={decrement}
-                size="big"
             >
                 <div className={cl.minus} />
             </Button>
             <span>{count} items</span>
             <Button
                 className={cn(cl.btn, cl[size])}
+                view="icon"
                 onClick={increment}
-                size="big"
             >
                 <div className={cl.plus} />
             </Button>

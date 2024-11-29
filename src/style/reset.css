@@ -1,14 +1,14 @@
 /* Reset and base styles  */
 * {
-	padding: 0;
-	margin: 0;
-	border: none;
+    padding: 0;
+    margin: 0;
+    border: none;
 }
 
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* Links */

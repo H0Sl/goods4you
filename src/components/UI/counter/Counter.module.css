@@ -24,11 +24,6 @@
     height: 50px;
 }
 
-.sizeL{
-    width: 72px;
-    height: 60px;
-}
-
 .btn:hover{
     background:var(--btn-bg-active);
 }
