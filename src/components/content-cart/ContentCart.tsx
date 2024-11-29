@@ -29,7 +29,10 @@ export const ContentCart = () => {
                         <div className={cl.content}>
                             <div className={cl.items}>
                                 {user.carts[0]?.products.map(product => (
-                                    <CartItem product={product} />
+                                    <CartItem
+                                        key={product.id}
+                                        product={product}
+                                    />
                                 ))}
                             </div>
                             <div className={cl.prices}>

@@ -34,7 +34,7 @@ export const CartItem: React.FC<CartItemProps> = ({ product }) => {
                 </div>
             </div>
             <div className={cl.item}>
-                <Counter />
+                <Counter children={product.quantity} />
                 <span className={cl.delete}>Delete</span>
             </div>
         </div>

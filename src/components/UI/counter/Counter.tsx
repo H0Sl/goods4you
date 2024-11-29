@@ -5,10 +5,14 @@ import cn from 'classnames';
 
 interface CounterProps {
     size?: 'sizeM';
+    children: number;
 }
 
-export const Counter: React.FC<CounterProps> = ({ size = 'sizeM' }) => {
-    const [count, setCount] = useState(0);
+export const Counter: React.FC<CounterProps> = ({
+    size = 'sizeM',
+    children,
+}) => {
+    const [count, setCount] = useState(children);
     const increment = () => {
         setCount(value => value + 1);
     };
