@@ -68,7 +68,10 @@ export const Catalog = () => {
                 ) : (
                     <div className={cl.content}>
                         {catalogData.products.map(product => (
-                            <Link key={product.id} to="/product">
+                            <Link
+                                key={product.id}
+                                to={`/product/${product.id}`}
+                            >
                                 <CatalogItem product={product} />
                             </Link>
                         ))}

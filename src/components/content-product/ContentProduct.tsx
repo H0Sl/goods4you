@@ -5,8 +5,21 @@ import mini from '../../img/product/mini.png';
 import star from '../../img/product/star.svg';
 import { Button } from '../UI/button';
 import { Title } from '../UI/title';
+import { useEffect } from 'react';
+import { useAppDispatch } from '../../hooks/redux';
+import { fetchProductsInfo } from '../../store/reducers/action-creators';
+import { useParams } from 'react-router-dom';
 
 export const ContentProduct = () => {
+    const dispatch = useAppDispatch();
+    const { id } = useParams();
+
+    // const { products } = useAppSelector(state => state.infoProductSlice);
+
+    useEffect(() => {
+        dispatch(fetchProductsInfo({ id: Number(id) }));
+    }, []);
+
     return (
         <section className={cl.product}>
             <div className="container">
@@ -31,7 +44,7 @@ export const ContentProduct = () => {
                             fontWeight="semiBold"
                             className={cl.title}
                         >
-                            Essence Mascara Lash Princess
+                            Hi
                         </Title>
                         <div>
                             <div className={cl.star}>

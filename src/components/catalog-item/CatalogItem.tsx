@@ -5,21 +5,12 @@ import { Button } from '../UI/button';
 import { Title } from '../UI/title';
 import { Text } from '../UI/text';
 import { IProduct } from '../../models/i-product';
-import { useAppSelector } from '../../hooks/redux';
-import { Counter } from '../UI/counter';
 
 interface CatalogItemProps {
     product: IProduct;
 }
 
 export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
-    const { user } = useAppSelector(state => state.userSlice);
-
-    let ID = 0;
-    for (let i = 0; i < user.carts[0].products.length; i++) {
-        ID = user.carts[0].products[i].id;
-    }
-
     return (
         <div className={cl.item}>
             <div className={cl.img}>
@@ -47,13 +38,9 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
                         {product.price}$
                     </Text>
                 </div>
-                {ID === product.id ? (
-                    <Counter />
-                ) : (
-                    <Button className={cl.button} view="icon" size="small">
-                        <img src={icon} className={cl.icon} alt="" />
-                    </Button>
-                )}
+                <Button className={cl.button} view="icon" size="small">
+                    <img src={icon} className={cl.icon} alt="" />
+                </Button>
             </div>
         </div>
     );
