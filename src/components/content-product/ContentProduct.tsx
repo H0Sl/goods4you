@@ -1,12 +1,10 @@
 import cl from './ContentProduct.module.css';
 import '../../style/container.css';
-import big from '../../img/product/big-photo.png';
-import mini from '../../img/product/mini.png';
 import star from '../../img/product/star.svg';
 import { Button } from '../UI/button';
 import { Title } from '../UI/title';
 import { useEffect } from 'react';
-import { useAppDispatch } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchProductsInfo } from '../../store/reducers/action-creators';
 import { useParams } from 'react-router-dom';
 
@@ -14,7 +12,12 @@ export const ContentProduct = () => {
     const dispatch = useAppDispatch();
     const { id } = useParams();
 
-    // const { products } = useAppSelector(state => state.infoProductSlice);
+    const { products } = useAppSelector(state => state.infoProductSlice);
+
+    const discount = +(
+        (products.price * products.discountPercentage) /
+        100
+    ).toFixed(1);
 
     useEffect(() => {
         dispatch(fetchProductsInfo({ id: Number(id) }));
@@ -25,16 +28,44 @@ export const ContentProduct = () => {
             <div className="container">
                 <div className={cl.content}>
                     <div className={cl.wrapper}>
-                        <div className={cl.big}>
-                            <img src={big} alt="" />
+                        <div>
+                            <img
+                                src={products.thumbnail}
+                                className={cl.big}
+                                alt=""
+                            />
                         </div>
                         <div className={cl.small}>
-                            <img src={mini} alt="" className={cl.mini} />
-                            <img src={mini} alt="" className={cl.mini} />
-                            <img src={mini} alt="" className={cl.mini} />
-                            <img src={mini} alt="" className={cl.mini} />
-                            <img src={mini} alt="" className={cl.mini} />
-                            <img src={mini} alt="" className={cl.mini} />
+                            <img
+                                src={products.thumbnail}
+                                alt=""
+                                className={cl.mini}
+                            />
+                            <img
+                                src={products.thumbnail}
+                                alt=""
+                                className={cl.mini}
+                            />
+                            <img
+                                src={products.thumbnail}
+                                alt=""
+                                className={cl.mini}
+                            />
+                            <img
+                                src={products.thumbnail}
+                                alt=""
+                                className={cl.mini}
+                            />
+                            <img
+                                src={products.thumbnail}
+                                alt=""
+                                className={cl.mini}
+                            />
+                            <img
+                                src={products.thumbnail}
+                                alt=""
+                                className={cl.mini}
+                            />
                         </div>
                     </div>
                     <div className={cl.text}>
@@ -44,7 +75,7 @@ export const ContentProduct = () => {
                             fontWeight="semiBold"
                             className={cl.title}
                         >
-                            Hi
+                            {products.title}
                         </Title>
                         <div>
                             <div className={cl.star}>
@@ -53,25 +84,31 @@ export const ContentProduct = () => {
                             </div>
                         </div>
                         <div className={cl.line} />
-                        <span className={cl.red}>In Stock - Only 5 left!</span>
+                        <span className={cl.red}>
+                            In Stock - Only {products.stock} left!
+                        </span>
                         <div className={cl.line} />
-                        <p>
-                            The Essence Mascara Lash Princess is a popular
-                            mascara known for its volumizing and lengthening
-                            effects. Achieve dramatic lashes with this
-                            long-lasting and cruelty-free formula.
-                        </p>
-                        <span className={cl.span}>1 month warranty</span>
-                        <span className={cl.span}>Ships in 1 month</span>
+                        <p>{products.description}</p>
+                        <span className={cl.span}>
+                            {products.warrantyInformation}
+                        </span>
+                        <span className={cl.span}>
+                            {products.shippingInformation}
+                        </span>
                         <div className={cl.add}>
                             <div className={cl.block}>
                                 <div className={cl.prices}>
-                                    <span className={cl.upPrice}>$7.17</span>
-                                    <span className={cl.downPrice}>$9.99</span>
+                                    <span className={cl.upPrice}>
+                                        $
+                                        {(products.price - discount).toFixed(1)}
+                                    </span>
+                                    <span className={cl.downPrice}>
+                                        ${products.price}
+                                    </span>
                                 </div>
                                 <div className={cl.rowSpan}>
                                     <span>Your discount:</span>
-                                    <span>14.5%</span>
+                                    <span>{products.discountPercentage}%</span>
                                 </div>
                             </div>
                             <Button

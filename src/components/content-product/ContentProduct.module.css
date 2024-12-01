@@ -29,6 +29,7 @@
 
 .big{
     height: 520px;
+    width: 520px;
 }
 
 .small{
@@ -40,6 +41,8 @@
 .mini{
     cursor:pointer;
     padding:2px;
+    width: 70px;
+    height: 70px;
 }
 
 .mini:hover{
