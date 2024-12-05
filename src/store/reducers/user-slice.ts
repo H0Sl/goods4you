@@ -7,6 +7,8 @@ interface CartsData {
 }
 interface InitialState {
     user: CartsData;
+    isLoading: boolean;
+    error: string;
 }
 
 const cartsData: CartsData = {
@@ -15,6 +17,8 @@ const cartsData: CartsData = {
 
 const initialState: InitialState = {
     user: cartsData,
+    isLoading: false,
+    error: '',
 };
 
 export const userSlice = createSlice({
@@ -22,14 +26,24 @@ export const userSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => {
-        // builder.addCase(fetchUser.pending.type, state => {});
+        builder.addCase(fetchUser.pending.type, state => {
+            state.isLoading = true;
+            state.error = '';
+        });
         builder.addCase(
             fetchUser.fulfilled.type,
             (state, action: PayloadAction<CartsData>) => {
+                state.isLoading = false;
                 state.user = action.payload;
             },
         );
-        // builder.addCase(fetchUser.rejected.type, (state, action) => {});
+        builder.addCase(
+            fetchUser.rejected.type,
+            (state, action: PayloadAction<string>) => {
+                state.isLoading = false;
+                state.error = action.payload;
+            },
+        );
     },
 });
 

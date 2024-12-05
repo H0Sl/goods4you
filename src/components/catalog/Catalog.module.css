@@ -90,16 +90,18 @@
     gap:20px 35px;
 }
 
+/* -----------MEDDIA----------- */
+
 @media (max-width:1200px){
     .content{
-        grid-template-columns: repeat(2,370px);
+        grid-template-columns: repeat(2,23.125rem);
         justify-content:center;
     }
 }
 
-@media (max-width:800px){
+@media (max-width:50rem){
     .content{
-        grid-template-columns: repeat(1,370px);
+        grid-template-columns: repeat(1,23.125em);
         justify-content:center;
     }
 }

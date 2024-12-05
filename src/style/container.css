@@ -10,7 +10,7 @@
     }
 }
 
-@media (max-width:1000px){
+@media (max-width:62.5rem){
     .container{
         max-width:810px;
     }
@@ -24,7 +24,13 @@
 
 @media (max-width:600px){
     .container{
-        max-width:410px;
+        max-width:510px;
+    }
+}
+
+@media (max-width:400px){
+    .container{
+        max-width:19.375rem;
     }
 }
 

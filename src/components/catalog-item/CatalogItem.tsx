@@ -11,36 +11,43 @@ interface CatalogItemProps {
 }
 
 export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
+    const discount = +(
+        (product.price * product.discountPercentage) /
+        100
+    ).toFixed(1);
+
     return (
-        <div className={cl.item}>
-            <div className={cl.img}>
-                <img src={product.thumbnail} alt="" />
-                <div className={cl.mask}>
-                    <span>Show details</span>
+        <div className="container">
+            <div className={cl.item}>
+                <div className={cl.img}>
+                    <img src={product.thumbnail} alt="" />
+                    <div className={cl.mask}>
+                        <span>Show details</span>
+                    </div>
                 </div>
-            </div>
-            <div className={cl.content}>
-                <div className={cl.text}>
-                    <Title
-                        tag="h2"
-                        fontSize="m"
-                        fontWeight="semiBold"
-                        className={cl.title}
-                    >
-                        {product.title}
-                    </Title>
-                    <Text
-                        tag="span"
-                        fontWeight="regular"
-                        fontSize="m"
-                        className={cl.price}
-                    >
-                        {product.price}$
-                    </Text>
+                <div className={cl.content}>
+                    <div className={cl.text}>
+                        <Title
+                            tag="h2"
+                            fontSize="m"
+                            fontWeight="semiBold"
+                            className={cl.title}
+                        >
+                            {product.title}
+                        </Title>
+                        <Text
+                            tag="span"
+                            fontWeight="regular"
+                            fontSize="m"
+                            className={cl.price}
+                        >
+                            {(product.price - discount).toFixed(1)}$
+                        </Text>
+                    </div>
+                    <Button className={cl.button} view="icon" size="small">
+                        <img src={icon} className={cl.icon} alt="" />
+                    </Button>
                 </div>
-                <Button className={cl.button} view="icon" size="small">
-                    <img src={icon} className={cl.icon} alt="" />
-                </Button>
             </div>
         </div>
     );

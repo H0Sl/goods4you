@@ -11,61 +11,33 @@ import { useParams } from 'react-router-dom';
 export const ContentProduct = () => {
     const dispatch = useAppDispatch();
     const { id } = useParams();
-
-    const { products } = useAppSelector(state => state.infoProductSlice);
-
+    const { products, isLoading, error } = useAppSelector(
+        state => state.infoProductSlice,
+    );
     const discount = +(
         (products.price * products.discountPercentage) /
         100
     ).toFixed(1);
-
     useEffect(() => {
         dispatch(fetchProductsInfo({ id: Number(id) }));
     }, []);
-
     return (
         <section className={cl.product}>
             <div className="container">
+                {isLoading && <h1>Loading...</h1>}
+                {error && <h1>Error</h1>}
                 <div className={cl.content}>
                     <div className={cl.wrapper}>
                         <div>
-                            <img
-                                src={products.thumbnail}
-                                className={cl.big}
-                                alt=""
-                            />
+                            <img src={products.thumbnail} className={cl.big} />
                         </div>
                         <div className={cl.small}>
-                            <img
-                                src={products.thumbnail}
-                                alt=""
-                                className={cl.mini}
-                            />
-                            <img
-                                src={products.thumbnail}
-                                alt=""
-                                className={cl.mini}
-                            />
-                            <img
-                                src={products.thumbnail}
-                                alt=""
-                                className={cl.mini}
-                            />
-                            <img
-                                src={products.thumbnail}
-                                alt=""
-                                className={cl.mini}
-                            />
-                            <img
-                                src={products.thumbnail}
-                                alt=""
-                                className={cl.mini}
-                            />
-                            <img
-                                src={products.thumbnail}
-                                alt=""
-                                className={cl.mini}
-                            />
+                            <img src={products.thumbnail} className={cl.mini} />
+                            <img src={products.thumbnail} className={cl.mini} />
+                            <img src={products.thumbnail} className={cl.mini} />
+                            <img src={products.thumbnail} className={cl.mini} />
+                            <img src={products.thumbnail} className={cl.mini} />
+                            <img src={products.thumbnail} className={cl.mini} />
                         </div>
                     </div>
                     <div className={cl.text}>

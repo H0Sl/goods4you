@@ -56,7 +56,7 @@
     right: 0;
     text-align: center;
     z-index: 0;
-    top:197px;
+    top:12.313rem;
     color:var(--main-color);
     opacity: .12;
     font-size:12.5rem;
@@ -69,31 +69,36 @@
 
 @media (max-width:1200px){
     .backText{
-        font-size:11.25rem;
+        top:13rem;
+        font-size:11rem;
     }
 }
 
 @media (max-width:1000px){
     .backText{
-        font-size:9.375rem;
+        font-size:8.5rem;
+        top:15rem;
     }
 }
 
 @media (max-width:800px){
     .backText{
-        font-size:8.125rem;
-    }
-}
-
-@media (max-width:700px){
-    .backText{
-        font-size:6.875rem;
+        top:17rem;
+        font-size:6rem;
     }
 }
 
 @media (max-width:600px){
     .backText{
-        font-size:4.375rem;
+        top:21rem;
+        font-size:4.625rem;
+    }
+}
+
+@media (max-width:400px){
+    .backText{
+        top:30rem;
+        font-size:3rem;
     }
 }
 
