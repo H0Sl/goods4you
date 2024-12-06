@@ -71,6 +71,9 @@ export const Catalog = () => {
                             <Link
                                 key={product.id}
                                 to={`/product/${product.id}`}
+                                onClick={() => {
+                                    catalogData.products = [];
+                                }}
                             >
                                 <CatalogItem product={product} />
                             </Link>

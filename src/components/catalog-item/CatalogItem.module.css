@@ -40,7 +40,15 @@
 .img {
     display: block;
     position: relative;
-    height: 300px;
+    height: 340px;
+    width: 340px;
+}
+
+.img img{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
 }
 
 .mask {
@@ -65,4 +73,16 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+@media (max-width:400px){
+    .img{
+        width: 280px;
+        height: 280px;
+    }
+
+    .img img {
+        height: 280px;
+    }
 }

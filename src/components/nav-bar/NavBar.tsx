@@ -25,7 +25,7 @@ export const NavBar = () => {
     }, []);
 
     return (
-        <div className={cl.navbar}>
+        <nav className={cl.navbar}>
             <div className="container">
                 <div className={cl.content}>
                     <Title
@@ -87,6 +87,6 @@ export const NavBar = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </nav>
     );
 };

@@ -29,3 +29,9 @@
     text-decoration:underline;
 }
 
+@media (max-width:400px){
+    .items ul {
+        gap:20px;
+    }
+}
+
