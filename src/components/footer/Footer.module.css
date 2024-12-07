@@ -21,13 +21,17 @@
 
 .logo a {
     color:var(--main-color);
-    font-size:1.875rem;
-    font-weight:600;
     line-height:1.47;
 }
 
 .item a:hover{
     color:var(--main-color-hover);
     text-decoration:underline;
+}
+
+@media (max-width:400px){
+    .items ul {
+        gap:20px;
+    }
 }
 
