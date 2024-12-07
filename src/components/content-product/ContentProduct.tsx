@@ -28,8 +28,8 @@ export const ContentProduct = () => {
                 {error && <h1>Error</h1>}
                 <div className={cl.content}>
                     <div className={cl.wrapper}>
-                        <div>
-                            <img src={products.thumbnail} className={cl.big} />
+                        <div className={cl.big}>
+                            <img src={products.thumbnail} />
                         </div>
                         <div className={cl.small}>
                             <img src={products.thumbnail} className={cl.mini} />
