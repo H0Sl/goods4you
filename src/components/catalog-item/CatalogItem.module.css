@@ -76,6 +76,8 @@
 }
 
 
+/* -----------MEDIA------------ */
+
 @media (max-width:400px){
     .img{
         width: 280px;

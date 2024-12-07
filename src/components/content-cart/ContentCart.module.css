@@ -101,3 +101,54 @@
     font-size:1.5rem;
     font-weight:600;
 }
+
+/* ----------MEDIA------------ */
+
+@media (max-width:1250px){
+    .content{
+        display:grid;
+        grid-template-columns: 1fr;
+    }
+
+    .prices{
+        padding-top: 20px;
+    }
+}
+
+@media (max-width:840px){
+    .items{
+        padding: 20px 0;
+    }
+}
+
+@media (max-width:740px){
+    .items{
+        padding: 20px 70px;
+    }
+
+    .content{
+        grid-template-columns: none;
+        justify-content: center;
+    }
+
+    .titleText{
+        display:flex;
+        justify-content:center;
+    }
+}
+
+@media (max-width:600px){
+    .items{
+        padding: 20px 0;
+    }
+}
+
+@media (max-width:415px){
+    .items{
+        border: none;
+    }
+
+    .prices{
+        width: 280px;
+    }
+}

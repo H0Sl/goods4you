@@ -65,6 +65,8 @@
     transform:translate(-50%,-50%);
 }
 
+/* ----------MEDIA------------ */
+
 @media (max-width:600px){
     .menuIcon{
         z-index: 11;

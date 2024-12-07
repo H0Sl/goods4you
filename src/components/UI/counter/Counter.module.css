@@ -60,3 +60,12 @@
     left:50%;
     transform:translate(-50%,-50%) rotate(90deg);
 }
+
+
+/* ------------MEDIA----------- */
+
+@media (max-width:415px){
+    .counter{
+        margin-right: 0;
+    }
+}

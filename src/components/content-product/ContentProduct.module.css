@@ -153,6 +153,9 @@
     gap:8px;
 }
 
+
+/* -----------MEDIA------------- */
+
 @media(max-width:1200px){
     .content{
         display:grid;

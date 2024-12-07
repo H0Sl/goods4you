@@ -76,8 +76,6 @@
     transform:scale(1.1);
 }
 
-/* ---------------------------------------- */
-
 /* ------------TEXT--------------- */
 .noElements{
     display: flex;
@@ -90,18 +88,18 @@
     gap:20px 35px;
 }
 
-/* -----------MEDDIA----------- */
+/* -----------MEDIA----------- */
 
-@media (max-width:1200px){
+@media (max-width:1250px){
     .content{
         grid-template-columns: repeat(2,23.125rem);
         justify-content:center;
     }
 }
 
-@media (max-width:50rem){
+@media (max-width:840px){
     .content{
-        grid-template-columns: repeat(1,23.125em);
+        grid-template-columns: 1fr;
         justify-content:center;
     }
 }
