@@ -7,7 +7,7 @@ import cl from './Catalog.module.css';
 import { Link } from 'react-router-dom';
 import { Title } from '../UI/title';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { fetchProduct } from '../../store/reducers/action-creators';
+import { fetchProduct, fetchUser } from '../../store/reducers/action-creators';
 import { Text } from '../UI/text';
 import { resetProducts } from '../../store/reducers/product-slice';
 
@@ -18,13 +18,6 @@ export const Catalog = () => {
     );
 
     const [searchValue, setSearchValue] = useState<string>('');
-
-    useEffect(() => {
-        const source = dispatch(fetchProduct({ q: searchValue, skip: skip }));
-        return () => {
-            source.abort();
-        };
-    }, [searchValue]);
 
     const search = (event: ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
@@ -39,6 +32,17 @@ export const Catalog = () => {
             }),
         );
     };
+
+    useEffect(() => {
+        const sourceProduct = dispatch(
+            fetchProduct({ q: searchValue, skip: skip }),
+        );
+        const sourceCarts = dispatch(fetchUser({ id: 20 }));
+        return () => {
+            sourceProduct.abort();
+            sourceCarts.abort();
+        };
+    }, [searchValue]);
 
     return (
         <section className={cl.catalog} id="Catalog">

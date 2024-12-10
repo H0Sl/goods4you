@@ -38,7 +38,7 @@
     font-weight:300;
     color:#B2B5BB;
     line-height:1.2;
-    margin-right:12px;
+    margin: 0 12px 0 48px;
     cursor:pointer;
     transition:all .2s ease;
 }

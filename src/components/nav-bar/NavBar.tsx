@@ -1,28 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import cl from './NavBar.module.css';
 import '../../style/container.css';
 import { Link } from 'react-router-dom';
 import { Title } from '../UI/title';
 import basket from '../../img/basket.png';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { fetchUser } from '../../store/reducers/action-creators';
+import { useAppSelector } from '../../hooks/redux';
 import cn from 'classnames';
 
 export const NavBar = () => {
-    const dispatch = useAppDispatch();
     const { user } = useAppSelector(state => state.userSlice);
     const { catalogData } = useAppSelector(state => state.productSlice);
 
     const totalQuantity = user.carts[0]?.totalQuantity;
 
     const [menuActive, setMenuActive] = useState(false);
-
-    useEffect(() => {
-        const source = dispatch(fetchUser({ id: 20 }));
-        return () => {
-            source.abort();
-        };
-    }, []);
 
     return (
         <nav className={cl.navbar}>

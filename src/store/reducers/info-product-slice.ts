@@ -1,6 +1,6 @@
+import { IProduct } from './../../models/i-product';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchProductsInfo } from './action-creators';
-import { IProduct } from '../../models/i-product';
 
 interface InitialState {
     products: IProduct;
