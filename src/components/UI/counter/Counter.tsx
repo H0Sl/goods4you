@@ -4,11 +4,15 @@ import cl from './Counter.module.css';
 import cn from 'classnames';
 
 interface CounterProps {
-    size: 'sizeM' | 'sizeL';
+    size?: 'sizeM';
+    children: number;
 }
 
-export const Counter: React.FC<CounterProps> = ({ size = 'sizeM' }) => {
-    const [count, setCount] = useState(0);
+export const Counter: React.FC<CounterProps> = ({
+    size = 'sizeM',
+    children,
+}) => {
+    const [count, setCount] = useState(children);
     const increment = () => {
         setCount(value => value + 1);
     };
@@ -17,21 +21,20 @@ export const Counter: React.FC<CounterProps> = ({ size = 'sizeM' }) => {
             setCount(value => value - 1);
         }
     };
-    size = count >= 10 ? 'sizeL' : 'sizeM';
     return (
         <div className={cl.counter}>
             <Button
                 className={cn(cl.btn, cl[size])}
+                view="icon"
                 onClick={decrement}
-                size="icon"
             >
                 <div className={cl.minus} />
             </Button>
             <span>{count} items</span>
             <Button
                 className={cn(cl.btn, cl[size])}
+                view="icon"
                 onClick={increment}
-                size="icon"
             >
                 <div className={cl.plus} />
             </Button>
