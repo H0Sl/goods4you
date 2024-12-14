@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { MouseEventHandler, useState } from 'react';
 import { Button } from '../button';
 import cl from './Counter.module.css';
 import cn from 'classnames';
@@ -6,11 +6,13 @@ import cn from 'classnames';
 interface CounterProps {
     size?: 'sizeM';
     children: number;
+    onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
 export const Counter: React.FC<CounterProps> = ({
     size = 'sizeM',
     children,
+    onClick,
 }) => {
     const [count, setCount] = useState(children);
     const increment = () => {
@@ -22,7 +24,7 @@ export const Counter: React.FC<CounterProps> = ({
         }
     };
     return (
-        <div className={cl.counter}>
+        <div className={cl.counter} onClick={onClick}>
             <Button
                 className={cn(cl.btn, cl[size])}
                 view="icon"

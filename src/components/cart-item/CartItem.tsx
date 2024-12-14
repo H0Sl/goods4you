@@ -3,7 +3,7 @@ import cl from './CartItem.module.css';
 import { Counter } from '../UI/counter';
 import { Title } from '../UI/title';
 import { Text } from '../UI/text';
-import { IProduct } from '../../models/i-product';
+import { IProduct } from '../../models/product';
 
 interface CartItemProps {
     product: IProduct;

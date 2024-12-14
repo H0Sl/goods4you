@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IUser } from '../../models/i-user';
-import { fetchUser } from './action-creators';
+import { IUser } from '../../models/user';
+import { fetchCartsByUser } from './action-creators';
 
 interface CartsData {
     carts: IUser[];
@@ -26,24 +26,27 @@ export const userSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => {
-        builder.addCase(fetchUser.pending.type, state => {
+        builder.addCase(fetchCartsByUser.pending.type, state => {
             state.isLoading = true;
             state.error = '';
         });
         builder.addCase(
-            fetchUser.fulfilled.type,
+            fetchCartsByUser.fulfilled.type,
             (state, action: PayloadAction<CartsData>) => {
                 state.isLoading = false;
                 state.user = action.payload;
             },
         );
         builder.addCase(
-            fetchUser.rejected.type,
+            fetchCartsByUser.rejected.type,
             (state, action: PayloadAction<string>) => {
                 state.isLoading = false;
                 state.error = action.payload;
             },
         );
+    },
+    selectors: {
+        selectValue: state => state.user.carts[0],
     },
 });
 

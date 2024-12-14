@@ -4,7 +4,7 @@ import icon from '../../img/icon-price.svg';
 import { Button } from '../UI/button';
 import { Title } from '../UI/title';
 import { Text } from '../UI/text';
-import { IProduct } from '../../models/i-product';
+import { IProduct } from '../../models/product';
 import { useAppSelector } from '../../hooks/redux';
 import { Counter } from '../UI/counter';
 
@@ -18,11 +18,9 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
         100
     ).toFixed(1);
 
-    const { user } = useAppSelector(state => state.userSlice);
+    const { products } = useAppSelector(state => state.userSlice.user.carts[0]);
 
-    const isInCart = user.carts[0].products.find(
-        carts => carts.id === product.id,
-    );
+    const isInCart = products.find(carts => carts.id === product.id);
 
     return (
         <div className="container">
@@ -53,7 +51,10 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
                         </Text>
                     </div>
                     {isInCart ? (
-                        <Counter children={isInCart?.quantity} />
+                        <Counter
+                            children={isInCart?.quantity}
+                            onClick={e => e.stopPropagation}
+                        />
                     ) : (
                         <Button className={cl.button} view="icon" size="small">
                             <img src={icon} className={cl.icon} alt="" />

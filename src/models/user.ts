@@ -1,4 +1,4 @@
-import { IProduct } from './i-product';
+import { IProduct } from './product';
 
 export interface IUser {
     totalQuantity: number;
