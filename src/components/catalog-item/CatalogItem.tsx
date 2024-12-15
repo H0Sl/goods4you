@@ -53,10 +53,15 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
                     {isInCart ? (
                         <Counter
                             children={isInCart?.quantity}
-                            onClick={e => e.stopPropagation}
+                            onClick={event => event.preventDefault()}
                         />
                     ) : (
-                        <Button className={cl.button} view="icon" size="small">
+                        <Button
+                            className={cl.button}
+                            view="icon"
+                            size="small"
+                            onClick={event => event.preventDefault()}
+                        >
                             <img src={icon} className={cl.icon} alt="" />
                         </Button>
                     )}

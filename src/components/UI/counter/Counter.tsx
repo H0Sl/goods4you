@@ -15,20 +15,14 @@ export const Counter: React.FC<CounterProps> = ({
     onClick,
 }) => {
     const [count, setCount] = useState(children);
-    const increment = () => {
-        setCount(value => value + 1);
-    };
-    const decrement = () => {
-        if (count > 0) {
-            setCount(value => value - 1);
-        }
-    };
     return (
         <div className={cl.counter} onClick={onClick}>
             <Button
                 className={cn(cl.btn, cl[size])}
                 view="icon"
-                onClick={decrement}
+                onClick={() => {
+                    setCount(value => value - 1);
+                }}
             >
                 <div className={cl.minus} />
             </Button>
@@ -36,7 +30,9 @@ export const Counter: React.FC<CounterProps> = ({
             <Button
                 className={cn(cl.btn, cl[size])}
                 view="icon"
-                onClick={increment}
+                onClick={() => {
+                    setCount(value => value + 1);
+                }}
             >
                 <div className={cl.plus} />
             </Button>

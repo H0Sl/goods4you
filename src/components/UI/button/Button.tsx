@@ -1,11 +1,11 @@
-import React, { ReactNode } from 'react';
+import React, { MouseEventHandler, ReactNode } from 'react';
 import cn from 'classnames';
 import cl from './Button.module.css';
 
 interface Button {
     children: ReactNode;
     className?: string;
-    onClick?: () => void;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
     view?: 'text' | 'icon';
     size?: 'big' | 'small';
 }
