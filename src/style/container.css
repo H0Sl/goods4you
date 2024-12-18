@@ -4,27 +4,39 @@
     margin:0 auto;
 }
 
-@media (max-width:1200px){
+@media (max-width:1250px){
     .container{
         max-width:1010px;
     }
 }
 
-@media (max-width:1000px){
+@media (max-width:1050px){
+    .container{
+        max-width:910px;
+    }
+}
+
+@media (max-width:950px){
     .container{
         max-width:810px;
     }
 }
 
-@media (max-width:800px){
+@media (max-width:840px){
     .container{
-        max-width:610px;
+        max-width:710px;
     }
 }
 
 @media (max-width:600px){
     .container{
-        max-width:410px;
+        max-width:510px;
+    }
+}
+
+@media (max-width:400px){
+    .container{
+        max-width:310px;
     }
 }
 
