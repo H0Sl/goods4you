@@ -3,26 +3,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchProductsInfo } from './action-creators';
 
 interface InitialState {
-    products: IProduct;
+    products: IProduct[];
     isLoading: boolean;
     error: string;
 }
 
-const product: IProduct = {
-    id: 0,
-    title: '',
-    price: 0,
-    thumbnail: '',
-    quantity: 0,
-    warrantyInformation: '',
-    description: '',
-    stock: 0,
-    shippingInformation: '',
-    discountPercentage: 0,
-};
-
 const initialState: InitialState = {
-    products: product,
+    products: [],
     isLoading: false,
     error: '',
 };
@@ -38,7 +25,7 @@ export const infoProductSlice = createSlice({
         });
         builder.addCase(
             fetchProductsInfo.fulfilled.type,
-            (state, action: PayloadAction<IProduct>) => {
+            (state, action: PayloadAction<IProduct[]>) => {
                 state.isLoading = false;
                 state.products = action.payload;
             },

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cl from './CatalogItem.module.css';
 import icon from '../../img/icon-price.svg';
 import { Button } from '../UI/button';
@@ -21,6 +21,9 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
     const { products } = useAppSelector(state => state.userSlice.user.carts[0]);
 
     const isInCart = products.find(carts => carts.id === product.id);
+    const initialQuantity = isInCart ? isInCart.quantity : 0;
+
+    const [quantityValue, setQuantityValue] = useState(initialQuantity);
 
     return (
         <div className="container">
@@ -52,15 +55,30 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
                     </div>
                     {isInCart ? (
                         <Counter
-                            children={isInCart?.quantity}
-                            onClick={event => event.preventDefault()}
-                        />
+                            onClick={event => {
+                                event.stopPropagation();
+                                event.preventDefault();
+                            }}
+                            onMinusClick={() => {
+                                if (quantityValue > 0) {
+                                    setQuantityValue(value => value - 1);
+                                }
+                            }}
+                            onPlusClick={() => {
+                                setQuantityValue(value => value + 1);
+                            }}
+                        >
+                            {quantityValue}
+                        </Counter>
                     ) : (
                         <Button
                             className={cl.button}
                             view="icon"
                             size="small"
-                            onClick={event => event.preventDefault()}
+                            onClick={event => {
+                                event.stopPropagation();
+                                event.preventDefault();
+                            }}
                         >
                             <img src={icon} className={cl.icon} alt="" />
                         </Button>

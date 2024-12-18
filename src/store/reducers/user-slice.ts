@@ -45,9 +45,6 @@ export const userSlice = createSlice({
             },
         );
     },
-    selectors: {
-        selectValue: state => state.user.carts[0],
-    },
 });
 
 export default userSlice.reducer;

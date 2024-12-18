@@ -37,9 +37,7 @@ export const Catalog = () => {
         const sourceProduct = dispatch(
             fetchProduct({ q: searchValue, skip: skip }),
         );
-        return () => {
-            sourceProduct.abort();
-        };
+        return () => sourceProduct.abort();
     }, [searchValue]);
 
     return (
@@ -73,9 +71,7 @@ export const Catalog = () => {
                             <Link
                                 key={product.id}
                                 to={`/product/${product.id}`}
-                                onClick={() => {
-                                    catalogData.products = [];
-                                }}
+                                onClick={() => dispatch(resetProducts())}
                             >
                                 <CatalogItem product={product} />
                             </Link>
