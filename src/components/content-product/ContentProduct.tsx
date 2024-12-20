@@ -1,33 +1,54 @@
-import React from 'react';
-import cl from './ContenProduct.module.css';
+import cl from './ContentProduct.module.css';
 import '../../style/container.css';
-import big from '../../img/proguct/big-photo.png';
-import mini from '../../img/proguct/mini.png';
-import star from '../../img/proguct/star.svg';
+import star from '../../img/product/star.svg';
 import { Button } from '../UI/button';
+import { Title } from '../UI/title';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { fetchProductsInfo } from '../../store/reducers/action-creators';
+import { useParams } from 'react-router-dom';
 
 export const ContentProduct = () => {
+    const dispatch = useAppDispatch();
+    const { id } = useParams();
+    const { products, isLoading, error } = useAppSelector(
+        state => state.infoProductSlice,
+    );
+    const discount = +(
+        (products.price * products.discountPercentage) /
+        100
+    ).toFixed(1);
+    useEffect(() => {
+        dispatch(fetchProductsInfo({ id: Number(id) }));
+    }, []);
     return (
         <section className={cl.product}>
             <div className="container">
+                {isLoading && <h1>Loading...</h1>}
+                {error && <h1>Error</h1>}
                 <div className={cl.content}>
                     <div className={cl.wrapper}>
                         <div className={cl.big}>
-                            <img src={big} alt="" />
+                            <img src={products.thumbnail} />
                         </div>
                         <div className={cl.small}>
-                            <img src={mini} alt="" className={cl.mini} />
-                            <img src={mini} alt="" className={cl.mini} />
-                            <img src={mini} alt="" className={cl.mini} />
-                            <img src={mini} alt="" className={cl.mini} />
-                            <img src={mini} alt="" className={cl.mini} />
-                            <img src={mini} alt="" className={cl.mini} />
+                            <img src={products.thumbnail} className={cl.mini} />
+                            <img src={products.thumbnail} className={cl.mini} />
+                            <img src={products.thumbnail} className={cl.mini} />
+                            <img src={products.thumbnail} className={cl.mini} />
+                            <img src={products.thumbnail} className={cl.mini} />
+                            <img src={products.thumbnail} className={cl.mini} />
                         </div>
                     </div>
                     <div className={cl.text}>
-                        <h2 className={cl.title}>
-                            Essence Mascara Lash Princess
-                        </h2>
+                        <Title
+                            tag="h1"
+                            fontSize="xxl"
+                            fontWeight="semiBold"
+                            className={cl.title}
+                        >
+                            {products.title}
+                        </Title>
                         <div>
                             <div className={cl.star}>
                                 <img src={star} alt="" />
@@ -35,25 +56,31 @@ export const ContentProduct = () => {
                             </div>
                         </div>
                         <div className={cl.line} />
-                        <span className={cl.red}>In Stock - Only 5 left!</span>
+                        <span className={cl.red}>
+                            In Stock - Only {products.stock} left!
+                        </span>
                         <div className={cl.line} />
-                        <p>
-                            The Essence Mascara Lash Princess is a popular
-                            mascara known for its volumizing and lengthening
-                            effects. Achieve dramatic lashes with this
-                            long-lasting and cruelty-free formula.
-                        </p>
-                        <span className={cl.span}>1 month warranty</span>
-                        <span className={cl.span}>Ships in 1 month</span>
+                        <p>{products.description}</p>
+                        <span className={cl.span}>
+                            {products.warrantyInformation}
+                        </span>
+                        <span className={cl.span}>
+                            {products.shippingInformation}
+                        </span>
                         <div className={cl.add}>
                             <div className={cl.block}>
                                 <div className={cl.prices}>
-                                    <span className={cl.upPrice}>$7.17</span>
-                                    <span className={cl.downPrice}>$9.99</span>
+                                    <span className={cl.upPrice}>
+                                        $
+                                        {(products.price - discount).toFixed(1)}
+                                    </span>
+                                    <span className={cl.downPrice}>
+                                        ${products.price}
+                                    </span>
                                 </div>
                                 <div className={cl.rowSpan}>
                                     <span>Your discount:</span>
-                                    <span>14.5%</span>
+                                    <span>{products.discountPercentage}%</span>
                                 </div>
                             </div>
                             <Button
