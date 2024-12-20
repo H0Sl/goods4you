@@ -64,9 +64,9 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
                                     setQuantityValue(value => value - 1);
                                 }
                             }}
-                            onPlusClick={() => {
-                                setQuantityValue(value => value + 1);
-                            }}
+                            onPlusClick={() =>
+                                setQuantityValue(value => value + 1)
+                            }
                         >
                             {quantityValue}
                         </Counter>
