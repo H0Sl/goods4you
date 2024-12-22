@@ -19,24 +19,25 @@ export const infoProductSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => {
-        builder.addCase(fetchProductsInfo.pending.type, state => {
-            state.isLoading = true;
-            state.error = '';
-        });
-        builder.addCase(
-            fetchProductsInfo.fulfilled.type,
-            (state, action: PayloadAction<IProduct[]>) => {
-                state.isLoading = false;
-                state.products = action.payload;
-            },
-        );
-        builder.addCase(
-            fetchProductsInfo.rejected.type,
-            (state, action: PayloadAction<string>) => {
-                state.error = action.payload;
-                state.isLoading = false;
-            },
-        );
+        builder
+            .addCase(fetchProductsInfo.pending.type, state => {
+                state.isLoading = true;
+                state.error = '';
+            })
+            .addCase(
+                fetchProductsInfo.fulfilled.type,
+                (state, action: PayloadAction<IProduct[]>) => {
+                    state.isLoading = false;
+                    state.products = action.payload;
+                },
+            )
+            .addCase(
+                fetchProductsInfo.rejected.type,
+                (state, action: PayloadAction<string>) => {
+                    state.error = action.payload;
+                    state.isLoading = false;
+                },
+            );
     },
 });
 

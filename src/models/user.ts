@@ -1,9 +1,10 @@
-import { IProduct } from './product';
-
-export interface IUser {
-    totalQuantity: number;
-    totalProducts: number;
-    discountedTotal: number;
+export interface ICartsInfo {
+    id: number;
+    title: string;
+    price: number;
+    thumbnail: string;
+    quantity: number;
     total: number;
-    products: IProduct[];
+    discountPercentage: number;
+    discountTotal: number;
 }

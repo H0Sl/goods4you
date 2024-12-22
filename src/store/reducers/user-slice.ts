@@ -1,47 +1,40 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IUser } from '../../models/user';
+import { ICartsInfo } from '../../models/user';
 import { fetchCartsByUser } from './action-creators';
 
-interface CartsData {
-    carts: IUser[];
-}
 interface InitialState {
-    user: CartsData;
-    isLoading: boolean;
-    error: string;
+    carts: CartsInfo[];
 }
 
-const cartsData: CartsData = {
+interface CartsInfo {
+    totalQuantity: number;
+    totalProducts: number;
+    discountedTotal: number;
+    total: number;
+    products: ICartsInfo[];
+}
+
+// const cartsInfo: CartsInfo = {
+//     totalQuantity: 0,
+//     totalProducts: 0,
+//     discountedTotal: 0,
+//     total: 0,
+//     products: [],
+// };
+
+const initialState: InitialState = {
     carts: [],
 };
 
-const initialState: InitialState = {
-    user: cartsData,
-    isLoading: false,
-    error: '',
-};
-
 export const userSlice = createSlice({
-    name: 'carts',
+    name: 'users',
     initialState,
     reducers: {},
     extraReducers: builder => {
-        builder.addCase(fetchCartsByUser.pending.type, state => {
-            state.isLoading = true;
-            state.error = '';
-        });
         builder.addCase(
             fetchCartsByUser.fulfilled.type,
-            (state, action: PayloadAction<CartsData>) => {
-                state.isLoading = false;
-                state.user = action.payload;
-            },
-        );
-        builder.addCase(
-            fetchCartsByUser.rejected.type,
-            (state, action: PayloadAction<string>) => {
-                state.isLoading = false;
-                state.error = action.payload;
+            (state, action: PayloadAction<CartsInfo[]>) => {
+                state.carts = action.payload;
             },
         );
     },

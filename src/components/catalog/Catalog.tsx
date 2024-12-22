@@ -37,7 +37,9 @@ export const Catalog = () => {
         const sourceProduct = dispatch(
             fetchProduct({ q: searchValue, skip: skip }),
         );
-        return () => sourceProduct.abort();
+        return () => {
+            sourceProduct.abort();
+        };
     }, [searchValue]);
 
     return (

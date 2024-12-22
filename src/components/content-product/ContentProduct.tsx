@@ -19,7 +19,10 @@ export const ContentProduct = () => {
         100
     ).toFixed(1);
     useEffect(() => {
-        dispatch(fetchProductsInfo({ id: Number(id) }));
+        const source = dispatch(fetchProductsInfo({ id: Number(id) }));
+        return () => {
+            source.abort();
+        };
     }, []);
     return (
         <section className={cl.product}>

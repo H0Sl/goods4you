@@ -8,11 +8,10 @@ import { useAppSelector } from '../../hooks/redux';
 import cn from 'classnames';
 
 export const NavBar = () => {
-    const { user } = useAppSelector(state => state.userSlice);
+    const { carts } = useAppSelector(state => state.userSlice);
     const { catalogData } = useAppSelector(state => state.productSlice);
     const [menuActive, setMenuActive] = useState(false);
 
-    const totalQuantity = user.carts[0]?.totalQuantity;
     return (
         <nav className={cl.navbar}>
             <div className="container">
@@ -60,9 +59,11 @@ export const NavBar = () => {
                                         Cart
                                     </Link>
                                     <img src={basket} alt="" />
-                                    {user.carts.length > 0 ? (
+                                    {carts.length > 0 ? (
                                         <div className={cl.counter}>
-                                            <span>{totalQuantity}</span>
+                                            <span>
+                                                {carts[0].totalQuantity}
+                                            </span>
                                         </div>
                                     ) : (
                                         <div />

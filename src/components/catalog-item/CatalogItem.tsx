@@ -18,13 +18,13 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
         100
     ).toFixed(1);
 
-    const { products } = useAppSelector(state => state.userSlice.user.carts[0]);
+    const { products } = useAppSelector(state => state.userSlice.carts[0]);
 
-    const isInCart = products.find(carts => carts.id === product.id);
-    const initialQuantity = isInCart ? isInCart.quantity : 0;
+    const isInCart = products === product.id ? true : false;
+
+    const initialQuantity = isInCart ? products.quantity : 0;
 
     const [quantityValue, setQuantityValue] = useState(initialQuantity);
-
     return (
         <div className="container">
             <div className={cl.item}>
