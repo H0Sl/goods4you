@@ -2,25 +2,17 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ICartsInfo } from '../../models/user';
 import { fetchCartsByUser } from './action-creators';
 
-interface InitialState {
-    carts: CartsInfo[];
-}
+// interface CartsByUser {
+//     carts: ICartsInfo[];
+// }
 
-interface CartsInfo {
-    totalQuantity: number;
-    totalProducts: number;
-    discountedTotal: number;
-    total: number;
-    products: ICartsInfo[];
-}
-
-// const cartsInfo: CartsInfo = {
-//     totalQuantity: 0,
-//     totalProducts: 0,
-//     discountedTotal: 0,
-//     total: 0,
-//     products: [],
+// const cartsByUser: CartsByUser = {
+//     carts: [],
 // };
+
+interface InitialState {
+    carts: ICartsInfo[];
+}
 
 const initialState: InitialState = {
     carts: [],
@@ -33,8 +25,8 @@ export const userSlice = createSlice({
     extraReducers: builder => {
         builder.addCase(
             fetchCartsByUser.fulfilled.type,
-            (state, action: PayloadAction<CartsInfo[]>) => {
-                state.carts = action.payload;
+            (state, action: PayloadAction<InitialState>) => {
+                state.carts = [action.payload.carts[0]];
             },
         );
     },

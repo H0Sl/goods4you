@@ -19,7 +19,7 @@ export const fetchProduct = createAsyncThunk<
 });
 
 export const fetchCartsByUser = createAsyncThunk<
-    ICartsInfo[],
+    ICartsInfo,
     { id: number },
     { rejectValue: string }
 >('carts/fetchCarts', async ({ id }, { rejectWithValue }) => {

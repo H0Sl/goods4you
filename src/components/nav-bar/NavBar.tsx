@@ -4,12 +4,13 @@ import '../../style/container.css';
 import { Link } from 'react-router-dom';
 import { Title } from '../UI/title';
 import basket from '../../img/basket.png';
-import { useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import cn from 'classnames';
+import { resetProducts } from '../../store/reducers/product-slice';
 
 export const NavBar = () => {
+    const dispatch = useAppDispatch();
     const { carts } = useAppSelector(state => state.userSlice);
-    const { catalogData } = useAppSelector(state => state.productSlice);
     const [menuActive, setMenuActive] = useState(false);
 
     return (
@@ -53,13 +54,13 @@ export const NavBar = () => {
                                     <Link
                                         to="/cart"
                                         onClick={() => {
-                                            catalogData.products = [];
+                                            dispatch(resetProducts());
                                         }}
                                     >
                                         Cart
                                     </Link>
                                     <img src={basket} alt="" />
-                                    {carts.length > 0 ? (
+                                    {carts[0]?.totalQuantity > 0 ? (
                                         <div className={cl.counter}>
                                             <span>
                                                 {carts[0].totalQuantity}

@@ -1,10 +1,9 @@
+import { IProduct } from './product';
+
 export interface ICartsInfo {
-    id: number;
-    title: string;
-    price: number;
-    thumbnail: string;
-    quantity: number;
+    products: IProduct[];
     total: number;
-    discountPercentage: number;
-    discountTotal: number;
+    discountedTotal: number;
+    totalProducts: number;
+    totalQuantity: number;
 }
