@@ -20,7 +20,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
 
     const { carts } = useAppSelector(state => state.userSlice);
 
-    const isInCart = carts[0]?.products?.find(
+    const isInCart = carts.products?.find(
         products => products.id === product.id,
     );
 

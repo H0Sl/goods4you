@@ -1,12 +1,13 @@
 import { IProduct } from '../../models/product';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchProduct } from './action-creators';
+import { ProductsTypeResponse } from '../../api/products-api';
 interface ProductsData {
     products: IProduct[];
     skip: number;
     total: number;
 }
-interface ProductState {
+interface InitialState {
     catalogData: ProductsData;
     isLoading: boolean;
     error: string;
@@ -20,7 +21,7 @@ const productsData: ProductsData = {
     total: 0,
 };
 
-const initialState: ProductState = {
+const initialState: InitialState = {
     catalogData: productsData,
     isLoading: false,
     error: '',
@@ -44,7 +45,7 @@ export const productSlice = createSlice({
             })
             .addCase(
                 fetchProduct.fulfilled.type,
-                (state, action: PayloadAction<ProductsData>) => {
+                (state, action: PayloadAction<ProductsTypeResponse>) => {
                     state.isLoading = false;
                     state.error = '';
                     state.catalogData.products.push(...action.payload.products);

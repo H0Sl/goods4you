@@ -7,9 +7,9 @@ import { useAppSelector } from '../../hooks/redux';
 export const ContentCart = () => {
     const { carts } = useAppSelector(state => state.userSlice);
 
-    const totalProducts = carts[0]?.totalProducts;
-    const totalPrice = carts[0]?.total;
-    const discountedTotal = carts[0]?.discountedTotal;
+    const totalProducts = carts.totalProducts;
+    const totalPrice = carts.total;
+    const discountedTotal = carts.discountedTotal;
     const discount = totalPrice - discountedTotal;
     const price = totalPrice - discount;
 
@@ -25,10 +25,10 @@ export const ContentCart = () => {
                     >
                         My cart
                     </Title>
-                    {carts.length > 0 ? (
+                    {carts.totalProducts > 0 ? (
                         <div className={cl.content}>
                             <div className={cl.items}>
-                                {carts[0]?.products.map(product => (
+                                {carts.products.map(product => (
                                     <CartItem
                                         key={product.id}
                                         product={product}

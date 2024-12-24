@@ -1,12 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchProducts } from '../../api/products-api';
-import { fetchCartsByUsers } from '../../api/user-api';
+import { fetchProducts, ProductsTypeResponse } from '../../api/products-api';
+import { CartsByUserTypeResponse, fetchCartsByUsers } from '../../api/user-api';
 import { IProduct } from '../../models/product';
-import { ICartsInfo } from '../../models/user';
 import { fetchProductInfo } from '../../api/info-product-api';
 
 export const fetchProduct = createAsyncThunk<
-    IProduct[],
+    ProductsTypeResponse,
     { q: string; skip: number },
     { rejectValue: string }
 >('catalogData/fetchProduct', async ({ q, skip }, { rejectWithValue }) => {
@@ -19,7 +18,7 @@ export const fetchProduct = createAsyncThunk<
 });
 
 export const fetchCartsByUser = createAsyncThunk<
-    ICartsInfo,
+    CartsByUserTypeResponse,
     { id: number },
     { rejectValue: string }
 >('carts/fetchCarts', async ({ id }, { rejectWithValue }) => {
@@ -32,7 +31,7 @@ export const fetchCartsByUser = createAsyncThunk<
 });
 
 export const fetchProductsInfo = createAsyncThunk<
-    IProduct[],
+    IProduct,
     { id: number },
     { rejectValue: string }
 >('products/fetchProductInfo', async ({ id }, { rejectWithValue }) => {
