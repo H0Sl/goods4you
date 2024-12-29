@@ -11,11 +11,11 @@ import { useParams } from 'react-router-dom';
 export const ContentProduct = () => {
     const dispatch = useAppDispatch();
     const { id } = useParams();
-    const { products, isLoading, error } = useAppSelector(
+    const { product, isLoading, error } = useAppSelector(
         state => state.infoProductSlice,
     );
     const discount = +(
-        (products.price * products.discountPercentage) /
+        (product.price * product.discountPercentage) /
         100
     ).toFixed(1);
     useEffect(() => {
@@ -32,15 +32,15 @@ export const ContentProduct = () => {
                 <div className={cl.content}>
                     <div className={cl.wrapper}>
                         <div className={cl.big}>
-                            <img src={products.thumbnail} />
+                            <img src={product.thumbnail} />
                         </div>
                         <div className={cl.small}>
-                            <img src={products.thumbnail} className={cl.mini} />
-                            <img src={products.thumbnail} className={cl.mini} />
-                            <img src={products.thumbnail} className={cl.mini} />
-                            <img src={products.thumbnail} className={cl.mini} />
-                            <img src={products.thumbnail} className={cl.mini} />
-                            <img src={products.thumbnail} className={cl.mini} />
+                            <img src={product.thumbnail} className={cl.mini} />
+                            <img src={product.thumbnail} className={cl.mini} />
+                            <img src={product.thumbnail} className={cl.mini} />
+                            <img src={product.thumbnail} className={cl.mini} />
+                            <img src={product.thumbnail} className={cl.mini} />
+                            <img src={product.thumbnail} className={cl.mini} />
                         </div>
                     </div>
                     <div className={cl.text}>
@@ -50,7 +50,7 @@ export const ContentProduct = () => {
                             fontWeight="semiBold"
                             className={cl.title}
                         >
-                            {products.title}
+                            {product.title}
                         </Title>
                         <div>
                             <div className={cl.star}>
@@ -60,30 +60,29 @@ export const ContentProduct = () => {
                         </div>
                         <div className={cl.line} />
                         <span className={cl.red}>
-                            In Stock - Only {products.stock} left!
+                            In Stock - Only {product.stock} left!
                         </span>
                         <div className={cl.line} />
-                        <p>{products.description}</p>
+                        <p>{product.description}</p>
                         <span className={cl.span}>
-                            {products.warrantyInformation}
+                            {product.warrantyInformation}
                         </span>
                         <span className={cl.span}>
-                            {products.shippingInformation}
+                            {product.shippingInformation}
                         </span>
                         <div className={cl.add}>
                             <div className={cl.block}>
                                 <div className={cl.prices}>
                                     <span className={cl.upPrice}>
-                                        $
-                                        {(products.price - discount).toFixed(1)}
+                                        ${(product.price - discount).toFixed(1)}
                                     </span>
                                     <span className={cl.downPrice}>
-                                        ${products.price}
+                                        ${product.price}
                                     </span>
                                 </div>
                                 <div className={cl.rowSpan}>
                                     <span>Your discount:</span>
-                                    <span>{products.discountPercentage}%</span>
+                                    <span>{product.discountPercentage}%</span>
                                 </div>
                             </div>
                             <Button

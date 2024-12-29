@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cl from './CatalogItem.module.css';
 import icon from '../../img/icon-price.svg';
 import { Button } from '../UI/button';
@@ -7,6 +7,7 @@ import { Text } from '../UI/text';
 import { IProduct } from '../../models/product';
 import { useAppSelector } from '../../hooks/redux';
 import { Counter } from '../UI/counter';
+import { useCounterState } from '../../hooks/useCounterState';
 
 interface CatalogItemProps {
     product: IProduct;
@@ -27,7 +28,9 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
     const initialQuantity =
         isInCart?.quantity === undefined ? 0 : isInCart.quantity;
 
-    const [quantityValue, setQuantityValue] = useState(initialQuantity);
+    const { state, onMinusValue, onPlusValue } =
+        useCounterState(initialQuantity);
+
     return (
         <div className="container">
             <div className={cl.item}>
@@ -58,20 +61,10 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
                     </div>
                     {isInCart ? (
                         <Counter
-                            onClick={event => {
-                                event.stopPropagation();
-                                event.preventDefault();
-                            }}
-                            onMinusClick={() => {
-                                if (quantityValue > 0) {
-                                    setQuantityValue(value => value - 1);
-                                }
-                            }}
-                            onPlusClick={() =>
-                                setQuantityValue(value => value + 1)
-                            }
+                            onMinusClick={onMinusValue}
+                            onPlusClick={onPlusValue}
                         >
-                            {quantityValue}
+                            {state}
                         </Counter>
                     ) : (
                         <Button

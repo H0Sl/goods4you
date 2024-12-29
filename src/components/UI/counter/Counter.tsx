@@ -6,7 +6,6 @@ import cn from 'classnames';
 interface CounterProps {
     size?: 'sizeM';
     children: number;
-    onClick?: MouseEventHandler<HTMLDivElement>;
     onMinusClick?: MouseEventHandler<HTMLButtonElement>;
     onPlusClick?: MouseEventHandler<HTMLButtonElement>;
 }
@@ -14,12 +13,11 @@ interface CounterProps {
 export const Counter: React.FC<CounterProps> = ({
     size = 'sizeM',
     children,
-    onClick,
     onMinusClick,
     onPlusClick,
 }) => {
     return (
-        <div className={cl.counter} onClick={onClick}>
+        <div className={cl.counter}>
             <Button
                 className={cn(cl.btn, cl[size])}
                 view="icon"
