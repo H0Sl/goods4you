@@ -3,6 +3,7 @@ import '../../style/container.css';
 import { CartItem } from '../cart-item';
 import { Title } from '../UI/title';
 import { useAppSelector } from '../../hooks/redux';
+import { Link } from 'react-router-dom';
 
 export const ContentCart = () => {
     const { carts } = useAppSelector(state => state.userSlice);
@@ -29,10 +30,15 @@ export const ContentCart = () => {
                         <div className={cl.content}>
                             <div className={cl.items}>
                                 {carts.products.map(product => (
-                                    <CartItem
+                                    <Link
                                         key={product.id}
-                                        product={product}
-                                    />
+                                        to={`/product/${product.id}`}
+                                    >
+                                        <CartItem
+                                            key={product.id}
+                                            product={product}
+                                        />
+                                    </Link>
                                 ))}
                             </div>
                             <div className={cl.prices}>

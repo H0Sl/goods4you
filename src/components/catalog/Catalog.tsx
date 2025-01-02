@@ -56,9 +56,9 @@ export const Catalog = () => {
                 <div className={cl.input}>
                     <Input onChange={search} value={searchValue} />
                 </div>
-                {isLoading && <h1>Идет загрузка</h1>}
+                {isLoading && <h1>Идет загрузка...</h1>}
                 {error && <h1>{error}</h1>}
-                {catalogData.products.length === 0 ? (
+                {catalogData?.products.length === 0 ? (
                     <Text
                         className={cl.noElements}
                         fontSize="xl"

@@ -20,6 +20,7 @@ const initialState: InitialState = {
         shippingInformation: '',
         description: '',
         discountPercentage: 0,
+        images: [],
     },
     isLoading: false,
     error: '',

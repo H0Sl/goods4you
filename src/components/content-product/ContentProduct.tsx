@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { fetchProductsInfo } from '../../store/reducers/action-creators';
 import { useParams } from 'react-router-dom';
+import { ProductImg } from '../product-img/ProductImg';
 
 export const ContentProduct = () => {
     const dispatch = useAppDispatch();
@@ -30,19 +31,7 @@ export const ContentProduct = () => {
                 {isLoading && <h1>Loading...</h1>}
                 {error && <h1>Error</h1>}
                 <div className={cl.content}>
-                    <div className={cl.wrapper}>
-                        <div className={cl.big}>
-                            <img src={product.thumbnail} />
-                        </div>
-                        <div className={cl.small}>
-                            <img src={product.thumbnail} className={cl.mini} />
-                            <img src={product.thumbnail} className={cl.mini} />
-                            <img src={product.thumbnail} className={cl.mini} />
-                            <img src={product.thumbnail} className={cl.mini} />
-                            <img src={product.thumbnail} className={cl.mini} />
-                            <img src={product.thumbnail} className={cl.mini} />
-                        </div>
-                    </div>
+                    <ProductImg product={product} />
                     <div className={cl.text}>
                         <Title
                             tag="h1"
