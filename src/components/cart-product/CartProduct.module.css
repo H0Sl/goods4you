@@ -1,0 +1,30 @@
+.items{
+    border:1px solid #c4c4c4;
+    padding:20px 40px;
+    display:grid;
+    gap: 12px;
+}
+
+@media (max-width:840px){
+    .items{
+        padding: 20px 0;
+    }
+}
+
+@media (max-width:740px){
+    .items{
+        padding: 20px 70px;
+    }
+}
+
+@media (max-width:600px){
+    .items{
+        padding: 20px 0;
+    }
+}
+
+@media (max-width:415px){
+    .items{
+        border: none;
+    }
+}

@@ -1,89 +1,33 @@
 import cl from './ContentProduct.module.css';
 import '../../style/container.css';
-import star from '../../img/product/star.svg';
-import { Button } from '../UI/button';
-import { Title } from '../UI/title';
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { fetchProductsInfo } from '../../store/reducers/action-creators';
 import { useParams } from 'react-router-dom';
 import { ProductImg } from '../product-img/ProductImg';
+import { useGetInfoQuery } from '../../api/info-product-api';
+import { ProductText } from '../product-text/ProductText';
+import { Title } from '../UI/title';
 
 export const ContentProduct = () => {
-    const dispatch = useAppDispatch();
     const { id } = useParams();
-    const { product, isLoading, error } = useAppSelector(
-        state => state.infoProductSlice,
-    );
-    const discount = +(
-        (product.price * product.discountPercentage) /
-        100
-    ).toFixed(1);
-    useEffect(() => {
-        const source = dispatch(fetchProductsInfo({ id: Number(id) }));
-        return () => {
-            source.abort();
-        };
-    }, []);
+    const { data: product, isLoading } = useGetInfoQuery(String(id));
     return (
         <section className={cl.product}>
             <div className="container">
-                {isLoading && <h1>Loading...</h1>}
-                {error && <h1>Error</h1>}
-                <div className={cl.content}>
-                    <ProductImg product={product} />
-                    <div className={cl.text}>
-                        <Title
-                            tag="h1"
-                            fontSize="xxl"
-                            fontWeight="semiBold"
-                            className={cl.title}
-                        >
-                            {product.title}
-                        </Title>
-                        <div>
-                            <div className={cl.star}>
-                                <img src={star} alt="" />
-                                <span>electronics, selfie accessories</span>
-                            </div>
-                        </div>
-                        <div className={cl.line} />
-                        <span className={cl.red}>
-                            In Stock - Only {product.stock} left!
-                        </span>
-                        <div className={cl.line} />
-                        <p>{product.description}</p>
-                        <span className={cl.span}>
-                            {product.warrantyInformation}
-                        </span>
-                        <span className={cl.span}>
-                            {product.shippingInformation}
-                        </span>
-                        <div className={cl.add}>
-                            <div className={cl.block}>
-                                <div className={cl.prices}>
-                                    <span className={cl.upPrice}>
-                                        ${(product.price - discount).toFixed(1)}
-                                    </span>
-                                    <span className={cl.downPrice}>
-                                        ${product.price}
-                                    </span>
-                                </div>
-                                <div className={cl.rowSpan}>
-                                    <span>Your discount:</span>
-                                    <span>{product.discountPercentage}%</span>
-                                </div>
-                            </div>
-                            <Button
-                                className={cl.button}
-                                view="text"
-                                size="small"
-                            >
-                                <span className={cl.btnSpan}>Add to cart</span>
-                            </Button>
-                        </div>
+                {isLoading && (
+                    <Title
+                        tag="h2"
+                        fontSize="xl"
+                        fontWeight="Bold"
+                        className={cl.isLoading}
+                    >
+                        Loading...
+                    </Title>
+                )}
+                {product && (
+                    <div className={cl.content}>
+                        <ProductImg product={product} />
+                        <ProductText product={product} />
                     </div>
-                </div>
+                )}
             </div>
         </section>
     );
