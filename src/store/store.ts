@@ -1,13 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import productSlice from './reducers/product-slice';
 import userSlice from './reducers/user-slice';
-import infoProductSlice from './reducers/info-product-slice';
 import { fetchProductInf } from 'api/info-product-api';
 
 const rootReducer = combineReducers({
     productSlice,
     userSlice,
-    infoProductSlice,
     [fetchProductInf.reducerPath]: fetchProductInf.reducer,
 });
 
