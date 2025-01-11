@@ -1,10 +1,11 @@
 import React from 'react';
 import cl from './CartItem.module.css';
+import { useCounterState } from '../../hooks/useCounterState';
 import { Counter } from '../UI/counter';
+
 import { Title } from '../UI/title';
 import { Text } from '../UI/text';
-import { IProduct } from '../../models/product';
-import { useCounterState } from '../../hooks/useCounterState';
+import { IProduct } from 'models/product';
 
 interface CartItemProps {
     product: IProduct;
