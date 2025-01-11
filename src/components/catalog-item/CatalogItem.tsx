@@ -7,7 +7,7 @@ import { Title } from 'components/UI/title';
 import { Text } from 'components/UI/text';
 import { Counter } from 'components/UI/counter';
 import { Button } from 'components/UI/button';
-import icon from 'img/CatalogItem.svg';
+import icon from 'img/icon-price.svg';
 
 interface CatalogItemProps {
     product: IProduct;

@@ -9,7 +9,7 @@ export default defineConfig({
             api: '/src/api',
             components: '/src/components',
             fonts: '/src/fonts',
-            hooks: '/src/fonts',
+            hooks: '/src/hooks',
             img: '/src/img',
             models: '/src/models',
             pages: '/src/pages',
