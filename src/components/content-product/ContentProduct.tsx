@@ -1,10 +1,9 @@
 import cl from './ContentProduct.module.css';
-import '../../style/container.css';
 import { useParams } from 'react-router-dom';
-import { ProductImg } from '../product-img/ProductImg';
-import { useGetInfoQuery } from '../../api/info-product-api';
-import { ProductText } from '../product-text/ProductText';
-import { Title } from '../UI/title';
+import { useGetInfoQuery } from 'api/info-product-api';
+import { Title } from 'components/UI/title';
+import { ProductImg } from 'components/product-img';
+import { ProductText } from 'components/product-text';
 
 export const ContentProduct = () => {
     const { id } = useParams();

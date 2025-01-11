@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import cl from './AddInfo.module.css';
-import { Text } from '../UI/text';
-import { Title } from '../UI/title';
+import { Title } from 'components/UI/title';
+import { Text } from 'components/UI/text';
 
 interface Info {
     info: InfoItem[];

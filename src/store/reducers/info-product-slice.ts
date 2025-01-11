@@ -1,4 +1,4 @@
-import { IProduct } from '../../models/product';
+import { IProduct } from 'models/product';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchProductsInfo } from './action-creators';
 

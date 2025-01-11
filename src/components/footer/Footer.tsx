@@ -1,7 +1,7 @@
 import cl from './Footer.module.css';
-import '../../style/container.css';
+import 'style/container.css';
 import { Link } from 'react-router-dom';
-import { Title } from '../UI/title';
+import { Title } from 'components/UI/title';
 
 export const Footer = () => {
     return (

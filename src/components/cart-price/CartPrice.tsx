@@ -1,7 +1,6 @@
 import React from 'react';
-
 import cl from './CartPrice.module.css';
-import { ICartsInfo } from 'src/models/user';
+import { ICartsInfo } from 'models/user';
 
 interface CartPriceProps {
     cart: ICartsInfo;

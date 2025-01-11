@@ -1,9 +1,8 @@
+import { useAppSelector } from 'hooks/redux';
 import cl from './ContentCart.module.css';
-import '../../style/container.css';
-import { Title } from '../UI/title';
-import { useAppSelector } from '../../hooks/redux';
-import { CartProduct } from '../cart-product/CartProduct';
-import { CartPrice } from '../cart-price';
+import { Title } from 'components/UI/title';
+import { CartProduct } from 'components/cart-product';
+import { CartPrice } from 'components/cart-price';
 
 export const ContentCart = () => {
     const { carts } = useAppSelector(state => state.userSlice);

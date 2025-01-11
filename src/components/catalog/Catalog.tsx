@@ -1,15 +1,15 @@
 import { ChangeEvent, useEffect, useState } from 'react';
-import '../../style/container.css';
-import { Button } from '../UI/button';
-import { Input } from '../UI/input';
-import { CatalogItem } from '../catalog-item';
+import 'style/container.css';
 import cl from './Catalog.module.css';
 import { Link } from 'react-router-dom';
-import { Title } from '../UI/title';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { fetchProduct } from '../../store/reducers/action-creators';
-import { Text } from '../UI/text';
-import { resetProducts } from '../../store/reducers/product-slice';
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
+import { resetProducts } from 'store/reducers/product-slice';
+import { fetchProduct } from 'store/reducers/action-creators';
+import { Title } from 'components/UI/title';
+import { Input } from 'components/UI/input';
+import { Text } from 'components/UI/text';
+import { CatalogItem } from 'components/catalog-item';
+import { Button } from 'components/UI/button';
 
 export const Catalog = () => {
     const dispatch = useAppDispatch();

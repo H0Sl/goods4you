@@ -1,8 +1,8 @@
-import { IProduct } from '../../models/product';
-import { Button } from '../UI/button';
-import { Title } from '../UI/title';
+import { IProduct } from 'models/product';
+import { Button } from 'components/UI/button';
+import { Title } from 'components/UI/title';
 import cl from './ProductText.module.css';
-import star from '../../img/product/star.svg';
+import star from 'img/product/star.svg';
 
 interface ProductTextProps {
     product: IProduct;

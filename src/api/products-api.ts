@@ -1,6 +1,6 @@
-import { IProduct } from '../models/product';
-import { removeEmptyParams } from '../utils/remove-empty-params';
+import { IProduct } from 'models/product';
 import axiosInstance from './axios-instance';
+import { removeEmptyParams } from 'utils/remove-empty-params';
 
 export type ProductsTypeResponse = {
     products: IProduct[];

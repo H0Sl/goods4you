@@ -1,8 +1,8 @@
 import React from 'react';
-import { ICartsInfo } from '../../models/user';
 import { Link } from 'react-router-dom';
-import { CartItem } from '../cart-item';
 import cl from './CartProduct.module.css';
+import { ICartsInfo } from 'models/user';
+import { CartItem } from 'components/cart-item';
 
 interface CartProductProps {
     cart: ICartsInfo;

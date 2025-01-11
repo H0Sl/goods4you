@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import cl from './NavBar.module.css';
-import '../../style/container.css';
+import 'style/container.css';
 import { Link } from 'react-router-dom';
-import { Title } from '../UI/title';
-import basket from '../../img/basket.png';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { Title } from 'components/UI/title';
+import basket from 'img/basket.png';
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import cn from 'classnames';
-import { resetProducts } from '../../store/reducers/product-slice';
+import { resetProducts } from 'store/reducers/product-slice';
 
 export const NavBar = () => {
     const dispatch = useAppDispatch();

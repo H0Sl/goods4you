@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IProduct } from '../../models/product';
+import { IProduct } from 'models/product';
 import cl from './ProductImg.module.css';
 
 interface ProductImgProps {

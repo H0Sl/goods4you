@@ -1,6 +1,6 @@
+import { useAppDispatch } from 'hooks/redux';
 import { useEffect } from 'react';
-import { useAppDispatch } from '../../hooks/redux';
-import { fetchCartsByUser } from '../../store/reducers/action-creators';
+import { fetchCartsByUser } from 'store/reducers/action-creators';
 
 export const CartLoading = () => {
     const dispatch = useAppDispatch();

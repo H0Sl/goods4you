@@ -24,7 +24,7 @@
     "baseUrl": "src",
     "paths": {
       "components/*":["components/*"],
-      "api/*":["components/*"],
+      "api/*":["api/*"],
       "fonts/*":["fonts/*"],
       "hooks/*":["hooks/*"],
       "img/*":["img/*"],

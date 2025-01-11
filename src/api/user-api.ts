@@ -1,4 +1,4 @@
-import { ICartsInfo } from '../models/user';
+import { ICartsInfo } from 'models/user';
 import axiosInstance from './axios-instance';
 
 export type CartsByUserTypeResponse = {

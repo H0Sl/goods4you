@@ -1,6 +1,6 @@
-import { Footer } from '../../components/footer';
-import { NavBar } from '../../components/nav-bar';
-import { ContentProduct } from '../../components/content-product';
+import { Footer } from 'components/footer';
+import { NavBar } from 'components/nav-bar';
+import { ContentProduct } from 'components/content-product';
 import cl from './Product.module.css';
 
 export const Product = () => {

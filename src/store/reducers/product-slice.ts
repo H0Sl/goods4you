@@ -1,7 +1,7 @@
-import { IProduct } from '../../models/product';
+import { IProduct } from 'models/product';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchProduct } from './action-creators';
-import { ProductsTypeResponse } from '../../api/products-api';
+import { ProductsTypeResponse } from 'api/products-api';
 interface ProductsData {
     products: IProduct[];
     skip: number;

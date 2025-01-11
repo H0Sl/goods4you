@@ -1,13 +1,13 @@
 import React from 'react';
 import cl from './CatalogItem.module.css';
-import icon from '../../img/icon-price.svg';
-import { Button } from '../UI/button';
-import { Title } from '../UI/title';
-import { Text } from '../UI/text';
-import { IProduct } from '../../models/product';
-import { useAppSelector } from '../../hooks/redux';
-import { Counter } from '../UI/counter';
-import { useCounterState } from '../../hooks/useCounterState';
+import { IProduct } from 'models/product';
+import { useAppSelector } from 'hooks/redux';
+import { useCounterState } from 'hooks/useCounterState';
+import { Title } from 'components/UI/title';
+import { Text } from 'components/UI/text';
+import { Counter } from 'components/UI/counter';
+import { Button } from 'components/UI/button';
+import icon from 'img/CatalogItem.svg';
 
 interface CatalogItemProps {
     product: IProduct;

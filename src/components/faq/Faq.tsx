@@ -1,7 +1,7 @@
-import { AddInfo } from '../faq-add-info';
+import { Title } from 'components/UI/title';
 import cl from './Faq.module.css';
-import '../../style/container.css';
-import { Title } from '../UI/title';
+import { AddInfo } from 'components/faq-add-info';
+import 'style/container.css';
 
 const info = [
     {

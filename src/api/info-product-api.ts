@@ -1,4 +1,4 @@
-import { IProduct } from '../models/product';
+import { IProduct } from 'models/product';
 import axiosInstance from './axios-instance';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
