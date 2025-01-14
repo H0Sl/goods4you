@@ -24,3 +24,51 @@
     width: 60px;
     height: 60px;
 }
+
+.btnIcon {
+    border: none;
+    background-color: var(--btn-bg);
+    padding: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+.btnIcon:hover {
+    background-color: var(--btn-bg-active);
+}
+
+
+.btnText {
+    border: none;
+    background-color: var(--btn-bg);
+    min-width: 148px;
+    min-height: 62px;
+    padding: 20px 50px;
+    border-radius: 4px;
+    gap: 10px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    cursor: pointer;
+    color: white;
+    position: relative;
+}
+
+.btnText:hover{
+    background-color: var(--btn-bg-active);
+}
+
+.btnDisabled {
+    border: none;
+    background-color: #F8AFAF;
+    min-width: 148px;
+    min-height: 62px;
+    padding: 20px 50px;
+    border-radius: 4px;
+    gap: 10px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    color: white;
+}
