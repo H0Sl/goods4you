@@ -9,6 +9,7 @@ interface Button {
     view?: 'text' | 'icon';
     size?: 'big' | 'small';
     type: 'btnIcon' | 'btnText' | 'btnDisabled';
+    loader?: boolean;
 }
 
 export const Button: React.FC<Button> = ({
@@ -18,8 +19,16 @@ export const Button: React.FC<Button> = ({
     view = 'text',
     size = 'small',
     type = 'btnText',
+    loader = false,
 }) => {
-    return (
+    return loader === true ? (
+        <button
+            className={cn(className, cl[view], cl[size], cl[type])}
+            onClick={onClick}
+        >
+            <div className={cl.loader} />
+        </button>
+    ) : (
         <button
             className={cn(className, cl[view], cl[size], cl[type])}
             onClick={onClick}

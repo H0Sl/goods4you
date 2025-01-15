@@ -72,3 +72,18 @@
     font-weight: 400;
     color: white;
 }
+
+/* HTML: <div class="loader"></div> */
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    height: 15px;
+    aspect-ratio: 5;
+    mask: linear-gradient(90deg,#0000 ,#000 20% 80%,#0000);
+    background: radial-gradient(closest-side at 37.5% 50%,#000 94%,#0000) 0/calc(80%/3) 100%;
+    animation: l48 .75s infinite linear;
+}
+
+@keyframes l48 {
+    100% {background-position: 36.36%}
+}

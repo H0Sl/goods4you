@@ -39,3 +39,13 @@ export const Disabled: Story = {
         );
     },
 };
+
+export const Loader: Story = {
+    render: () => {
+        return (
+            <Button view="text" size="small" type="btnDisabled" loader={true}>
+                Loader
+            </Button>
+        );
+    },
+};
