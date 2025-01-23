@@ -22,6 +22,7 @@ export const Counter: React.FC<CounterProps> = ({
                 className={cn(cl.btn, cl[size])}
                 view="icon"
                 onClick={onMinusClick}
+                type="btnIcon"
             >
                 <div className={cl.minus} />
             </Button>
@@ -30,6 +31,7 @@ export const Counter: React.FC<CounterProps> = ({
                 className={cn(cl.btn, cl[size])}
                 view="icon"
                 onClick={onPlusClick}
+                type="btnIcon"
             >
                 <div className={cl.plus} />
             </Button>
