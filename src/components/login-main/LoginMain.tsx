@@ -3,8 +3,20 @@ import { Title } from 'components/UI/title';
 import 'style/container.css';
 import cl from './LoginMain.module.css';
 import { Input } from 'components/UI/input';
+import { ChangeEvent, useState } from 'react';
 
 export const LoginMain = () => {
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+
+    const newEmail = (e: ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value);
+    };
+
+    const newPassword = (e: ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value);
+    };
+
     return (
         <div className={cl.loginMain}>
             <div className="container">
@@ -14,9 +26,19 @@ export const LoginMain = () => {
                             Sign in
                         </Title>
                     </div>
-                    <form action="" className={cl.form}>
-                        <Input type="text">Email</Input>
-                        <Input type="password">Password</Input>
+                    <form className={cl.form}>
+                        <Input
+                            onChange={newEmail}
+                            value={email}
+                            placeholder="Email"
+                            type="text"
+                        />
+                        <Input
+                            onChange={newPassword}
+                            value={password}
+                            placeholder="Password"
+                            type="password"
+                        />
                         <Button type="btnText">Sign in</Button>
                     </form>
                 </div>
