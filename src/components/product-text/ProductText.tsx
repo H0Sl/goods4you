@@ -50,7 +50,12 @@ export const ProductText: React.FC<ProductTextProps> = ({ product }) => {
                         <span>{product.discountPercentage}%</span>
                     </div>
                 </div>
-                <Button className={cl.button} view="text" size="small">
+                <Button
+                    className={cl.button}
+                    view="text"
+                    size="small"
+                    type="btnText"
+                >
                     <span className={cl.btnSpan}>Add to cart</span>
                 </Button>
             </div>
