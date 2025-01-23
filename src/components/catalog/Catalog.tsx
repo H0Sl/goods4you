@@ -54,9 +54,11 @@ export const Catalog = () => {
                     Catalog
                 </Title>
                 <div className={cl.input}>
-                    <Input onChange={search} value={searchValue}>
-                        Search by title
-                    </Input>
+                    <Input
+                        onChange={search}
+                        value={searchValue}
+                        placeholder="Search by title"
+                    />
                 </div>
                 {isLoading && <h1>Идет загрузка...</h1>}
                 {error && <h1>{error}</h1>}
