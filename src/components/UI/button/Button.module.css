@@ -24,3 +24,66 @@
     width: 60px;
     height: 60px;
 }
+
+.btnIcon {
+    border: none;
+    background-color: var(--btn-bg);
+    padding: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+.btnIcon:hover {
+    background-color: var(--btn-bg-active);
+}
+
+
+.btnText {
+    border: none;
+    background-color: var(--btn-bg);
+    min-width: 148px;
+    min-height: 62px;
+    padding: 20px 50px;
+    border-radius: 4px;
+    gap: 10px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    cursor: pointer;
+    color: white;
+    position: relative;
+}
+
+.btnText:hover{
+    background-color: var(--btn-bg-active);
+}
+
+.btnDisabled {
+    border: none;
+    background-color: #F8AFAF;
+    min-width: 148px;
+    min-height: 62px;
+    padding: 20px 50px;
+    border-radius: 4px;
+    gap: 10px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    color: white;
+}
+
+/* HTML: <div class="loader"></div> */
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    height: 15px;
+    aspect-ratio: 5;
+    mask: linear-gradient(90deg,#0000 ,#000 20% 80%,#0000);
+    background: radial-gradient(closest-side at 37.5% 50%,#000 94%,#0000) 0/calc(80%/3) 100%;
+    animation: l48 .75s infinite linear;
+}
+
+@keyframes l48 {
+    100% {background-position: 36.36%}
+}

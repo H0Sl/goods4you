@@ -1,8 +1,8 @@
-import React from 'react';
 import cl from './Header.module.css';
-import '../../style/container.css';
-import { Button } from '../UI/button';
+import 'style/container.css';
+import { Button } from 'components/UI/button';
 import { Link } from 'react-router-dom';
+import { Text } from 'components/UI/text';
 
 export const Header = () => {
     return (
@@ -10,21 +10,22 @@ export const Header = () => {
             <div className="container">
                 <div className={cl.main}>
                     <div className={cl.line} />
-                    <p className={cl.mainText}>
+                    <Text tag="p" className={cl.mainText} fontSize="xxl">
                         Any products from famous brands
                         <br /> with worldwide delivery
-                    </p>
-                    <p className={cl.text}>
+                    </Text>
+                    <Text tag="p" className={cl.text} fontWeight="semiBold">
                         We sell smartphones, laptops, clothes, shoes
                         <br />
                         and many other products at low prices
-                    </p>
+                    </Text>
                     <div className={cl.btn}>
                         <Link to="#Catalog">
                             <Button
                                 className={cl.button}
                                 view="text"
                                 size="big"
+                                type="btnText"
                             >
                                 <span className={cl.btnSpan}>
                                     Go to shopping

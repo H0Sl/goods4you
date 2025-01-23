@@ -1,18 +1,48 @@
 import React from 'react';
 import cl from './CartItem.module.css';
-import mini from '../../img/cart/photo.png';
-import { Counter } from '../UI/counter';
+import { IProduct } from 'models/product';
+import { useCounterState } from 'hooks/useCounterState';
+import { Title } from 'components/UI/title';
+import { Text } from 'components/UI/text';
+import { Counter } from 'components/UI/counter';
 
-export const CartItem = () => {
+interface CartItemProps {
+    product: IProduct;
+}
+
+export const CartItem: React.FC<CartItemProps> = ({ product }) => {
+    const { state, onMinusValue, onPlusValue } = useCounterState(
+        product.quantity,
+    );
     return (
-        <div className={cl.item}>
-            <img src={mini} alt="" />
-            <div className={cl.text}>
-                <h4 className={cl.textTitle}>Essence Mascara Lash Princess</h4>
-                <span className={cl.textSpan}>$110</span>
+        <div className={cl.items}>
+            <div className={cl.item}>
+                <img src={product.thumbnail} className={cl.mini} alt="" />
+                <div className={cl.text}>
+                    <Title
+                        tag="h2"
+                        fontSize="m"
+                        fontWeight="semiBold"
+                        className={cl.textTitle}
+                    >
+                        {product.title}
+                    </Title>
+                    <Text
+                        tag="span"
+                        fontSize="m"
+                        fontWeight="regular"
+                        className={cl.textSpan}
+                    >
+                        ${product.price}
+                    </Text>
+                </div>
             </div>
-            <Counter size="sizeM" />
-            <span className={cl.delete}>Delete</span>
+            <div className={cl.item}>
+                <Counter onMinusClick={onMinusValue} onPlusClick={onPlusValue}>
+                    {state}
+                </Counter>
+                <span className={cl.delete}>Delete</span>
+            </div>
         </div>
     );
 };

@@ -1,18 +1,48 @@
-import React from 'react';
+import { useState } from 'react';
 import cl from './NavBar.module.css';
-import '../../style/container.css';
+import 'style/container.css';
 import { Link } from 'react-router-dom';
+import { Title } from 'components/UI/title';
+import basket from 'img/basket.png';
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
+import cn from 'classnames';
+import { resetProducts } from 'store/reducers/product-slice';
 
 export const NavBar = () => {
+    const dispatch = useAppDispatch();
+    const { carts } = useAppSelector(state => state.userSlice);
+    const [menuActive, setMenuActive] = useState(false);
+
     return (
-        <div className={cl.navbar}>
+        <nav className={cl.navbar}>
             <div className="container">
                 <div className={cl.content}>
-                    <div className={cl.logo}>
+                    <Title
+                        tag="h1"
+                        fontSize="xl"
+                        fontWeight="Bold"
+                        className={cl.logo}
+                    >
                         <Link to="/">Goods4you</Link>
+                    </Title>
+                    <div
+                        className={
+                            menuActive
+                                ? cn(cl.menuIcon, cl.active)
+                                : cl.menuIcon
+                        }
+                        onClick={() => setMenuActive(!menuActive)}
+                    >
+                        <span />
                     </div>
-                    <div className={cl.items}>
-                        <ul>
+                    <div
+                        className={
+                            menuActive
+                                ? cn(cl.menuList, cl.active)
+                                : cl.menuList
+                        }
+                    >
+                        <ul className={cl.list}>
                             <li className={cl.item}>
                                 <Link to="/#Catalog">Catalog</Link>
                             </li>
@@ -20,7 +50,24 @@ export const NavBar = () => {
                                 <Link to="/#FAQ">FAQ</Link>
                             </li>
                             <li className={cl.item}>
-                                <Link to="/cart">Cart</Link>
+                                <div className={cl.basket}>
+                                    <Link
+                                        to="/cart"
+                                        onClick={() => {
+                                            dispatch(resetProducts());
+                                        }}
+                                    >
+                                        Cart
+                                    </Link>
+                                    <img src={basket} alt="" />
+                                    {carts.totalQuantity > 0 ? (
+                                        <div className={cl.counter}>
+                                            <span>{carts.totalQuantity}</span>
+                                        </div>
+                                    ) : (
+                                        <div />
+                                    )}
+                                </div>
                             </li>
                             <li className={cl.item}>
                                 <a href="#">Johnson Smith</a>
@@ -29,6 +76,6 @@ export const NavBar = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </nav>
     );
 };

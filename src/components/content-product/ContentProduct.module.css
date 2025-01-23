@@ -1,0 +1,22 @@
+.content {
+    margin: 48px 0;
+    display:flex;
+    justify-content: space-between;
+}
+
+.isLoading{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* -----------MEDIA------------- */
+
+@media(max-width:1250px){
+    .content{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+

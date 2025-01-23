@@ -1,7 +1,6 @@
-import React from 'react';
-import { Footer } from '../../components/footer';
-import { NavBar } from '../../components/nav-bar';
-import { ContentCart } from '../../components/content-cart';
+import { Footer } from 'components/footer';
+import { NavBar } from 'components/nav-bar';
+import { ContentCart } from 'components/content-cart';
 import cl from './Cart.module.css';
 
 export const Cart = () => {

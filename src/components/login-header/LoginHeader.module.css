@@ -1,0 +1,9 @@
+.loginHeader{
+    padding:23px 0;
+    background-color:var(--bg-color);
+}
+
+.logo a {
+    color:var(--main-color);
+    line-height:1.47;
+}

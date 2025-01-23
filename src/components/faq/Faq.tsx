@@ -1,7 +1,7 @@
-import React from 'react';
-import { AddInfo } from '../faq-add-info';
+import { Title } from 'components/UI/title';
 import cl from './Faq.module.css';
-import '../../style/container.css';
+import { AddInfo } from 'components/faq-add-info';
+import 'style/container.css';
 
 const info = [
     {
@@ -23,7 +23,14 @@ export const FAQ = () => {
         <section className={cl.faq} id="FAQ">
             <div className="container">
                 <div className={cl.content}>
-                    <h1 className={cl.titleText}>faq</h1>
+                    <Title
+                        tag="h1"
+                        fontSize="xxl"
+                        fontWeight="Bold"
+                        className={cl.titleText}
+                    >
+                        faq
+                    </Title>
                     <AddInfo info={info} />
                 </div>
             </div>
