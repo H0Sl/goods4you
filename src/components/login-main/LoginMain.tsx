@@ -3,16 +3,15 @@ import { Title } from 'components/UI/title';
 import 'style/container.css';
 import cl from './LoginMain.module.css';
 import { Input } from 'components/UI/input';
-import React, { ChangeEvent, useState } from 'react';
-import { useGetCurrentUserQuery, useLoginMutation } from 'api/login-user';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useLoginMutation } from 'api/login-user';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginMain = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [login, { isLoading }] = useLoginMutation();
-    const { data, refetch } = useGetCurrentUserQuery({
-        accessToken: localStorage.getItem('token'),
-    });
+    const [login, { isLoading, isSuccess }] = useLoginMutation();
+    const navigate = useNavigate();
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -23,10 +22,9 @@ export const LoginMain = () => {
             const result = await login({
                 username: email,
                 password: password,
+                expiresInMins: 30,
             }).unwrap();
             localStorage.setItem('token', result.accessToken);
-            refetch();
-            console.log(data);
         } catch (err) {
             alert(`Error ${err}`);
         }
@@ -39,6 +37,12 @@ export const LoginMain = () => {
     const newPassword = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value);
     };
+
+    useEffect(() => {
+        if (isSuccess) {
+            navigate('/');
+        }
+    }, [isSuccess]);
 
     return (
         <div className={cl.loginMain}>
