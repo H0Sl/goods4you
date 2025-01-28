@@ -3,11 +3,34 @@ import { Title } from 'components/UI/title';
 import 'style/container.css';
 import cl from './LoginMain.module.css';
 import { Input } from 'components/UI/input';
-import { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
+import { useGetCurrentUserQuery, useLoginMutation } from 'api/login-user';
 
 export const LoginMain = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [login, { isLoading }] = useLoginMutation();
+    const { data, refetch } = useGetCurrentUserQuery({
+        accessToken: localStorage.getItem('token'),
+    });
+
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!email || !password) {
+            alert('Email and password are required');
+        }
+        try {
+            const result = await login({
+                username: email,
+                password: password,
+            }).unwrap();
+            localStorage.setItem('token', result.accessToken);
+            refetch();
+            console.log(data);
+        } catch (err) {
+            alert(`Error ${err}`);
+        }
+    };
 
     const newEmail = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
@@ -39,7 +62,9 @@ export const LoginMain = () => {
                             placeholder="Password"
                             type="password"
                         />
-                        <Button type="btnText">Sign in</Button>
+                        <Button type="btnText" onClick={handleLogin}>
+                            {isLoading ? 'Logging in...' : 'Sign in'}
+                        </Button>
                     </form>
                 </div>
             </div>
