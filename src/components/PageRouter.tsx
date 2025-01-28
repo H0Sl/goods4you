@@ -6,15 +6,13 @@ import { Login } from 'pages/Login';
 
 const PageRouter = () => {
     return (
-        <div>
-            <Routes>
-                <Route path="/product/:id" element={<Product />} />
-                <Route path="/" element={<Home />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/*" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-            </Routes>
-        </div>
+        <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/*" element={<Home />} />
+        </Routes>
     );
 };
 
