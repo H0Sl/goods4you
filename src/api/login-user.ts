@@ -5,11 +5,20 @@ const baseUrl: string = import.meta.env.VITE_BASE_URL;
 
 export const fetchLogin = createApi({
     reducerPath: 'fetchLogin',
-    baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
+    baseQuery: fetchBaseQuery({
+        baseUrl: baseUrl,
+        prepareHeaders: headers => {
+            const token = localStorage.getItem('token');
+            if (token) {
+                headers.set('Authorization', `Bearer ${token}`);
+            }
+            return headers;
+        },
+    }),
     endpoints: builder => ({
         login: builder.mutation<
             LoginUser,
-            { username: string; password: string }
+            { username: string; password: string; expiresInMins: number }
         >({
             query: body => ({
                 url: 'auth/login',
@@ -17,17 +26,11 @@ export const fetchLogin = createApi({
                 headers: {
                     'Content-type': 'application/json',
                 },
-                body: JSON.stringify(body),
+                body: body,
             }),
         }),
-        getCurrentUser: builder.query<LoginUser, { accessToken: string }>({
-            query: accessToken => ({
-                url: 'auth/me',
-                method: 'GET',
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            }),
+        getCurrentUser: builder.query<LoginUser, void>({
+            query: () => 'auth/me',
         }),
     }),
 });
