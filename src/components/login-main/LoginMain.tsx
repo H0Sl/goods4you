@@ -48,7 +48,7 @@ export const LoginMain = () => {
                             Sign in
                         </Title>
                     </div>
-                    <form className={cl.form}>
+                    <form className={cl.form} onSubmit={handleLogin}>
                         <Input
                             onChange={newEmail}
                             value={email}
@@ -61,7 +61,7 @@ export const LoginMain = () => {
                             placeholder="Password"
                             type="password"
                         />
-                        <Button type="btnText" onClick={handleLogin}>
+                        <Button type="submit" variant="btnText">
                             {isLoading ? 'Logging in...' : 'Sign in'}
                         </Button>
                     </form>

@@ -75,7 +75,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
                                 event.stopPropagation();
                                 event.preventDefault();
                             }}
-                            type="btnIcon"
+                            variant="btnIcon"
                         >
                             <img src={icon} className={cl.icon} alt="" />
                         </Button>
