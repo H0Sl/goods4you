@@ -94,7 +94,7 @@ export const Catalog = () => {
                             view="text"
                             size="small"
                             onClick={showMore}
-                            type="btnText"
+                            variant="btnText"
                         >
                             <span className={cl.btnSpan}>Show more</span>
                         </Button>
