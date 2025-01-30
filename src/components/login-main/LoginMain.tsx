@@ -3,14 +3,14 @@ import { Title } from 'components/UI/title';
 import 'style/container.css';
 import cl from './LoginMain.module.css';
 import { Input } from 'components/UI/input';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { useLoginMutation } from 'api/login-user';
 import { useNavigate } from 'react-router-dom';
 
 export const LoginMain = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [login, { isLoading, isSuccess }] = useLoginMutation();
+    const [login, { isLoading }] = useLoginMutation();
     const navigate = useNavigate();
 
     const handleLogin = async (e: React.FormEvent) => {
@@ -25,6 +25,7 @@ export const LoginMain = () => {
                 expiresInMins: 30,
             }).unwrap();
             localStorage.setItem('token', result.accessToken);
+            navigate('/');
         } catch (err) {
             alert(`Error ${err}`);
         }
@@ -37,12 +38,6 @@ export const LoginMain = () => {
     const newPassword = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value);
     };
-
-    useEffect(() => {
-        if (isSuccess) {
-            navigate('/');
-        }
-    }, [isSuccess]);
 
     return (
         <div className={cl.loginMain}>
