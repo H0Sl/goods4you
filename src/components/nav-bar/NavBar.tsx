@@ -64,7 +64,8 @@ export const NavBar = () => {
                                             Cart
                                         </Link>
                                         <img src={basket} alt="" />
-                                        {carts.totalQuantity > 0 ? (
+                                        {carts?.totalQuantity &&
+                                        carts?.totalQuantity > 0 ? (
                                             <div className={cl.counter}>
                                                 <span>
                                                     {carts.totalQuantity}
