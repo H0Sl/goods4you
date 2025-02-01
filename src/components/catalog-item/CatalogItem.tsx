@@ -1,13 +1,14 @@
 import React from 'react';
 import cl from './CatalogItem.module.css';
 import { IProduct } from 'models/product';
-import { useAppSelector } from 'hooks/redux';
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import { useCounterState } from 'hooks/useCounterState';
 import { Title } from 'components/UI/title';
 import { Text } from 'components/UI/text';
 import { Counter } from 'components/UI/counter';
 import { Button } from 'components/UI/button';
 import icon from 'img/icon-price.svg';
+import { fetchUpdateCart } from 'store/reducers/action-creators';
 
 interface CatalogItemProps {
     product: IProduct;
@@ -18,6 +19,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
         (product.price * product.discountPercentage) /
         100
     ).toFixed(1);
+    const dispatch = useAppDispatch();
 
     const { carts } = useAppSelector(state => state.userSlice);
 
@@ -25,11 +27,35 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
         products => products.id === product.id,
     );
 
-    const initialQuantity =
-        isInCart?.quantity === undefined ? 0 : isInCart?.quantity;
+    const initialQuantity = isInCart?.quantity || 0;
 
-    const { state, onMinusValue, onPlusValue } =
-        useCounterState(initialQuantity);
+    const { state, onMinusValue, onPlusValue } = useCounterState(
+        initialQuantity,
+        newQuantity => {
+            const updatedProducts = carts.products.map(p =>
+                p.id === product.id ? { ...p, quantity: newQuantity } : p,
+            );
+            dispatch(
+                fetchUpdateCart({
+                    id: carts.id,
+                    products: updatedProducts,
+                    merge: false,
+                }),
+            );
+        },
+    );
+
+    const addProductInCarts = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.stopPropagation();
+        event.preventDefault();
+        dispatch(
+            fetchUpdateCart({
+                id: carts.id,
+                products: [...carts.products, { id: product.id, quantity: 1 }],
+                merge: false,
+            }),
+        );
+    };
 
     return (
         <div className="container">
@@ -71,10 +97,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
                             className={cl.button}
                             view="icon"
                             size="small"
-                            onClick={event => {
-                                event.stopPropagation();
-                                event.preventDefault();
-                            }}
+                            onClick={addProductInCarts}
                             variant="btnIcon"
                         >
                             <img src={icon} className={cl.icon} alt="" />

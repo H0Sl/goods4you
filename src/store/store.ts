@@ -3,10 +3,12 @@ import productSlice from './reducers/product-slice';
 import userSlice from './reducers/user-slice';
 import { fetchProductInf } from 'api/info-product-api';
 import { fetchLogin } from 'api/login-user';
+import updateSlice from './reducers/update-slice';
 
 const rootReducer = combineReducers({
     productSlice,
     userSlice,
+    updateSlice,
     [fetchProductInf.reducerPath]: fetchProductInf.reducer,
     [fetchLogin.reducerPath]: fetchLogin.reducer,
 });

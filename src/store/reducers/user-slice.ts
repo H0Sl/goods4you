@@ -9,6 +9,7 @@ interface InitialState {
 
 const initialState: InitialState = {
     carts: {
+        id: 0,
         products: [],
         total: 0,
         discountedTotal: 0,
