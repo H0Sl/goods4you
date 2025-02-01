@@ -17,7 +17,6 @@
     color:var(--main-color);
     line-height:1.22;
     font-size:1rem;
-    font-weight:300;
 }
 
 .button:hover{
@@ -60,7 +59,7 @@
     color:var(--main-color);
     opacity: .12;
     font-size:12.5rem;
-    font-weight:600;
+    font-weight:700;
 }
 
 .btn{
