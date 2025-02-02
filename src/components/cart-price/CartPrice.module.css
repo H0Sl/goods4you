@@ -5,7 +5,6 @@
 .textCount{
     color:#B2B5BB;
     font-size:1.25rem;
-    font-weight:300;
     line-height:1.3;
 }
 
@@ -13,7 +12,6 @@
     color:var(--text-color);
     line-height:1.3;
     font-size:1.25rem;
-    font-weight:300;
 }
 
 .count{
@@ -59,14 +57,14 @@
 .textPrice{
     font-size:1.5rem;
     line-height:1.36;
-    font-weight:500;
+    font-weight:600;
     color:#B2B5BB;
 }
 
 .totalPrice{
     color:var(--text-color);
     font-size:1.5rem;
-    font-weight:600;
+    font-weight:700;
     line-height:1.36;
 }
 

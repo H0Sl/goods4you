@@ -2,18 +2,24 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import productSlice from './reducers/product-slice';
 import userSlice from './reducers/user-slice';
 import { fetchProductInf } from 'api/info-product-api';
+import { fetchLogin } from 'api/login-user';
+import updateSlice from './reducers/update-slice';
 
 const rootReducer = combineReducers({
     productSlice,
     userSlice,
+    updateSlice,
     [fetchProductInf.reducerPath]: fetchProductInf.reducer,
+    [fetchLogin.reducerPath]: fetchLogin.reducer,
 });
 
 export const setupStore = () => {
     return configureStore({
         reducer: rootReducer,
         middleware: getDefaultMiddleware =>
-            getDefaultMiddleware().concat(fetchProductInf.middleware),
+            getDefaultMiddleware()
+                .concat(fetchProductInf.middleware)
+                .concat(fetchLogin.middleware),
     });
 };
 
