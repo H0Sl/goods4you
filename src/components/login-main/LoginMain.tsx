@@ -4,7 +4,7 @@ import 'style/container.css';
 import cl from './LoginMain.module.css';
 import { Input } from 'components/UI/input';
 import React, { ChangeEvent, useState } from 'react';
-import { useLoginMutation } from 'api/login-user';
+import { useLoginMutation } from 'api/login-user-api';
 import { useNavigate } from 'react-router-dom';
 
 export const LoginMain = () => {

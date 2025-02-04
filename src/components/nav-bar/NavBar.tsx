@@ -7,8 +7,7 @@ import basket from 'img/basket.png';
 import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import cn from 'classnames';
 import { resetProducts } from 'store/reducers/product-slice';
-import { useGetCurrentUserQuery } from 'api/login-user';
-import { CartLoading } from 'components/cart-loading';
+import { useGetCurrentUserQuery } from 'api/login-user-api';
 
 export const NavBar = () => {
     const dispatch = useAppDispatch();
@@ -17,81 +16,77 @@ export const NavBar = () => {
     const { currentData } = useGetCurrentUserQuery();
 
     return (
-        <CartLoading>
-            <nav className={cl.navbar}>
-                <div className="container">
-                    <div className={cl.content}>
-                        <Title
-                            tag="h1"
-                            fontSize="xl"
-                            fontWeight="Bold"
-                            className={cl.logo}
-                        >
-                            <Link to="/">Goods4you</Link>
-                        </Title>
-                        <div
-                            className={
-                                menuActive
-                                    ? cn(cl.menuIcon, cl.active)
-                                    : cl.menuIcon
-                            }
-                            onClick={() => setMenuActive(!menuActive)}
-                        >
-                            <span />
-                        </div>
-                        <div
-                            className={
-                                menuActive
-                                    ? cn(cl.menuList, cl.active)
-                                    : cl.menuList
-                            }
-                        >
-                            <ul className={cl.list}>
-                                <li className={cl.item}>
-                                    <Link to="/#Catalog">Catalog</Link>
-                                </li>
-                                <li className={cl.item}>
-                                    <Link to="/#FAQ">FAQ</Link>
-                                </li>
-                                <li className={cl.item}>
-                                    <div className={cl.basket}>
-                                        <Link
-                                            to="/cart"
-                                            onClick={() => {
-                                                dispatch(resetProducts());
-                                            }}
-                                        >
-                                            Cart
-                                        </Link>
-                                        <img src={basket} alt="" />
-                                        {carts?.totalQuantity &&
-                                        carts?.totalQuantity > 0 ? (
-                                            <div className={cl.counter}>
-                                                <span>
-                                                    {carts.totalQuantity}
-                                                </span>
-                                            </div>
-                                        ) : (
-                                            <div />
-                                        )}
-                                    </div>
-                                </li>
-                                <li className={cl.item}>
+        <nav className={cl.navbar}>
+            <div className="container">
+                <div className={cl.content}>
+                    <Title
+                        tag="h1"
+                        fontSize="xl"
+                        fontWeight="Bold"
+                        className={cl.logo}
+                    >
+                        <Link to="/">Goods4you</Link>
+                    </Title>
+                    <div
+                        className={
+                            menuActive
+                                ? cn(cl.menuIcon, cl.active)
+                                : cl.menuIcon
+                        }
+                        onClick={() => setMenuActive(!menuActive)}
+                    >
+                        <span />
+                    </div>
+                    <div
+                        className={
+                            menuActive
+                                ? cn(cl.menuList, cl.active)
+                                : cl.menuList
+                        }
+                    >
+                        <ul className={cl.list}>
+                            <li className={cl.item}>
+                                <Link to="/#Catalog">Catalog</Link>
+                            </li>
+                            <li className={cl.item}>
+                                <Link to="/#FAQ">FAQ</Link>
+                            </li>
+                            <li className={cl.item}>
+                                <div className={cl.basket}>
                                     <Link
-                                        to="/login"
+                                        to="/cart"
                                         onClick={() => {
                                             dispatch(resetProducts());
                                         }}
                                     >
-                                        {currentData?.firstName}{' '}
-                                        {currentData?.lastName}
+                                        Cart
                                     </Link>
-                                </li>
-                            </ul>
-                        </div>
+                                    <img src={basket} alt="" />
+                                    {carts?.totalQuantity &&
+                                    carts?.totalQuantity > 0 ? (
+                                        <div className={cl.counter}>
+                                            <span>{carts.totalQuantity}</span>
+                                        </div>
+                                    ) : (
+                                        <div />
+                                    )}
+                                </div>
+                            </li>
+                            <li className={cl.item}>
+                                <Link
+                                    to="/login"
+                                    onClick={() => {
+                                        dispatch(resetProducts());
+                                    }}
+                                >
+                                    {currentData?.firstName}{' '}
+                                    {currentData?.lastName}
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-            </nav>
-        </CartLoading>
+            </div>
+        </nav>
     );
 };

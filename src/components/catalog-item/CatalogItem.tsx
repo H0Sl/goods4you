@@ -8,6 +8,7 @@ import { Text } from 'components/UI/text';
 import { Counter } from 'components/UI/counter';
 import { Button } from 'components/UI/button';
 import icon from 'img/icon-price.svg';
+import { useUpdateProduct } from 'hooks/useUpdateProduct';
 import { fetchUpdateCart } from 'store/reducers/action-creators';
 
 interface CatalogItemProps {
@@ -19,7 +20,6 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
         (product.price * product.discountPercentage) /
         100
     ).toFixed(1);
-    const dispatch = useAppDispatch();
 
     const { carts } = useAppSelector(state => state.userSlice);
 
@@ -29,29 +29,19 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
 
     const initialQuantity = isInCart?.quantity || 0;
 
-    const { state, onMinusValue, onPlusValue } = useCounterState(
-        initialQuantity,
-        newQuantity => {
-            const updatedProducts = carts.products.map(p =>
-                p.id === product.id ? { ...p, quantity: newQuantity } : p,
-            );
-            dispatch(
-                fetchUpdateCart({
-                    id: carts.id,
-                    products: updatedProducts,
-                    merge: false,
-                }),
-            );
-        },
-    );
+    const { state, onMinusValue, onPlusValue } =
+        useCounterState(initialQuantity);
 
-    const addProductInCarts = (event: React.MouseEvent<HTMLButtonElement>) => {
+    useUpdateProduct(state, initialQuantity, product.id);
+
+    const dispatch = useAppDispatch();
+    const addProduct = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation();
         event.preventDefault();
         dispatch(
             fetchUpdateCart({
                 id: carts.id,
-                products: [...carts.products, { id: product.id, quantity: 1 }],
+                products: [...carts.products, { id: product.id, quantity: 2 }],
                 merge: false,
             }),
         );
@@ -97,8 +87,8 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
                             className={cl.button}
                             view="icon"
                             size="small"
-                            onClick={addProductInCarts}
                             variant="btnIcon"
+                            onClick={addProduct}
                         >
                             <img src={icon} className={cl.icon} alt="" />
                         </Button>

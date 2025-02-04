@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ICartsInfo } from 'models/user';
-import { fetchCartsByUser } from './action-creators';
+import { fetchCartsByUser, fetchUpdateCart } from './action-creators';
 import { CartsByUserTypeResponse } from 'api/user-api';
+import { UpdateCart } from 'api/update-api';
 
 interface InitialState {
     carts: ICartsInfo;
@@ -23,12 +24,20 @@ export const userSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: builder => {
-        builder.addCase(
-            fetchCartsByUser.fulfilled.type,
-            (state, action: PayloadAction<CartsByUserTypeResponse>) => {
-                state.carts = action.payload.carts[0];
-            },
-        );
+        builder
+            .addCase(
+                fetchCartsByUser.fulfilled.type,
+                (state, action: PayloadAction<CartsByUserTypeResponse>) => {
+                    state.carts = action.payload.carts[0];
+                },
+            )
+            .addCase(
+                fetchUpdateCart.fulfilled.type,
+                (state, action: PayloadAction<UpdateCart>) => {
+                    state.carts.products = action.payload.products;
+                    state.carts.totalQuantity = action.payload.totalQuantity;
+                },
+            );
     },
 });
 
