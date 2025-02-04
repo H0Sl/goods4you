@@ -6,10 +6,7 @@ import { fetchUpdateCart } from 'store/reducers/action-creators';
 import { useUpdateProduct } from './useUpdateProduct';
 >>>>>>> Stashed changes
 
-export const useCounterState = (
-    initialState: number,
-    onChange?: (newQuantity: number) => void,
-) => {
+export const useCounterState = (initialState: number) => {
     const [state, setState] = useState(initialState);
 <<<<<<< Updated upstream
 =======
@@ -37,23 +34,23 @@ export const useCounterState = (
 >>>>>>> Stashed changes
 =======
         if (state > 0) {
+<<<<<<< HEAD
             setState(prev => {
                 const newQuantity = prev - 1;
                 onChange?.(newQuantity);
                 return newQuantity;
             });
 >>>>>>> 73cf1e5 (Взаимодейстиве с товаром)
+=======
+            setState(prev => (prev -= 1));
+>>>>>>> afe2c8e (Синхронизация изменений в товаре и их добавление)
         }
     };
 
     const onPlusValue = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation();
         event.preventDefault();
-        setState(prev => {
-            const newQuantity = prev + 1;
-            onChange?.(newQuantity);
-            return newQuantity;
-        });
+        setState(prev => (prev += 1));
     };
 
     return {

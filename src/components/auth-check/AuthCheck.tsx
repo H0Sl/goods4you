@@ -1,4 +1,4 @@
-import { useGetCurrentUserQuery } from 'api/login-user';
+import { useGetCurrentUserQuery } from 'api/login-user-api';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import cl from './AuthCheck.module.css';

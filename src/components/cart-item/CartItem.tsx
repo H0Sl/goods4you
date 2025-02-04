@@ -5,6 +5,7 @@ import { useCounterState } from 'hooks/useCounterState';
 import { Title } from 'components/UI/title';
 import { Text } from 'components/UI/text';
 import { Counter } from 'components/UI/counter';
+import { useUpdateProduct } from 'hooks/useUpdateProduct';
 
 interface CartItemProps {
     product: IProduct;
@@ -14,6 +15,8 @@ export const CartItem: React.FC<CartItemProps> = ({ product }) => {
     const { state, onMinusValue, onPlusValue } = useCounterState(
         product.quantity,
     );
+    useUpdateProduct(state, product.quantity, product.id);
+
     return (
         <div className={cl.items}>
             <div className={cl.item}>
