@@ -24,13 +24,15 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
     const { carts } = useAppSelector(state => state.userSlice);
 
     const isInCart = carts?.products?.find(
-        products => products.id === product.id,
+        cartProducts => cartProducts.id === product.id,
     );
 
     const initialQuantity = isInCart?.quantity || 0;
 
-    const { state, onMinusValue, onPlusValue } =
-        useCounterState(initialQuantity);
+    const { state, onMinusValue, onPlusValue } = useCounterState(
+        initialQuantity,
+        product.id,
+    );
 
     useUpdateProduct(state, initialQuantity, product.id);
 
@@ -41,7 +43,7 @@ export const CatalogItem: React.FC<CatalogItemProps> = ({ product }) => {
         dispatch(
             fetchUpdateCart({
                 id: carts.id,
-                products: [...carts.products, { id: product.id, quantity: 2 }],
+                products: [...carts.products, { id: product.id, quantity: 1 }],
                 merge: false,
             }),
         );

@@ -35,7 +35,6 @@ export const userSlice = createSlice({
                 fetchUpdateCart.fulfilled.type,
                 (state, action: PayloadAction<UpdateCart>) => {
                     state.carts.products = action.payload.products;
-                    state.carts.totalQuantity = action.payload.totalQuantity;
                 },
             );
     },
