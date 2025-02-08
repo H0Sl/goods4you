@@ -8,6 +8,7 @@ interface CounterProps {
     children: number;
     onMinusClick?: MouseEventHandler<HTMLButtonElement>;
     onPlusClick?: MouseEventHandler<HTMLButtonElement>;
+    stock: number;
 }
 
 export const Counter: React.FC<CounterProps> = ({
@@ -15,6 +16,7 @@ export const Counter: React.FC<CounterProps> = ({
     children,
     onMinusClick,
     onPlusClick,
+    stock,
 }) => {
     return (
         <div className={cl.counter}>
@@ -26,15 +28,30 @@ export const Counter: React.FC<CounterProps> = ({
             >
                 <div className={cl.minus} />
             </Button>
-            <span>{children} items</span>
-            <Button
-                className={cn(cl.btn, cl[size])}
-                view="icon"
-                onClick={onPlusClick}
-                variant="btnIcon"
-            >
-                <div className={cl.plus} />
-            </Button>
+            {children < 2 ? (
+                <span>{children} item</span>
+            ) : (
+                <span>{children} items</span>
+            )}
+            {children === stock ? (
+                <Button
+                    className={cn(cl[size])}
+                    view="icon"
+                    onClick={onPlusClick}
+                    variant="btnIconDisabled"
+                >
+                    <div className={cl.plus} />
+                </Button>
+            ) : (
+                <Button
+                    className={cn(cl.btn, cl[size])}
+                    view="icon"
+                    onClick={onPlusClick}
+                    variant="btnIcon"
+                >
+                    <div className={cl.plus} />
+                </Button>
+            )}
         </div>
     );
 };

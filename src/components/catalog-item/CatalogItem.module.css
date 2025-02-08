@@ -6,30 +6,19 @@
 
 /* ------BUTTON------------ */
 
-.button{
-    background:var(--btn-bg);
-    border-radius:4px;
-    position:relative;
-    transition:background .2s ease;
-    cursor:pointer;
-}
-
-.icon{
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    transform:translate(-50%,-50%)
-}
-
-.button:hover{
-    background:var(--btn-bg-active);
-}
 
 /* --------------------- */
-
+.text {
+    min-width: 0;
+    max-width: 20rem;
+}
 .title {
     color: var(--text-color);
     text-decoration: none;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .price {

@@ -8,7 +8,7 @@ interface Button {
     onClick?: MouseEventHandler<HTMLButtonElement>;
     view?: 'text' | 'icon';
     size?: 'big' | 'small';
-    variant: 'btnIcon' | 'btnText' | 'btnDisabled';
+    variant: 'btnIcon' | 'btnText' | 'btnTextDisabled' | 'btnIconDisabled';
     loader?: boolean;
     type?: 'button' | 'submit' | 'reset';
 }
