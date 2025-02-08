@@ -1,18 +1,16 @@
 import { IProduct } from 'models/product';
-import { Button } from 'components/UI/button';
 import { Title } from 'components/UI/title';
 import cl from './ProductText.module.css';
 import star from 'img/product/star.svg';
+import { BtnOrCounter } from 'components/btn-or-counter/BtnOrCounter';
+import { useDiscount } from 'hooks/useDiscount';
 
 interface ProductTextProps {
     product: IProduct;
 }
 
 export const ProductText: React.FC<ProductTextProps> = ({ product }) => {
-    const discount = +(
-        (product.price * product.discountPercentage) /
-        100
-    ).toFixed(1);
+    const { discount } = useDiscount(product);
     return (
         <div className={cl.text}>
             <Title
@@ -50,14 +48,7 @@ export const ProductText: React.FC<ProductTextProps> = ({ product }) => {
                         <span>{product.discountPercentage}%</span>
                     </div>
                 </div>
-                <Button
-                    className={cl.button}
-                    view="text"
-                    size="small"
-                    variant="btnText"
-                >
-                    <span className={cl.btnSpan}>Add to cart</span>
-                </Button>
+                <BtnOrCounter product={product} toggle={false} />
             </div>
         </div>
     );

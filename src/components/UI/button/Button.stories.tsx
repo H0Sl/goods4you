@@ -33,7 +33,7 @@ export const Cart: Story = {
 export const Disabled: Story = {
     render: () => {
         return (
-            <Button view="text" size="small" variant="btnDisabled">
+            <Button view="text" size="small" variant="btnTextDisabled">
                 Disabled
             </Button>
         );
@@ -46,7 +46,7 @@ export const Loader: Story = {
             <Button
                 view="text"
                 size="small"
-                variant="btnDisabled"
+                variant="btnTextDisabled"
                 loader={true}
             >
                 Loader

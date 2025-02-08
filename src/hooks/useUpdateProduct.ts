@@ -23,9 +23,5 @@ export const useUpdateProduct = (
                 }),
             );
         }
-<<<<<<< HEAD
     }, [state, productQuantity, carts]);
-=======
-    }, [state, dispatch, carts, productId, productQuantity]);
->>>>>>> afe2c8e (Синхронизация изменений в товаре и их добавление)
 };

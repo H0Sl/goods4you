@@ -8,6 +8,7 @@ interface CounterProps {
     children: number;
     onMinusClick?: MouseEventHandler<HTMLButtonElement>;
     onPlusClick?: MouseEventHandler<HTMLButtonElement>;
+    stock: number;
 }
 
 export const Counter: React.FC<CounterProps> = ({
@@ -15,29 +16,11 @@ export const Counter: React.FC<CounterProps> = ({
     children,
     onMinusClick,
     onPlusClick,
+    stock,
 }) => {
     const isLoading = false;
     return (
         <div className={cl.counter}>
-<<<<<<< Updated upstream
-            <Button
-                className={cn(cl.btn, cl[size])}
-                view="icon"
-                onClick={onMinusClick}
-                variant="btnIcon"
-            >
-                <div className={cl.minus} />
-            </Button>
-            <span>{children} items</span>
-            <Button
-                className={cn(cl.btn, cl[size])}
-                view="icon"
-                onClick={onPlusClick}
-                variant="btnIcon"
-            >
-                <div className={cl.plus} />
-            </Button>
-=======
             {isLoading ? (
                 <Button
                     className={cn(cl.btn, cl[size])}
@@ -91,7 +74,6 @@ export const Counter: React.FC<CounterProps> = ({
                     <div className={cl.plus} />
                 </Button>
             )}
->>>>>>> Stashed changes
         </div>
     );
 };

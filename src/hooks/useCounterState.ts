@@ -11,7 +11,11 @@ import { useAppDispatch, useAppSelector } from './redux';
 import { fetchUpdateCart } from 'store/reducers/action-creators';
 >>>>>>> bacfcf8 (Удаление товара)
 
-export const useCounterState = (initialState: number, productId: number) => {
+export const useCounterState = (
+    initialState: number,
+    productId: number,
+    stock: number,
+) => {
     const [state, setState] = useState(initialState);
 <<<<<<< HEAD
 <<<<<<< Updated upstream
@@ -57,7 +61,7 @@ export const useCounterState = (initialState: number, productId: number) => {
 >>>>>>> afe2c8e (Синхронизация изменений в товаре и их добавление)
 =======
         if (state > 1) {
-            setState(prev => (prev -= 1));
+            setState(prev => prev - 1);
         } else if (state === 1) {
             setState(0);
             dispatch(
@@ -74,12 +78,40 @@ export const useCounterState = (initialState: number, productId: number) => {
     const onPlusValue = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation();
         event.preventDefault();
-        setState(prev => (prev += 1));
+        if (state < stock) {
+            setState(prev => prev + 1);
+        }
+    };
+
+    const addProduct = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.stopPropagation();
+        event.preventDefault();
+        dispatch(
+            fetchUpdateCart({
+                id: carts.id,
+                products: [...carts.products, { id: productId, quantity: 1 }],
+                merge: false,
+            }),
+        );
+    };
+
+    const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.stopPropagation();
+        event.preventDefault();
+        dispatch(
+            fetchUpdateCart({
+                id: carts.id,
+                products: carts.products.filter(p => p.id !== productId),
+                merge: false,
+            }),
+        );
     };
 
     return {
         state,
         onMinusValue,
         onPlusValue,
+        addProduct,
+        handleDelete,
     };
 };

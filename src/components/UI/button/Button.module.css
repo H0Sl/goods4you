@@ -61,7 +61,7 @@
 
 .btnDisabled {
     border: none;
-    background-color: #F8AFAF;
+    background-color: grey;
     min-width: 148px;
     min-height: 62px;
     padding: 20px 50px;
@@ -71,6 +71,13 @@
     line-height: 22px;
     font-weight: 400;
     color: white;
+}
+
+.btnIconDisabled {
+    background-color: grey;
+    border: none;
+    border-radius:4px;
+    position: relative;
 }
 
 /* HTML: <div class="loader"></div> */
