@@ -14,9 +14,9 @@ export const useCounterState = (
     const onMinusValue = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation();
         event.preventDefault();
-        if (state > 1) {
+        if (state > 0) {
             setState(prev => prev - 1);
-        } else if (state === 1) {
+        } else if (state === 0) {
             setState(0);
             dispatch(
                 fetchUpdateCart({
@@ -39,6 +39,7 @@ export const useCounterState = (
     const addProduct = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation();
         event.preventDefault();
+        setState(1);
         dispatch(
             fetchUpdateCart({
                 id: carts.id,
@@ -51,6 +52,7 @@ export const useCounterState = (
     const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation();
         event.preventDefault();
+        setState(0);
         dispatch(
             fetchUpdateCart({
                 id: carts.id,

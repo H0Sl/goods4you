@@ -2,7 +2,6 @@ import { Button } from 'components/UI/button';
 import { Counter } from 'components/UI/counter';
 import { useCounterState } from 'hooks/useCounterState';
 import { useGetCart } from 'hooks/useGetCart';
-import { useUpdateProduct } from 'hooks/useUpdateProduct';
 import { IProduct } from 'models/product';
 import React from 'react';
 import cl from './BtnOrCounter.module.css';
@@ -10,7 +9,7 @@ import icon from 'img/icon-price.svg';
 
 interface BtnOrCounterProps {
     product: IProduct;
-    toggle: boolean;
+    toggle?: boolean;
 }
 
 export const BtnOrCounter: React.FC<BtnOrCounterProps> = ({
@@ -24,7 +23,6 @@ export const BtnOrCounter: React.FC<BtnOrCounterProps> = ({
         product.stock,
     );
 
-    useUpdateProduct(state, initialQuantity, product.id);
     return (
         <div>
             {isInCart ? (

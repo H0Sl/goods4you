@@ -5,13 +5,11 @@ import cl from './LoginMain.module.css';
 import { Input } from 'components/UI/input';
 import React, { ChangeEvent, useState } from 'react';
 import { useLoginMutation } from 'api/login-user-api';
-import { useNavigate } from 'react-router-dom';
 
 export const LoginMain = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [login, { isLoading }] = useLoginMutation();
-    const navigate = useNavigate();
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -19,13 +17,11 @@ export const LoginMain = () => {
             alert('Email and password are required');
         }
         try {
-            const result = await login({
+            await login({
                 username: email,
                 password: password,
-                expiresInMins: 30,
+                expiresInMins: 15,
             }).unwrap();
-            localStorage.setItem('token', result.accessToken);
-            navigate('/');
         } catch (err) {
             alert(`Error ${err}`);
         }
