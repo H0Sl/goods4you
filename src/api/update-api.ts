@@ -4,6 +4,7 @@ import axiosInstance from './axios-instance';
 export type UpdateCart = {
     id: number;
     products: IProduct[];
+    totalQuantity: number;
 };
 
 export const fetchUpdateCarts = async (

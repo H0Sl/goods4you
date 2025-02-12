@@ -15,6 +15,12 @@ export const NavBar = () => {
     const [menuActive, setMenuActive] = useState(false);
     const { currentData } = useGetCurrentUserQuery();
 
+    const handleLogout = () => {
+        dispatch(resetProducts());
+        localStorage.removeItem('accessToken');
+        window.location.href = '/login';
+    };
+
     return (
         <nav className={cl.navbar}>
             <div className="container">
@@ -73,12 +79,7 @@ export const NavBar = () => {
                                 </div>
                             </li>
                             <li className={cl.item}>
-                                <Link
-                                    to="/login"
-                                    onClick={() => {
-                                        dispatch(resetProducts());
-                                    }}
-                                >
+                                <Link to="/login" onClick={handleLogout}>
                                     {currentData?.firstName}{' '}
                                     {currentData?.lastName}
                                 </Link>
