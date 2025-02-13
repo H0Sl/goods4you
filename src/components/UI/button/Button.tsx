@@ -38,7 +38,10 @@ export const Button: React.FC<Button> = ({
             className={cn(className, cl[view], cl[size], cl[variant])}
             onClick={onClick}
             type={type}
+<<<<<<< HEAD
             disabled={disabled}
+=======
+>>>>>>> ed661aaba8b35ed85660013dfe9bc4a378781cf1
         >
             {children}
         </button>
