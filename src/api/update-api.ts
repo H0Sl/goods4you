@@ -5,6 +5,9 @@ export type UpdateCart = {
     id: number;
     products: IProduct[];
     totalQuantity: number;
+    totalProducts: number;
+    total: number;
+    discountedTotal: number;
 };
 
 export const fetchUpdateCarts = async (

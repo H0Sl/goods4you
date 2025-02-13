@@ -6,6 +6,7 @@ import { UpdateCart } from 'api/update-api';
 
 interface InitialState {
     carts: ICartsInfo;
+    isLoading: boolean;
 }
 
 const initialState: InitialState = {
@@ -17,6 +18,7 @@ const initialState: InitialState = {
         totalProducts: 0,
         totalQuantity: 0,
     },
+    isLoading: false,
 };
 
 export const userSlice = createSlice({
@@ -25,6 +27,9 @@ export const userSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder
+            .addCase(fetchUpdateCart.pending.type, state => {
+                state.isLoading = true;
+            })
             .addCase(
                 fetchCartsByUser.fulfilled.type,
                 (state, action: PayloadAction<CartsByUserTypeResponse>) => {
@@ -35,6 +40,12 @@ export const userSlice = createSlice({
                 fetchUpdateCart.fulfilled.type,
                 (state, action: PayloadAction<UpdateCart>) => {
                     state.carts.products = action.payload.products;
+                    state.carts.totalQuantity = action.payload.totalQuantity;
+                    state.carts.totalProducts = action.payload.totalProducts;
+                    state.carts.total = action.payload.total;
+                    state.carts.discountedTotal =
+                        action.payload.discountedTotal;
+                    state.isLoading = false;
                 },
             );
     },
