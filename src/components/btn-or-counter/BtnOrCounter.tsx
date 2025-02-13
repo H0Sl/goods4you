@@ -10,29 +10,48 @@ import icon from 'img/icon-price.svg';
 interface BtnOrCounterProps {
     product: IProduct;
     toggle?: boolean;
+    isCart?: boolean;
 }
 
 export const BtnOrCounter: React.FC<BtnOrCounterProps> = ({
     product,
     toggle,
+    isCart = false,
 }) => {
     const { initialQuantity, isInCart } = useGetCart(product.id);
-    const { state, onMinusValue, onPlusValue, addProduct } = useCounterState(
-        initialQuantity,
-        product.id,
-        product.stock,
-    );
+    const {
+        state,
+        onMinusValue,
+        onPlusValue,
+        addProduct,
+        isLoading,
+        onPlusClickInCart,
+    } = useCounterState(initialQuantity, product.id, product.stock);
 
     return (
         <div>
-            {isInCart ? (
-                <Counter
-                    onMinusClick={onMinusValue}
-                    onPlusClick={onPlusValue}
-                    stock={product.stock}
-                >
-                    {state}
-                </Counter>
+            {state !== 0 && isInCart ? (
+                <div>
+                    {isCart === false ? (
+                        <Counter
+                            onMinusClick={onMinusValue}
+                            onPlusClick={onPlusValue}
+                            stock={product.stock}
+                            loading={isLoading}
+                        >
+                            {state}
+                        </Counter>
+                    ) : (
+                        <Counter
+                            onMinusClick={onMinusValue}
+                            onPlusClick={onPlusClickInCart}
+                            stock={product.stock}
+                            loading={isLoading}
+                        >
+                            {state}
+                        </Counter>
+                    )}
+                </div>
             ) : (
                 <div>
                     {toggle ? (

@@ -10,7 +10,7 @@ export const useCounterState = (
 ) => {
     const [state, setState] = useState(initialState);
     const dispatch = useAppDispatch();
-    const { carts } = useAppSelector(state => state.userSlice);
+    const { carts, isLoading } = useAppSelector(state => state.userSlice);
     useUpdateProduct(state, initialState, productId);
 
     const onMinusValue = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -35,6 +35,12 @@ export const useCounterState = (
         if (state < stock) {
             setState(prev => prev + 1);
         }
+    };
+
+    const onPlusClickInCart = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.stopPropagation();
+        event.preventDefault();
+        setState(prev => prev + 1);
     };
 
     const addProduct = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -69,5 +75,7 @@ export const useCounterState = (
         onPlusValue,
         addProduct,
         handleDelete,
+        onPlusClickInCart,
+        isLoading,
     };
 };

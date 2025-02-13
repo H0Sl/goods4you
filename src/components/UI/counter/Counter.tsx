@@ -9,6 +9,7 @@ interface CounterProps {
     onMinusClick?: MouseEventHandler<HTMLButtonElement>;
     onPlusClick?: MouseEventHandler<HTMLButtonElement>;
     stock: number;
+    loading?: boolean;
 }
 
 export const Counter: React.FC<CounterProps> = ({
@@ -17,11 +18,11 @@ export const Counter: React.FC<CounterProps> = ({
     onMinusClick,
     onPlusClick,
     stock,
+    loading,
 }) => {
-    const isLoading = false;
     return (
         <div className={cl.counter}>
-            {isLoading ? (
+            {loading ? (
                 <Button
                     className={cn(cl.btn, cl[size])}
                     view="icon"
@@ -54,7 +55,7 @@ export const Counter: React.FC<CounterProps> = ({
                 >
                     <div className={cl.plus} />
                 </Button>
-            ) : isLoading ? (
+            ) : loading ? (
                 <Button
                     className={cn(cl.btn, cl[size])}
                     view="icon"
