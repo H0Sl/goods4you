@@ -18,8 +18,10 @@ export const Counter: React.FC<CounterProps> = ({
     onPlusClick,
     stock,
 }) => {
+    const isLoading = false;
     return (
         <div className={cl.counter}>
+<<<<<<< Updated upstream
             <Button
                 className={cn(cl.btn, cl[size])}
                 view="icon"
@@ -28,6 +30,38 @@ export const Counter: React.FC<CounterProps> = ({
             >
                 <div className={cl.minus} />
             </Button>
+<<<<<<< HEAD
+=======
+            <span>{children} items</span>
+            <Button
+                className={cn(cl.btn, cl[size])}
+                view="icon"
+                onClick={onPlusClick}
+                type="btnIcon"
+            >
+                <div className={cl.plus} />
+            </Button>
+=======
+            {isLoading ? (
+                <Button
+                    className={cn(cl.btn, cl[size])}
+                    view="icon"
+                    onClick={onMinusClick}
+                    variant="btnIconDisabled"
+                    loader={true}
+                    disabled={true}
+                />
+            ) : (
+                <Button
+                    className={cn(cl.btn, cl[size])}
+                    view="icon"
+                    onClick={onMinusClick}
+                    variant="btnIcon"
+                >
+                    <div className={cl.minus} />
+                </Button>
+            )}
+>>>>>>> 70ee1dc (Fix component)
             {children < 2 ? (
                 <span>{children} item</span>
             ) : (
@@ -39,9 +73,25 @@ export const Counter: React.FC<CounterProps> = ({
                     view="icon"
                     onClick={onPlusClick}
                     variant="btnIconDisabled"
+<<<<<<< HEAD
                 >
                     <div className={cl.plus} />
                 </Button>
+=======
+                    disabled={true}
+                >
+                    <div className={cl.plus} />
+                </Button>
+            ) : isLoading ? (
+                <Button
+                    className={cn(cl.btn, cl[size])}
+                    view="icon"
+                    onClick={onPlusClick}
+                    variant="btnIconDisabled"
+                    loader={true}
+                    disabled={true}
+                />
+>>>>>>> 70ee1dc (Fix component)
             ) : (
                 <Button
                     className={cn(cl.btn, cl[size])}
@@ -52,6 +102,10 @@ export const Counter: React.FC<CounterProps> = ({
                     <div className={cl.plus} />
                 </Button>
             )}
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+>>>>>>> 70ee1dc (Fix component)
         </div>
     );
 };

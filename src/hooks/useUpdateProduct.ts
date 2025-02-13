@@ -23,5 +23,9 @@ export const useUpdateProduct = (
                 }),
             );
         }
+<<<<<<< HEAD
     }, [state, carts]);
+=======
+    }, [state, productQuantity, carts]);
+>>>>>>> 70ee1dc (Fix component)
 };
