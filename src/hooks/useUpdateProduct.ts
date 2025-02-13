@@ -23,5 +23,5 @@ export const useUpdateProduct = (
                 }),
             );
         }
-    }, [state, productQuantity, carts]);
+    }, [state]);
 };
