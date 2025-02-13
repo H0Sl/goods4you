@@ -1,21 +1,12 @@
-import { IProduct } from 'models/product';
 import axiosInstance from './axios-instance';
-
-export type UpdateCart = {
-    id: number;
-    products: IProduct[];
-    totalQuantity: number;
-    totalProducts: number;
-    total: number;
-    discountedTotal: number;
-};
+import { ICartsInfo } from 'models/user';
 
 export const fetchUpdateCarts = async (
     id: number,
     products: { id: number; quantity: number }[],
     merge: boolean = false,
 ) => {
-    const response = await axiosInstance.put<UpdateCart>(
+    const response = await axiosInstance.put<ICartsInfo>(
         `/carts/${id}`,
         {
             merge,

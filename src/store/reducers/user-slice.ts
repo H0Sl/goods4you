@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ICartsInfo } from 'models/user';
 import { fetchCartsByUser, fetchUpdateCart } from './action-creators';
 import { CartsByUserTypeResponse } from 'api/user-api';
-import { UpdateCart } from 'api/update-api';
 
 interface InitialState {
     carts: ICartsInfo;
@@ -38,7 +37,7 @@ export const userSlice = createSlice({
             )
             .addCase(
                 fetchUpdateCart.fulfilled.type,
-                (state, action: PayloadAction<UpdateCart>) => {
+                (state, action: PayloadAction<ICartsInfo>) => {
                     state.carts.products = action.payload.products;
                     state.carts.totalQuantity = action.payload.totalQuantity;
                     state.carts.totalProducts = action.payload.totalProducts;
