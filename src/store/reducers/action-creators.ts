@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchProducts, ProductsTypeResponse } from 'api/products-api';
-import { UpdateCart, fetchUpdateCarts } from 'api/update-api';
+import { fetchUpdateCarts } from 'api/update-api';
 import { CartsByUserTypeResponse, fetchCartsByUsers } from 'api/user-api';
+import { ICartsInfo } from 'models/user';
 
 export const fetchProduct = createAsyncThunk<
     ProductsTypeResponse,
@@ -30,7 +31,7 @@ export const fetchCartsByUser = createAsyncThunk<
 });
 
 export const fetchUpdateCart = createAsyncThunk<
-    UpdateCart,
+    ICartsInfo,
     {
         id: number;
         products: { id: number; quantity: number }[];
