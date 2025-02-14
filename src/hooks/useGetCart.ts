@@ -7,7 +7,7 @@ export const useGetCart = (productId: number) => {
         cartProducts => cartProducts.id === productId,
     );
 
-    const initialQuantity = isInCart?.quantity || 1;
+    const initialQuantity = isInCart?.quantity || 0;
 
     return {
         isInCart,

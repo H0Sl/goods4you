@@ -16,7 +16,7 @@ export const useCounterState = (
     const onMinusValue = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation();
         event.preventDefault();
-        if (state > 1) {
+        if (state >= 1) {
             setState(prev => prev - 1);
         } else if (state === 1) {
             dispatch(

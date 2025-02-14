@@ -39,9 +39,7 @@ export const CartItem: React.FC<CartItemProps> = ({ product }) => {
                         ${product.price}
                     </Text>
                 </div>
-            </div>
-            <div className={cl.item}>
-                <BtnOrCounter product={product} toggle={true} isCart={true} />
+                <BtnOrCounter product={product} toggle={false} isCart={true} />
                 <span className={cl.delete} onClick={handleDelete}>
                     Delete
                 </span>

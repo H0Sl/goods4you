@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import cl from './NavBar.module.css';
 import 'style/container.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Title } from 'components/UI/title';
 import basket from 'img/basket.png';
 import { useAppDispatch, useAppSelector } from 'hooks/redux';
@@ -14,11 +14,12 @@ export const NavBar = () => {
     const { carts } = useAppSelector(state => state.userSlice);
     const [menuActive, setMenuActive] = useState(false);
     const { currentData } = useGetCurrentUserQuery();
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         dispatch(resetProducts());
         localStorage.removeItem('accessToken');
-        window.location.href = '/login';
+        navigate('/login');
     };
 
     return (
@@ -80,7 +81,7 @@ export const NavBar = () => {
                             </li>
                             <li className={cl.item}>
                                 <Link to="/login" onClick={handleLogout}>
-                                    {currentData?.firstName}{' '}
+                                    {currentData?.firstName}&nbsp;
                                     {currentData?.lastName}
                                 </Link>
                             </li>
