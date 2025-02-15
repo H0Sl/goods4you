@@ -1,17 +1,26 @@
 import { useState } from 'react';
 import cl from './NavBar.module.css';
 import 'style/container.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Title } from 'components/UI/title';
 import basket from 'img/basket.png';
 import { useAppDispatch, useAppSelector } from 'hooks/redux';
 import cn from 'classnames';
 import { resetProducts } from 'store/reducers/product-slice';
+import { useGetCurrentUserQuery } from 'api/login-user-api';
 
 export const NavBar = () => {
     const dispatch = useAppDispatch();
     const { carts } = useAppSelector(state => state.userSlice);
     const [menuActive, setMenuActive] = useState(false);
+    const { currentData } = useGetCurrentUserQuery();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        dispatch(resetProducts());
+        localStorage.removeItem('accessToken');
+        navigate('/login');
+    };
 
     return (
         <nav className={cl.navbar}>
@@ -60,7 +69,8 @@ export const NavBar = () => {
                                         Cart
                                     </Link>
                                     <img src={basket} alt="" />
-                                    {carts.totalQuantity > 0 ? (
+                                    {carts?.totalQuantity &&
+                                    carts?.totalQuantity > 0 ? (
                                         <div className={cl.counter}>
                                             <span>{carts.totalQuantity}</span>
                                         </div>
@@ -70,7 +80,10 @@ export const NavBar = () => {
                                 </div>
                             </li>
                             <li className={cl.item}>
-                                <a href="#">Johnson Smith</a>
+                                <Link to="/login" onClick={handleLogout}>
+                                    {currentData?.firstName}&nbsp;
+                                    {currentData?.lastName}
+                                </Link>
                             </li>
                         </ul>
                     </div>

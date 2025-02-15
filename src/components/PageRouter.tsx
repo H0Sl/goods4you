@@ -1,20 +1,52 @@
 import { Route, Routes } from 'react-router-dom';
-import { Product } from 'pages/Product';
-import { Home } from 'pages/Home';
-import { Cart } from 'pages/Cart';
-import { Login } from 'pages/Login';
+import { AuthCheck } from './auth-check';
+import { lazy, Suspense } from 'react';
+import { Layout } from './layout/Layout';
+
+const Home = lazy(() => import('pages/Home/Home'));
+const Cart = lazy(() => import('pages/Cart/Cart'));
+const Login = lazy(() => import('pages/Login/Login'));
+const Product = lazy(() => import('pages/Product/Product'));
 
 const PageRouter = () => {
     return (
-        <div>
-            <Routes>
-                <Route path="/product/:id" element={<Product />} />
-                <Route path="/" element={<Home />} />
-                <Route path="/cart" element={<Cart />} />
+        <Routes>
+            <Route
+                path="/login"
+                element={
+                    <Suspense fallback={<h1>Loading...</h1>}>
+                        <Login />
+                    </Suspense>
+                }
+            />
+            <Route element={<Layout />}>
+                <Route
+                    path="/"
+                    element={
+                        <AuthCheck>
+                            <Home />
+                        </AuthCheck>
+                    }
+                />
+                <Route
+                    path="/product/:id"
+                    element={
+                        <AuthCheck>
+                            <Product />
+                        </AuthCheck>
+                    }
+                />
+                <Route
+                    path="/cart"
+                    element={
+                        <AuthCheck>
+                            <Cart />
+                        </AuthCheck>
+                    }
+                />
                 <Route path="/*" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-            </Routes>
-        </div>
+            </Route>
+        </Routes>
     );
 };
 

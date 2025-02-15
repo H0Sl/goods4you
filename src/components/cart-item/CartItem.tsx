@@ -4,16 +4,19 @@ import { IProduct } from 'models/product';
 import { useCounterState } from 'hooks/useCounterState';
 import { Title } from 'components/UI/title';
 import { Text } from 'components/UI/text';
-import { Counter } from 'components/UI/counter';
+import { BtnOrCounter } from 'components/btn-or-counter/BtnOrCounter';
 
 interface CartItemProps {
     product: IProduct;
 }
 
 export const CartItem: React.FC<CartItemProps> = ({ product }) => {
-    const { state, onMinusValue, onPlusValue } = useCounterState(
+    const { handleDelete } = useCounterState(
         product.quantity,
+        product.id,
+        product.stock,
     );
+
     return (
         <div className={cl.items}>
             <div className={cl.item}>
@@ -36,12 +39,10 @@ export const CartItem: React.FC<CartItemProps> = ({ product }) => {
                         ${product.price}
                     </Text>
                 </div>
-            </div>
-            <div className={cl.item}>
-                <Counter onMinusClick={onMinusValue} onPlusClick={onPlusValue}>
-                    {state}
-                </Counter>
-                <span className={cl.delete}>Delete</span>
+                <BtnOrCounter product={product} toggle={false} isCart={true} />
+                <span className={cl.delete} onClick={handleDelete}>
+                    Delete
+                </span>
             </div>
         </div>
     );

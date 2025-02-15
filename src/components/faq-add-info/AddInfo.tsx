@@ -6,7 +6,7 @@ import { Text } from 'components/UI/text';
 interface Info {
     info: InfoItem[];
 }
-interface InfoItem {
+export interface InfoItem {
     title: string;
     text: string;
 }

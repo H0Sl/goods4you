@@ -59,9 +59,9 @@
     background-color: var(--btn-bg-active);
 }
 
-.btnDisabled {
+.btnTextDisabled {
     border: none;
-    background-color: #F8AFAF;
+    background-color: grey;
     min-width: 148px;
     min-height: 62px;
     padding: 20px 50px;
@@ -73,17 +73,34 @@
     color: white;
 }
 
-/* HTML: <div class="loader"></div> */
-
-/* HTML: <div class="loader"></div> */
-.loader {
-    height: 15px;
-    aspect-ratio: 5;
-    mask: linear-gradient(90deg,#0000 ,#000 20% 80%,#0000);
-    background: radial-gradient(closest-side at 37.5% 50%,#000 94%,#0000) 0/calc(80%/3) 100%;
-    animation: l48 .75s infinite linear;
+.btnIconDisabled {
+    background-color: grey !important;
+    border: none;
+    border-radius:4px;
+    position: relative;
+    cursor: auto !important;
 }
 
-@keyframes l48 {
-    100% {background-position: 36.36%}
+/* HTML: <div class="loader"></div> */
+
+.loader {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #fff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    position:absolute;
+    top:36%;
+    left:36%;
+    transform:translate(-50%,-50%);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

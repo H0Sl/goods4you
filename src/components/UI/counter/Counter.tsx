@@ -8,6 +8,8 @@ interface CounterProps {
     children: number;
     onMinusClick?: MouseEventHandler<HTMLButtonElement>;
     onPlusClick?: MouseEventHandler<HTMLButtonElement>;
+    stock: number;
+    loading?: boolean;
 }
 
 export const Counter: React.FC<CounterProps> = ({
@@ -15,26 +17,63 @@ export const Counter: React.FC<CounterProps> = ({
     children,
     onMinusClick,
     onPlusClick,
+    stock,
+    loading,
 }) => {
     return (
         <div className={cl.counter}>
-            <Button
-                className={cn(cl.btn, cl[size])}
-                view="icon"
-                onClick={onMinusClick}
-                type="btnIcon"
-            >
-                <div className={cl.minus} />
-            </Button>
-            <span>{children} items</span>
-            <Button
-                className={cn(cl.btn, cl[size])}
-                view="icon"
-                onClick={onPlusClick}
-                type="btnIcon"
-            >
-                <div className={cl.plus} />
-            </Button>
+            {loading ? (
+                <Button
+                    className={cn(cl.btn, cl[size])}
+                    view="icon"
+                    onClick={onMinusClick}
+                    variant="btnIconDisabled"
+                    loader={true}
+                    disabled={true}
+                />
+            ) : (
+                <Button
+                    className={cn(cl.btn, cl[size])}
+                    view="icon"
+                    onClick={onMinusClick}
+                    variant="btnIcon"
+                >
+                    <div className={cl.minus} />
+                </Button>
+            )}
+            {children < 2 ? (
+                <span>{children} item</span>
+            ) : (
+                <span>{children} items</span>
+            )}
+            {children === stock ? (
+                <Button
+                    className={cn(cl[size])}
+                    view="icon"
+                    onClick={onPlusClick}
+                    variant="btnIconDisabled"
+                >
+                    <div className={cl.plus} />
+                </Button>
+            ) : loading ? (
+                <Button
+                    className={cn(cl.btn, cl[size])}
+                    view="icon"
+                    onClick={onPlusClick}
+                    variant="btnIconDisabled"
+                    loader={true}
+                    disabled={true}
+                />
+            ) : (
+                <Button
+                    className={cn(cl.btn, cl[size])}
+                    view="icon"
+                    onClick={onPlusClick}
+                    variant="btnIcon"
+                >
+                    <div className={cl.plus} />
+                </Button>
+            )}
         </div>
     );
 };
