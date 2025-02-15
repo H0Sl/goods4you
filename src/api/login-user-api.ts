@@ -38,7 +38,7 @@ export const fetchLogin = createApi({
                     localStorage.setItem('accessToken', data.accessToken);
                     window.location.href = '/';
                 } catch (error) {
-                    alert('Login error:');
+                    alert('Login error');
                 }
             },
         }),
